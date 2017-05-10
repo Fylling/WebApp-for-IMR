@@ -1,0 +1,79 @@
+/* CSS declarations go here */
+/*
+body {
+    font-family: sans-serif;
+    background-color: #315481;
+    background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+    background-attachment: fixed;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 0;
+    margin: 0;
+
+    font-size: 14px;
+}
+
+.main-layout {
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 100%;
+    background: white;
+}
+
+.main-header {
+    padding: 20px 15px 15px 15px;
+    position: relative;
+    background: black;
+    color: beige;
+    width:100%;
+}
+
+header {
+    background: #d2edf4;
+    background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+    padding: 20px 15px 15px 15px;
+    position: relative;
+
+}
+
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    background: white;
+    width: 100%;
+}
+
+li {
+    position: relative;
+    list-style: none;
+    padding: 15px;
+    border-bottom: #eee solid 1px;
+}
+
+li .text {
+    margin-left: 10px;
+}
+
+.container {
+    width: 630px;
+}
+
+
+.loginBtn {
+    color: #202129;
+    background-color: #edeeee;
+}
+
+*/
+
+.checkOut {
+    float: right;
+    position: relative;
+}

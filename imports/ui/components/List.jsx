@@ -7,13 +7,12 @@ import Task from './Task.jsx';
 import {Tasks} from '/imports/api/tasks.js';
 
 class List extends Component {
-
-
     renderList() {
         return this.props.tasks.map((task) => (
-            <Task key={task._id} task={task} />
-        ));
+            <Task key={task._id} task={task}/>
+        ))
     }
+
 
     render() {
         return (

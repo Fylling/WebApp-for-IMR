@@ -23,7 +23,7 @@ Header = React.createClass({
     },
 
     render() {
-        let loginButton = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports" onClick={this.handleLogout.bind(this)}>Logout</NavItem> : <NavItem eventKey={1} href="/login">Login</NavItem>;
+        let loginButton = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports" onClick={this.handleLogout}>Logout</NavItem> : <NavItem eventKey={1} href="/login">Login</NavItem>;
 
         return(
             <Navbar>

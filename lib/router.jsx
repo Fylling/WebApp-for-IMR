@@ -7,6 +7,8 @@ import ListContainer from '../imports/ui/components/List.jsx';
 import Login from '../imports/ui/pages/Login.jsx';
 import Home from '../imports/ui/pages/Home.jsx';
 import { IsLoggedIn} from '../lib/helpers.jsx';
+import Validation from '../imports/ui/pages/Validation.jsx'
+import Task from "../imports/ui/components/Task";
 
 //Funksjoner
 function checkLoggedIn(context, doRidirect) {
@@ -55,11 +57,16 @@ FlowRouter.route('/reports', {
 });
 
 
-FlowRouter.route('/validation', {
+FlowRouter.route('/validation/:_id', {
     name: "Validation",
     triggersEnter: checkLoggedIn,
-    action(params) {
-        renderMainLayoutWith(<Validation/>, params)
+    action: function(params) {
+        console.log("Param: ", params)
+
+        mount(MainLayout, {
+            header: <Header/>,
+            content: (<Validation _id={params}/>)
+        })
     }
 });
 

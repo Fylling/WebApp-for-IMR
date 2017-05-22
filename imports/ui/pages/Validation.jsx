@@ -1,16 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import {Grid, Row} from 'react-bootstrap';
+import {Grid, Row, ListGroup} from 'react-bootstrap';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-import Task from '../components/Task.jsx'
+import FullTask from '../../ui/components/FullTask.jsx';
 import { Tasks } from '/imports/api/tasks.js';
 
-export default class Validation extends Component  {
+class Validation extends Component  {
     renderTask() {
-        console.log("HEI");
-        let i = FlowRouter.getParam('_id');
-        console.log(i);
+        return this.props.task.map((t) => (
+            <FullTask key={t._id} task={t}/>
+        ))
+
     }
 
     render() {
@@ -18,9 +19,28 @@ export default class Validation extends Component  {
             <Grid>
                 <Row>
                     <h1>Her kommer en rapport</h1>
-                    <button onClick={this.renderTask.bind(this)}>Tryykkk </button>
+
+                    <ListGroup>
+                        {this.renderTask}
+                    </ListGroup>
                 </Row>
             </Grid>
         )
     }
 }
+
+
+Validation.propTypes = {
+    task: PropTypes.array.isRequired,
+};
+
+export default ValidationContainer = createContainer(() => {
+    Meteor.subscribe('tasks');
+    let taskId = FlowRouter.getParam('_id');
+    console.log(taskId);
+
+    return {
+        task: Tasks.find({}).fetch(),
+    };
+}, Validation);
+

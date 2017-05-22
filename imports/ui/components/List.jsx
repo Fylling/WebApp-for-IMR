@@ -38,7 +38,15 @@ List.propTypes = {
 
 
 export default ListContainer = createContainer(() => {
+    Meteor.subscribe('tasks');
+    var test = Session.get('test');
+
+    if(!test) {
     return {
         tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
+    }} else {
+        return {
+            tasks: Tasks.find({_id: test }).fetch(),
+        }
     };
 }, List);

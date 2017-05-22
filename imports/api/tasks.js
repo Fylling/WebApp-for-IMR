@@ -5,7 +5,21 @@ import { IsLoggedIn } from '../../lib/helpers.jsx';
 
 export const Tasks = new Mongo.Collection('tasks');
 
-globalTaskId = "";
+if(Meteor.isServer) {
+    Meteor.publish('tasks', function taskPublication() {
+        return Tasks.find();
+    }),
+
+    Meteor.publish('findTask', function findOneTask(taskId) {
+        var data = Tasks.find({_id: taskId}, { fields: { 'user': 1 }});
+
+        if(data) {
+            return data;
+        }
+
+        return this.ready();
+    })
+}
 
 Meteor.methods({
     'tasks.remove'(taskId) {
@@ -19,7 +33,12 @@ Meteor.methods({
     },
 
     'tasks.findTask'(taskId) {
-        return Tasks.findOne({_id: taskId});
+        check(taskId, String);
+
+       return Tasks.findOne({_id: taskId});
+
+
+
     },
 
     'tasks.setCheckedOut' (taskId, setCheckedOut) {

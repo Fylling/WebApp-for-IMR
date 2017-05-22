@@ -7,7 +7,7 @@ import ListContainer from '../imports/ui/components/List.jsx';
 import Login from '../imports/ui/pages/Login.jsx';
 import Home from '../imports/ui/pages/Home.jsx';
 import { IsLoggedIn} from '../lib/helpers.jsx';
-import Validation from '../imports/ui/pages/Validation.jsx'
+import ValidationContainer from '../imports/ui/pages/Validation.jsx'
 import Task from "../imports/ui/components/Task";
 
 //Funksjoner
@@ -65,7 +65,7 @@ FlowRouter.route('/validation/:_id', {
 
         mount(MainLayout, {
             header: <Header/>,
-            content: (<Validation _id={params}/>)
+            content: (<ValidationContainer _id={params}/>)
         })
     }
 });

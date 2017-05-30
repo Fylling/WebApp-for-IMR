@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 
-import { FormGroup, FormControl} from 'react-bootstrap';
+import { Button, FormGroup, FormControl} from 'react-bootstrap';
 
+//Representerer
 export default class Login extends Component {
     handleSubmit(event) {
         event.preventDefault();
@@ -22,6 +23,10 @@ export default class Login extends Component {
             }
         })
 
+    }
+
+    insertMethod() {
+        Meteor.call('tasks.insert', "Kvithai", "" , 2, "15 meter", "");
     }
 
     render () {

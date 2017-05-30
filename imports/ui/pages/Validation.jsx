@@ -3,7 +3,7 @@ import {Grid, Row, ListGroup} from 'react-bootstrap';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-import FullTask from '../../ui/components/FullTask.jsx';
+import FullTask from '../components/SimpleTask.jsx';
 import { Tasks } from '/imports/api/tasks.js';
 
 class Validation extends Component  {

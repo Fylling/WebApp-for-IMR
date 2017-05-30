@@ -3,28 +3,42 @@ import { ListGroup, PageHeader, Grid, Row } from 'react-bootstrap';
 import { createContainer } from 'meteor/react-meteor-data';
 
 
-import Task from './Task.jsx';
+import TaskList from './TaskList.jsx';
 import {Tasks} from '/imports/api/tasks.js';
+import SimpleTask from "./SimpleTask.jsx";
 
+//Controller klassen som henter info fra databasen
 class List extends Component {
-    renderList() {
+
+    renderTasks() {
+        let id = FlowRouter.getParam('_id');
+
+        if(!id) {
         return this.props.tasks.map((task) => (
-            <Task key={task._id} task={task}/>
-        ))
+            <TaskList key={task._id} task={task}/>
+        ))} else {
+            return this.props.tasks.map((task) => (
+                <SimpleTask key={task._id} task={task}/>
+            ))}
     }
 
 
     render() {
+        let id = FlowRouter.getParam('_id');
+        let title = "Liste av rapporter";
+        if(id) {
+            title = "Rapport";
+        }
+
         return (
-            <Grid>
+            <Grid className="pageContainer">
                 <Row>
                 <PageHeader>
-                    Liste av rapporter
+                    {title}
                 </PageHeader>
 
-                <ListGroup>
-                    {this.renderList()}
-                </ListGroup>
+                    {this.renderTasks()}
+
                 </Row>
             </Grid>
         );
@@ -36,17 +50,17 @@ List.propTypes = {
 };
 
 
-
+//Det er her uthentingen skjer
 export default ListContainer = createContainer(() => {
     Meteor.subscribe('tasks');
-    var test = Session.get('test');
+    let id = FlowRouter.getParam('_id');
 
-    if(!test) {
+    if(!id) {
     return {
         tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
     }} else {
         return {
-            tasks: Tasks.find({_id: test }).fetch(),
+            tasks: Tasks.find({_id: id }).fetch(),
         }
-    };
+    }
 }, List);

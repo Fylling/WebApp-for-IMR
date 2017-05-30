@@ -1,16 +1,15 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import {MainLayout} from '../imports/ui/pages/MainLayout.jsx';
+import { MainLayout } from '../imports/ui/pages/MainLayout.jsx';
 import Header from '../imports/ui/components/Header.jsx';
 import ListContainer from '../imports/ui/components/List.jsx';
 import Login from '../imports/ui/pages/Login.jsx';
 import Home from '../imports/ui/pages/Home.jsx';
-import { IsLoggedIn} from '../lib/helpers.jsx';
-import ValidationContainer from '../imports/ui/pages/Validation.jsx'
-import Task from "../imports/ui/components/Task";
+import { IsLoggedIn } from '../lib/helpers.jsx';
 
-//Funksjoner
+
+//Hjelpe funksjoner
 function checkLoggedIn(context, doRidirect) {
     if(!IsLoggedIn()) {
         doRidirect('/login');
@@ -48,24 +47,29 @@ FlowRouter.route('/login', {
     }
 });
 
-FlowRouter.route('/reports', {
+FlowRouter.route('/reports/', {
     name: "Reports",
     triggersEnter: checkLoggedIn,
     action() {
+
         renderMainLayoutWith(<ListContainer/>)
     }
 });
 
 
-FlowRouter.route('/validation/:_id', {
-    name: "Validation",
+
+
+
+
+FlowRouter.route('/reports/:_id', {
+    name: "Report",
     triggersEnter: checkLoggedIn,
     action: function(params) {
         console.log("Param: ", params)
 
         mount(MainLayout, {
             header: <Header/>,
-            content: (<ValidationContainer _id={params}/>)
+            content: (<ListContainer _id={params}/>)
         })
     }
 });

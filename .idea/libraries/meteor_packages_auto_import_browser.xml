@@ -21,6 +21,8 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/react-meteor-data/0.2.9/web.browser/ReactMeteorData.jsx" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/modules-runtime/0.7.10/web.browser/modules-runtime.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/modules-runtime/0.7.10/web.browser/.npm/package/node_modules/install/install.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.18.1/web.browser/export.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.18.1/web.browser/moment.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/rate-limit/1.0.8/web.browser/rate-limit.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-password/1.3.6/web.browser/password_server.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-password/1.3.6/web.browser/password_tests.js" />
@@ -237,6 +239,8 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/react-meteor-data/0.2.9/web.browser/ReactMeteorData.jsx" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/modules-runtime/0.7.10/web.browser/modules-runtime.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/modules-runtime/0.7.10/web.browser/.npm/package/node_modules/install/install.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.18.1/web.browser/export.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.18.1/web.browser/moment.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/rate-limit/1.0.8/web.browser/rate-limit.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-password/1.3.6/web.browser/password_server.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-password/1.3.6/web.browser/password_tests.js" />

@@ -55,9 +55,10 @@ export default ListContainer = createContainer(() => {
     Meteor.subscribe('tasks');
     let id = FlowRouter.getParam('_id');
 
+    //Om Id ikke er satt hentes alle rapporter som ikke er validert
     if(!id) {
     return {
-        tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
+        tasks: Tasks.find({}, { sort: { submitDate: -1, isValidated: false} }).fetch(),
     }} else {
         return {
             tasks: Tasks.find({_id: id }).fetch(),

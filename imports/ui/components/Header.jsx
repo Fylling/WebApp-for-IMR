@@ -30,7 +30,7 @@ Header = React.createClass({
     render() {
         let loginButton = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports" onClick={this.handleLogout}>Logout</NavItem> : <NavItem eventKey={1} href="/login">Login</NavItem>;
         let reportButton = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports">Reports</NavItem> : "";
-        let button = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports" onClick={this.insertMethod}>legg til</NavItem> : "";
+        /*let button = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports" onClick={this.insertMethod}>legg til</NavItem> : "";*/
 
         return(
             <Navbar>
@@ -44,9 +44,6 @@ Header = React.createClass({
                 </Nav>
                 <Nav>
                     {reportButton}
-                </Nav>
-                <Nav>
-                    {button}
                 </Nav>
             </Navbar>
 

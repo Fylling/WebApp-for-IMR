@@ -50,6 +50,7 @@ export default class SimpleTask extends Component {
 
         console.log(feedback);
         Meteor.call('tasks.sendFeedback', FlowRouter.getParam('_id'), feedback);
+        Meteor.call('tasks.sendEmail', this.props.task.user, "example@mail.com", "Validering", feedback);
         FlowRouter.go('/reports');
         }
         this.closeModal();

@@ -1,6 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
 import  { check } from 'meteor/check';
+import {DDP} from 'meteor/ddp-client';
 import { IsLoggedIn } from '../../lib/helpers.jsx';
 import { Email } from 'meteor/email'
 
@@ -9,12 +10,19 @@ export const Tasks = new Mongo.Collection('tasks');
 
 
 if(Meteor.isServer) {
+    let remote = DDP.connect('http://localhost:3000/');
+    Reports = new Meteor.Collection('reports', remote);
+
+    remote.subscribe('reports', function() {
+        let reports = Reports.find();
+        console.log("Antall reports: " + reports.count());
+    });
     Meteor.publish('tasks', function taskPublication() {
         return Tasks.find();
-    }),
+    });
 
     Meteor.publish('findTask', function findOneTask(taskId) {
-        var data = Tasks.find({_id: taskId}, { fields: { 'user': 1 }});
+        let data = Tasks.find({_id: taskId}, { fields: { 'user': 1 }});
 
         if(data) {
             return data;

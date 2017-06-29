@@ -65,7 +65,7 @@ FlowRouter.route('/reports/:_id', {
     name: "Report",
     triggersEnter: checkLoggedIn,
     action: function(params) {
-        console.log("Param: ", params)
+        console.log("Param: ", params);
 
         mount(MainLayout, {
             header: <Header/>,

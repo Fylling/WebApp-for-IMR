@@ -15,14 +15,16 @@ export default class TaskList extends Component {
         this.toggleButton = this.toggleButton.bind(this);
     }
 
-    toggleCheckedOut() {
+    toggleCheckedOut(e) {
+        e.preventDefault();
        let id = this.props.task._id;
        console.log(id);
-       FlowRouter.setParams({_id: id})
+       FlowRouter.setParams({_id: id});
        FlowRouter.go('/reports/' + id);
     }
 
-    toggleButton() {
+    toggleButton(e) {
+        e.preventDefault();
         this.setState({
         buttonVisible: !this.state.buttonVisible,
         });
@@ -51,7 +53,7 @@ export default class TaskList extends Component {
                 <ListGroup>
                     <ListGroupItem>{this.props.task.text} sendt inn av {this.props.task.user}
                         <ButtonToolbar>
-                            <Checkbox onChange={this.toggleButton}>Sjekk ut</Checkbox>
+                            <Checkbox onChange={this.toggleButton.bind(this)}>Sjekk ut</Checkbox>
                         </ButtonToolbar>
                     </ListGroupItem>
                 </ListGroup>

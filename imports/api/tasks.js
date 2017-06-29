@@ -7,16 +7,27 @@ import { Email } from 'meteor/email'
 
 //Representerer vår server som vi ikke har fått tid til å sette opp enda
 export const Tasks = new Mongo.Collection('tasks');
+let remote = DDP.connect('http://localhost:3000/');
+export const Reports = new Meteor.Collection('reports', remote);
 
+remote.subscribe('reports', function() {
+    console.log("subscribing");
+    let reports = Reports.find();
+    console.log("Antall reports: " + reports.count());
+    reports.forEach(function(r){
+        //console.log(r.text);
+        //Meteor.call('reports.insert', r);
+        //Meteor.call('check.reports');
+    });
+
+});
 
 if(Meteor.isServer) {
-    let remote = DDP.connect('http://localhost:3000/');
-    Reports = new Meteor.Collection('reports', remote);
 
-    remote.subscribe('reports', function() {
-        let reports = Reports.find();
-        console.log("Antall reports: " + reports.count());
+    Meteor.publish('reports', function reportsPublication(){
+        return Reports.find();
     });
+
     Meteor.publish('tasks', function taskPublication() {
         return Tasks.find();
     });
@@ -34,6 +45,13 @@ if(Meteor.isServer) {
 
 
 Meteor.methods({
+
+    'check.reports'(){
+        let rep = Reports.find();
+        rep.forEach(function(r){
+            console.log(r.text + " Sjekk");
+        })
+    },
 
     'tasks.remove'(taskId) {
 
@@ -66,6 +84,54 @@ Meteor.methods({
         Tasks.update(taskId, { $set: { checkedOut: setCheckedOut } });
     },
 
+    'reports.setCheckedOut'(id, checkedOut){
+        check(id, String);
+        check(checkedOut, Boolean);
+        let r = Reports.findOne({_id: id});
+        console.log("HHHHHHHHHH");
+        console.log(r.checkedOut);
+        Reports.update(id, {
+            $set: {checkedOut: checkedOut}
+        });
+        console.log(r.checkedOut);
+    },
+
+    'reports.updateFeedback'(reportId, feedback){
+        Reports.update(reportId, {
+            $set: {reportFeedback: feedback}
+        });
+        Reports.update(reportId, {
+            $set: {isValidated: true}
+        });
+    },
+
+    'reports.insert'(r){
+        Tasks.insert({
+            text: r.text,
+            length: r.length,
+            photo: r.photo,
+            user: r.user,
+            latitude: r.latitude,
+            longitude: r.longitude,
+            depth: r.depth,
+            amount: r.amount,
+            markerId: r.markerId,
+            createdAt: r.createdAt,
+            taken: r.date,
+            category: r.category,
+            //substrart: substrartInput,
+            owner: r.owner,
+            isValidated: r.isValidated,
+            checkedOut: r.checkedOut,
+            reportFeedback: '',
+        });
+
+        console.log("Antall reports: " + Tasks.find().count());
+        Tasks.find().forEach(function(r){
+            console.log(r.text);
+        });
+    },
+
     //Kun brukt her for testing av databasen
     'tasks.insert'(text, geoTag, amount, depth, reportFeedback, checkedOut=false, isValidated=false,) {
         if(!IsLoggedIn) {
@@ -75,7 +141,7 @@ Meteor.methods({
         check(amount, Number);
         check(depth, String);
         check(checkedOut, Boolean);
-        check(isValidated, Boolean)
+        check(isValidated, Boolean);
 
         let date = new Date();
 
@@ -86,11 +152,12 @@ Meteor.methods({
             geoTag,
             amount,
             depth,
-            reportFeedback,
-            checkedOut,
-            isValidated,
+            reportFeedback: '',
+            checkedOut: false,
+            isValidated: false,
 
         });
+
     },
 
     //Legger feedback inn i rapporten og setter validert til true

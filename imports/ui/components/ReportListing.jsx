@@ -45,7 +45,9 @@ export default class ReportListing extends Component {
             return(
 
                 <ListGroup>
-                    <ListGroupItem>{this.props.report.text} sendt inn av {this.props.report.user}
+                    <ListGroupItem header={this.props.report.text}> {/*sendt inn av {this.props.report.user}*/}
+                    <strong>Sendt inn av: </strong>
+                        {this.props.report.user}
                         <ButtonToolbar>
                             <Checkbox onChange={this.toggleButton.bind(this)}>Sjekk ut</Checkbox>
                         </ButtonToolbar>
@@ -55,7 +57,8 @@ export default class ReportListing extends Component {
         } else {
             return(
                 <ListGroup>
-                    <ListGroupItem>Denne jobbes med nå av en annen forsker.
+                    <ListGroupItem header={this.props.report.text}>
+                        Denne jobbes med nå av en annen forsker.
                         <ButtonToolbar>
                             <Checkbox checked="true" onChange={this.toggleButton.bind(this)}>Gå tilbake</Checkbox>
                             <Button className="checkOut" bsStyle="primary" bsSize="xsmall"
@@ -64,7 +67,8 @@ export default class ReportListing extends Component {
                     </ListGroupItem>
                 </ListGroup>
             );
-        }}
+        }
+    }
 }
 
 ReportListing.propTypes = {

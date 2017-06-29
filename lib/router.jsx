@@ -56,11 +56,6 @@ FlowRouter.route('/reports/', {
     }
 });
 
-
-
-
-
-
 FlowRouter.route('/reports/:_id', {
     name: "Report",
     triggersEnter: checkLoggedIn,

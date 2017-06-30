@@ -30,16 +30,10 @@ class List extends Component {
             ))}
     }
     renderReports() {
-        if(!Session.get('report.id')) {
             return this.props.reports.map((report) => (
                 <ReportListing key={report._id} report={report}/>
             ))
-        } else {
-            console.log("Viss rapport");
-            return this.props.reports.map((report) => (
-                <ViewReport key={report._id} report={report}/>
-            ))
-        }
+
     }
 
     render() {
@@ -56,12 +50,9 @@ class List extends Component {
                     {title}
                 </PageHeader>
 
-                    {/*this.renderTasks()*/}
+                    {this.renderReports()}
 
                 </Row>
-                <ul>
-                    {this.renderReports()}
-                </ul>
             </Grid>
         );
     }
@@ -78,19 +69,11 @@ export default ListContainer = createContainer(() => {
     Meteor.subscribe('tasks');
     Meteor.subscribe('reports');
     let id = Session.get('report.id');//FlowRouter.getParam('_id');
-    console.log("Session id kommer under");
-    console.log(id);
 
     //Om Id ikke er satt hentes alle rapporter som ikke er validert
-    if(!id) {
         return {
             tasks: Tasks.find({}, { sort: { submitDate: -1}, isValidated: false }).fetch(),
-            reports: Reports.find({}, {sort: {createdAt: -1}, isValidated: true}).fetch(),
+            reports: Reports.find({}, {sort: {createdAt: -1}, isValidated: false}).fetch(),
         }
-    } else {
-        return {
-            tasks: Tasks.find({_id: id }).fetch(),
-            reports: Reports.find({_id: id}).fetch(),
-        }
-    }
+
 }, List);

@@ -21,6 +21,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/htmljs/1.0.11/web.browser/preamble.js" />
         <item url="file://$USER_HOME$/.meteor/packages/meteortoys_toykit/3.0.4/web.browser/lib/collections.js" />
         <item url="file://$USER_HOME$/.meteor/packages/meteortoys_toykit/3.0.4/web.browser/lib/privateAPI.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/dburles_google-maps/1.1.5/web.browser/google-maps.js" />
         <item url="file://$USER_HOME$/.meteor/packages/http/1.2.12/web.browser/test_responder.js" />
         <item url="file://$USER_HOME$/.meteor/packages/meteortoys_toykit/3.0.4/web.browser/style/toykit.css" />
         <item url="file://$USER_HOME$/.meteor/packages/http/1.2.12/web.browser/deprecated.js" />
@@ -239,6 +240,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/htmljs/1.0.11/web.browser/preamble.js" />
       <root url="file://$USER_HOME$/.meteor/packages/meteortoys_toykit/3.0.4/web.browser/lib/collections.js" />
       <root url="file://$USER_HOME$/.meteor/packages/meteortoys_toykit/3.0.4/web.browser/lib/privateAPI.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/dburles_google-maps/1.1.5/web.browser/google-maps.js" />
       <root url="file://$USER_HOME$/.meteor/packages/http/1.2.12/web.browser/test_responder.js" />
       <root url="file://$USER_HOME$/.meteor/packages/meteortoys_toykit/3.0.4/web.browser/style/toykit.css" />
       <root url="file://$USER_HOME$/.meteor/packages/http/1.2.12/web.browser/deprecated.js" />

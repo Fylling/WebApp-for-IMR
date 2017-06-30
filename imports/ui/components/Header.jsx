@@ -38,9 +38,13 @@ Header = React.createClass({
             <NavItem eventKey={1} href="/reports">Reports</NavItem>
             : "";
         let button = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports" onClick={this.insertMethod}>legg til</NavItem> : "";
-
+        let googleMapBtn = (
+            <NavItem eventKey={1} href="/map" >
+                Google map
+            </NavItem>
+        );
         return(
-            <Navbar inverse>
+            <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a href="/">IMR</a>
@@ -54,6 +58,9 @@ Header = React.createClass({
                 </Nav>
                 <Nav>
                     {button}
+                </Nav>
+                <Nav>
+                    {googleMapBtn}
                 </Nav>
             </Navbar>
 

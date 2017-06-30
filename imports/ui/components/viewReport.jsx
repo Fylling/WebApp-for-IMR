@@ -1,17 +1,32 @@
-import React, { Component, PropTypes } from 'react';
-import { Meteor } from 'meteor/meteor';
-import { ButtonGroup, Modal, Button, Row, FormControl, FormGroup, ControlLabel , ListGroupItem, Carousel, CarouselItem} from 'react-bootstrap';
-import { createContainer } from 'meteor/react-meteor-data';
+import React, {Component, PropTypes} from 'react';
+import {Meteor} from 'meteor/meteor';
+import {Random} from 'meteor/random';
+import {
+    ButtonGroup,
+    Modal,
+    Button,
+    Row,
+    FormControl,
+    FormGroup,
+    ControlLabel,
+    ListGroupItem,
+    Carousel,
+    CarouselItem,
+    Grid,
+    PageHeader
+} from 'react-bootstrap';
+import {createContainer} from 'meteor/react-meteor-data';
 
 import {Reports} from '/imports/api/tasks.js';
 import ShowImg from './ShowImg.jsx';
+import MyMap from './GoogleMaps/MyMap.jsx';
 
 //Representerer en liste over hver eneste rapport som ligger i databasen
-export default class ViewReport extends Component {
-    constructor(props){
+ class ViewReport extends Component {
+    constructor(props) {
         super(props);
 
-        this.state= {
+        this.state = {
             modalVisible: false,
             alertVisible: false,
         };
@@ -22,13 +37,13 @@ export default class ViewReport extends Component {
     }
 
     // For visning/lukking av popup
-    showModal () {
+    showModal() {
         this.setState({
             modalVisible: true,
         });
     }
 
-    closeModal () {
+    closeModal() {
         this.setState({
             modalVisible: false,
         });
@@ -50,73 +65,68 @@ export default class ViewReport extends Component {
             });
         } else {
             Session.set('report.id', false);
-            Meteor.call('reports.updateFeedback', this.props.report._id, feedback);
+            Meteor.call('reports.updateFeedback', this.props.report[0]._id, feedback);
             console.log(feedback);
             FlowRouter.go('/reports');
         }
         this.closeModal();
     }
 
-    renderImg(){
+    renderImg() {
         let imgArray = [];
-
-        for (let i = 0; i < this.props.report.photo.length; i++){
+        for (let i = 0; i < this.props.report[0].photo.length; i++) {
             imgArray.push(
                 <CarouselItem>
-                <ShowImg key={i} img={this.props.report.photo[i]}/>
+                    <ShowImg key={i} img={this.props.report[0].photo[i]}/>
                 </CarouselItem>
             )
         }
 
         return <Carousel>{imgArray}</Carousel>;
-
-        
-        //return this.props.report.photo[0];
-        
-        /*
-        return this.props.report.photo.map((img) => (
-
-            <Carousel>
-                <ShowImg img={img}/>
-            </Carousel>
-        ))
-        */
     }
 
     render() {
 
-
-
         return (
+            <Grid className="pageContainer">
+                <Row>
+                    <PageHeader>
+                        Rapport
+                    </PageHeader>
+                </Row>
             <Row className="simpleReportContainer">
                 <div className="imageholder" style={{width: 400, height: 'auto'}}>
                     {this.renderImg()}
                 </div>
                 <br/>
                 <ListGroupItem className="user">
-                    <strong>Bruker:</strong> {this.props.report.user}
+                    <strong>Bruker:</strong> {this.props.report[0].user}
                 </ListGroupItem>
                 <ListGroupItem className="species">
-                    <strong>Art:</strong> {this.props.report.text}
+                    <strong>Art:</strong> {this.props.report[0].text}
                 </ListGroupItem>
                 <ListGroupItem className="date">
-                    <strong>Dato: </strong> {this.props.report.submitDate}
+                    <strong>Dato: </strong> {this.props.report[0].submitDate}
                 </ListGroupItem>
                 <ListGroupItem className="geoLocation">
-                    <strong>Breddegrad: </strong> {this.props.report.latitude}
+                    <strong>Breddegrad: </strong> {this.props.report[0].latitude}
                 </ListGroupItem>
                 <ListGroupItem className="geoLocation">
-                    <strong>Lengdegrad: </strong> {this.props.report.longitude}
+                    <strong>Lengdegrad: </strong> {this.props.report[0].longitude}
                 </ListGroupItem>
                 <ListGroupItem className="amount">
-                    <strong>Antall: </strong>{this.props.report.amount}
+                    <strong>Antall: </strong>{this.props.report[0].amount}
                 </ListGroupItem>
                 <ListGroupItem className="depth">
-                    <strong>Dybde: </strong> {this.props.report.depth}
+                    <strong>Dybde: </strong> {this.props.report[0].depth}
                 </ListGroupItem>
                 <ListGroupItem className="feedback">
-                    <strong>Tilbakemelding: </strong>{this.props.report.reportFeedback}
+                    <strong>Tilbakemelding: </strong>{this.props.report[0].reportFeedback}
                 </ListGroupItem>
+                <hr/>
+                <Row>
+                    <MyMap report={this.props.report[0]}/>
+                </Row>
                 <hr/>
                 <Row className="feedbackContainer">
                     <FormGroup>
@@ -131,10 +141,11 @@ export default class ViewReport extends Component {
                     <Modal.Header>
                         <Modal.Title>Bekreftelse</Modal.Title>
                         <Modal.Body>
-                            Er du sikker på at du vil sende denne tilbakemeldingen til {this.props.report.user}?
+                            Er du sikker på at du vil sende denne tilbakemeldingen til {this.props.report[0].user}?
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button bsSize="large" type="submit" bsStyle="primary" onClick={this.handleFeedback.bind(this)}>OK</Button>
+                            <Button bsSize="large" type="submit" bsStyle="primary"
+                                    onClick={this.handleFeedback.bind(this)}>OK</Button>
                             <Button bsSize="large" bsStyle="warning" onClick={this.closeModal}>Avbryt</Button>
                         </Modal.Footer>
                     </Modal.Header>
@@ -155,13 +166,23 @@ export default class ViewReport extends Component {
                 </Modal>
 
             </Row>
+            </Grid>
 
         );
 
     }
 }
 
-ViewReport.propTypes = {
-    report: PropTypes.object.isRequired,
 
+ViewReport.propTypes = {
+    report: PropTypes.array,
+    reportId: PropTypes.string.isRequired
 };
+
+export default createContainer(() => {
+    let rId = Session.get('report.id');
+    Meteor.subscribe('reports.findOne', rId);
+    return {
+        report: Reports.find({_id: rId}).fetch(),
+    }
+}, ViewReport);

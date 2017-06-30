@@ -10,7 +10,7 @@ export const Tasks = new Mongo.Collection('tasks');
 let remote = DDP.connect('http://localhost:3000/');
 export const Reports = new Meteor.Collection('reports', remote);
 
-remote.subscribe('reports', function() {
+remote.subscribe('reports.adminPage', function() {
     console.log("subscribing");
     let reports = Reports.find();
     console.log("Antall reports: " + reports.count());
@@ -25,7 +25,11 @@ remote.subscribe('reports', function() {
 if(Meteor.isServer) {
 
     Meteor.publish('reports', function reportsPublication(){
-        return Reports.find();
+        return Reports.find({}, { sort: { createdAt: -1}, isValidated: false});
+    });
+
+    Meteor.publish('reports.findOne', function reportPublication(rId){
+        return Reports.find({_id: rId});
     });
 
     Meteor.publish('tasks', function taskPublication() {
@@ -88,12 +92,9 @@ Meteor.methods({
         check(id, String);
         check(checkedOut, Boolean);
         let r = Reports.findOne({_id: id});
-        console.log("HHHHHHHHHH");
-        console.log(r.checkedOut);
         Reports.update(id, {
             $set: {checkedOut: checkedOut}
         });
-        console.log(r.checkedOut);
     },
 
     'reports.updateFeedback'(reportId, feedback){
@@ -127,9 +128,6 @@ Meteor.methods({
         });
 
         console.log("Antall reports: " + Tasks.find().count());
-        Tasks.find().forEach(function(r){
-            console.log(r.text);
-        });
     },
 
     //Kun brukt her for testing av databasen

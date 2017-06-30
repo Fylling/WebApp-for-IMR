@@ -13,17 +13,15 @@ export default class ReportListing extends Component {
             buttonVisible: this.props.report.checkedOut,
         };
 
-        console.log("buttonvisible"+this.state.buttonVisible);
-        console.log("checkedOut" + this.props.report.checkedOut);
         this.toggleButton = this.toggleButton.bind(this);
     }
 
     openReport() {
         let id = this.props.report._id;
         Session.set('report.id', this.props.report._id);
-        console.log(id);
         //FlowRouter.setParams({_id: id});
         //FlowRouter.go('/reports/' + id);
+        FlowRouter.go('/report/');
     }
 
     toggleButton(e) {
@@ -32,8 +30,6 @@ export default class ReportListing extends Component {
             buttonVisible: !this.state.buttonVisible,
         });
         Meteor.call('reports.setCheckedOut', this.props.report._id, !this.state.buttonVisible);
-        console.log("ButtonsVisible " + this.state.buttonVisible);
-        console.log("checkedOut " + this.props.report.checkedOut);
 
     }
 

@@ -43,6 +43,7 @@ function renderMainLayoutWith(component) {
 
 FlowRouter.route('/', {
     name: "Home",
+    triggersEnter: checkLoggedIn,
     action() {
         renderMainLayoutWith(<Home/>)
     }

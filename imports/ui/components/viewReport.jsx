@@ -66,6 +66,7 @@ import MyMap from './GoogleMaps/MyMap.jsx';
         } else {
             Session.set('report.id', false);
             Meteor.call('reports.updateFeedback', this.props.report[0]._id, feedback);
+            Meteor.call('sendAEmail', this.props.report[0].user, this.props.report[0].text);
             console.log(feedback);
             FlowRouter.go('/reports');
         }

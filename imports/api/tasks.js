@@ -2,30 +2,25 @@ import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
 import  { check } from 'meteor/check';
 import {DDP} from 'meteor/ddp-client';
+import { Email } from 'meteor/email';
 import { IsLoggedIn } from '../../lib/helpers.jsx';
-import { Email } from 'meteor/email'
 
 //Representerer vår server som vi ikke har fått tid til å sette opp enda
 export const Tasks = new Mongo.Collection('tasks');
-let remote = DDP.connect('http://localhost:3000/');
+const remote = DDP.connect('http://172.16.251.182:3000/');
 export const Reports = new Meteor.Collection('reports', remote);
 
-remote.subscribe('reports.adminPage', function() {
-    console.log("subscribing");
-    let reports = Reports.find();
-    console.log("Antall reports: " + reports.count());
-    reports.forEach(function(r){
-        //console.log(r.text);
-        //Meteor.call('reports.insert', r);
-        //Meteor.call('check.reports');
-    });
 
+remote.subscribe('reports.adminPage', function() {
+    let reports = Reports.find({isValidated: false}, { sort: { createdAt: -1}});
+    console.log("Antall reports: " + reports.count());
 });
 
-if(Meteor.isServer) {
 
-    Meteor.publish('reports', function reportsPublication(){
-        return Reports.find({}, { sort: { createdAt: -1}, isValidated: false});
+if(Meteor.isServer) {
+    Meteor.publish('reports.list', function reportsPublication(){
+        console.log("reports.list");
+        return Reports.find({isValidated: false}, { sort: { createdAt: -1}});
     });
 
     Meteor.publish('reports.findOne', function reportPublication(rId){
@@ -44,11 +39,33 @@ if(Meteor.isServer) {
         }
 
         return this.ready();
+    });
+
+    Meteor.startup( function() {
+        let username = encodeURIComponent("sebastianfroyen@gmail.com");
+        let pass = encodeURIComponent("Rhkwxexty69");
+        let domain = "smtp.gmail.com";
+        let port = 587;
+        process.env.MAIL_URL="smtp://" + username + ":" + pass + "@" + domain + ":" + port;
     })
 }
 
 
 Meteor.methods({
+
+    'sendAEmail'(userEmail, reportName){
+        console.log(userEmail);
+        this.unblock();
+        if(Meteor.isServer) {
+            console.log("Sending email");
+            Email.send({
+                from: "sebastianfroyen@gmail.com",
+                to: userEmail,
+                subject: reportName + " har blitt validert av forskerne hos IMR.",
+                text: "Tilbakemelding for " + reportName + " er tilgjengelig.",
+            });
+        }
+    },
 
     'check.reports'(){
         let rep = Reports.find();

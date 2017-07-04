@@ -1,5 +1,5 @@
 /* CSS declarations go here */
-
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic");
 .map-container {
     width: 800px;
     max-width: 100%;
@@ -85,7 +85,6 @@ li .text {
     position: relative;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic");
 /*!
  * bootswatch v3.3.7
  * Homepage: http://bootswatch.com

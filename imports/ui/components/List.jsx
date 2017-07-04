@@ -59,20 +59,17 @@ class List extends Component {
 }
 
 List.propTypes = {
-    tasks: PropTypes.array.isRequired,
-    reports: PropTypes.array.isRequired
+    reports: PropTypes.array.isRequired,
 };
 
 
 //Det er her uthentingen skjer
 export default ListContainer = createContainer(() => {
-    Meteor.subscribe('tasks');
-    Meteor.subscribe('reports');
+    Meteor.subscribe('reports.list');
     let id = Session.get('report.id');//FlowRouter.getParam('_id');
 
     //Om Id ikke er satt hentes alle rapporter som ikke er validert
         return {
-            tasks: Tasks.find({}, { sort: { submitDate: -1}, isValidated: false }).fetch(),
             reports: Reports.find({}, {sort: {createdAt: -1}, isValidated: false}).fetch(),
         }
 

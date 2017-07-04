@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import  { check } from 'meteor/check';
 import {DDP} from 'meteor/ddp-client';
 import { Email } from 'meteor/email';
-import { IsLoggedIn } from '../../lib/helpers.jsx';
+import { IsLoggedIn, loggedIn } from '../../lib/helpers.jsx';
 
 //Representerer vår server som vi ikke har fått tid til å sette opp enda
 export const Tasks = new Mongo.Collection('tasks');
@@ -11,16 +11,9 @@ const remote = DDP.connect('http://172.16.251.182:3000/');
 export const Reports = new Meteor.Collection('reports', remote);
 
 
-remote.subscribe('reports.adminPage', function() {
-    let reports = Reports.find({isValidated: false}, { sort: { createdAt: -1}});
-    console.log("Antall reports: " + reports.count());
-});
-
-
 if(Meteor.isServer) {
     Meteor.publish('reports.list', function reportsPublication(){
-        console.log("reports.list");
-        return Reports.find({isValidated: false}, { sort: { createdAt: -1}});
+        return Reports.find({isValidated: false}, {sort: {createdAt: -1}});
     });
 
     Meteor.publish('reports.findOne', function reportPublication(rId){
@@ -52,6 +45,21 @@ if(Meteor.isServer) {
 
 
 Meteor.methods({
+
+    'getReports'(){
+        remote.subscribe('reports.adminPage', function () {
+            let reports = Reports.find({isValidated: false}, {sort: {createdAt: -1}});
+            console.log("Antall reports: " + reports.count());
+        });
+    },
+
+    'unsubReports'(){
+        remote.subscribe('reports.adminPage').stop();
+        console.log("Unsub");
+        console.log("Unsub");
+        console.log("Unsub");
+        console.log("Unsub");
+    },
 
     'sendAEmail'(userEmail, reportName){
         console.log(userEmail);

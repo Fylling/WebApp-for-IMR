@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 
-import {Navbar, Nav, NavItem } from 'react-bootstrap';
+import {Navbar, Nav, NavItem, NavbarBrand, NavDropdown, MenuItem } from 'react-bootstrap';
 import { IsLoggedIn } from '../../../lib/helpers.jsx';
 
 //Denne komponenter representerer Headeren på siden
@@ -18,6 +18,7 @@ Header = React.createClass({
                 console.log(error.reason);
             } else {
                 this.setState({isLoggedIn: !this.state.isLoggedIn});
+
                 FlowRouter.go('/');
             }
         });
@@ -32,12 +33,20 @@ Header = React.createClass({
 
     },
 
+    reportDropDown(){
+        return IsLoggedIn() ? <NavDropdown eventKey={3} title="Reports">
+            <MenuItem eventKey={3.1}>Fiske art rapporter</MenuItem>
+            <MenuItem eventKey={3.2}>Koral rapporter</MenuItem>
+            <MenuItem eventKey={3.3}>Fremmed art rapporter</MenuItem>
+        </NavDropdown> : null;
+    },
+
     render() {
         let loginButton = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports" onClick={this.handleLogout}>Logout</NavItem> : <NavItem eventKey={1} href="/login">Login</NavItem>;
         let reportButton = IsLoggedIn() ?
             <NavItem eventKey={1} href="/reports">Reports</NavItem>
             : "";
-        let button = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports" onClick={this.insertMethod}>legg til</NavItem> : "";
+        let button = IsLoggedIn() ?  <NavItem eventKey={2} href="/reports" onClick={this.insertMethod}>legg til</NavItem> : "";
         let googleMapBtn = (
             <NavItem eventKey={1} href="/map" >
                 Google map
@@ -46,22 +55,19 @@ Header = React.createClass({
         return(
             <Navbar>
                 <Navbar.Header>
-                    <Navbar.Brand>
+                    <NavbarBrand>
                         <a href="/">IMR</a>
-                    </Navbar.Brand>
+                    </NavbarBrand>
                 </Navbar.Header>
                 <Nav>
                     {loginButton}
-                </Nav>
-                <Nav>
+
                     {reportButton}
-                </Nav>
-                <Nav>
+
                     {button}
+                    {this.reportDropDown()}
                 </Nav>
-                <Nav>
-                    {googleMapBtn}
-                </Nav>
+
             </Navbar>
 
         )

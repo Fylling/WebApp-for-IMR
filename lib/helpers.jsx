@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 
 
 //Hjelpefunksjoner
@@ -10,6 +11,14 @@ import { Meteor } from 'meteor/meteor';
 export function IsLoggedIn() {
     return !! Meteor.userId();
     }
+
+export function loggedIn() {
+    console.log("loggedIn fungerer");
+    console.log("loggedIn fungerer");
+    console.log("loggedIn fungerer");
+    console.log("loggedIn fungerer");
+    console.log(Accounts.onLogin);
+}
 
 
 

@@ -70,7 +70,7 @@ FlowRouter.route('/reports/', {
     name: "Reports",
     triggersEnter: checkLoggedIn,
     action() {
-
+        Meteor.call('getReports');
         renderMainLayoutWith(<ListContainer/>)
     }
 });

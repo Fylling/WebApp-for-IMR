@@ -60,19 +60,23 @@ class List extends Component {
 
 List.propTypes = {
     reports: PropTypes.array.isRequired,
+    category: PropTypes.string
 };
 
 
 //Det er her uthentingen skjer
 export default ListContainer = createContainer(() => {
-    remote.subscribe('reports.adminPageList');
-
-    //Meteor.subscribe('reports.list');
-    let id = Session.get('report.id');//FlowRouter.getParam('_id');
-
-    //Om Id ikke er satt hentes alle rapporter som ikke er validert
+    let category = FlowRouter.getParam('category');
+    if(category === undefined){
+        remote.subscribe('reports.adminPageList');
         return {
             reports: Reports.find({isValidated: false}, {sort: {createdAt: -1}}).fetch(),
         }
+    } else {
+        remote.subscribe('reports.adminPageListWithCategory', category);
+        return {
+            reports: Reports.find({isValidated: false, category: category}, {sort: {createdAt: -1}}).fetch(),
+        }
+    }
 
 }, List);

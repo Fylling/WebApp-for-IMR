@@ -33,12 +33,21 @@ Header = React.createClass({
 
     },
 
-    reportDropDown(){
-        return IsLoggedIn() ? <NavDropdown eventKey={3} title="Reports">
-            <MenuItem eventKey={3.1}>Fiske art rapporter</MenuItem>
-            <MenuItem eventKey={3.2}>Koral rapporter</MenuItem>
-            <MenuItem eventKey={3.3}>Fremmed art rapporter</MenuItem>
-        </NavDropdown> : null;
+    reportCategory(category){
+        console.log("Category under");
+        console.log(category.toString());
+        FlowRouter.setParams({category: category});
+        FlowRouter.go('/reports/' + category);
+    },
+
+    fishReports(){
+        this.reportCategory("Fiske art");
+    },
+    coralReports(){
+        this.reportCategory("Koral");
+    },
+    unknownReports(){
+        this.reportCategory("Fremmed art");
     },
 
     render() {
@@ -47,11 +56,7 @@ Header = React.createClass({
             <NavItem eventKey={1} href="/reports">Reports</NavItem>
             : "";
         let button = IsLoggedIn() ?  <NavItem eventKey={2} href="/reports" onClick={this.insertMethod}>legg til</NavItem> : "";
-        let googleMapBtn = (
-            <NavItem eventKey={1} href="/map" >
-                Google map
-            </NavItem>
-        );
+
         return(
             <Navbar>
                 <Navbar.Header>
@@ -65,7 +70,14 @@ Header = React.createClass({
                     {reportButton}
 
                     {button}
-                    {this.reportDropDown()}
+                    {
+                        IsLoggedIn() ? <NavDropdown title="Reports" id="report-category-dropdown">
+                        <MenuItem onClick={this.fishReports}>Fiske art rapporter</MenuItem>
+                        <MenuItem onClick={this.coralReports}>Koral rapporter</MenuItem>
+                        <MenuItem onClick={this.unknownReports}>Fremmed art rapporter</MenuItem>
+                            <MenuItem href="/reports">Se alle rapporter</MenuItem>
+                                        </NavDropdown> : null
+                    }
                 </Nav>
 
             </Navbar>

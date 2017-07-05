@@ -92,15 +92,15 @@ FlowRouter.route('/report/', {
     }
 });
 
-FlowRouter.route('/reports/:_id', {
+FlowRouter.route('/reports/:category', {
     name: "Report",
     triggersEnter: checkLoggedIn,
     action: function(params) {
-        console.log("Param: ", params);
+        console.log("Param: ", params.category);
 
         mount(MainLayout, {
             header: <Header/>,
-            content: (<ListContainer _id={params}/>)
+            content: (<ListContainer category={params.category}/>)
         })
     }
 });

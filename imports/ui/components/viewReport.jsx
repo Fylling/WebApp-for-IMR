@@ -17,7 +17,7 @@ import {
 } from 'react-bootstrap';
 import {createContainer} from 'meteor/react-meteor-data';
 
-import {Reports} from '/imports/api/tasks.js';
+import {Reports, remote} from '/imports/api/tasks.js';
 import ShowImg from './ShowImg.jsx';
 import MyMap from './GoogleMaps/MyMap.jsx';
 
@@ -75,6 +75,10 @@ import MyMap from './GoogleMaps/MyMap.jsx';
 
     renderImg() {
         let imgArray = [];
+        console.log("Mengde bilder");
+        console.log(this.props.report[0].photo.length);
+        console.log("Reports");
+        console.log(this.props.report.length);
         for (let i = 0; i < this.props.report[0].photo.length; i++) {
             imgArray.push(
                 <CarouselItem>
@@ -87,7 +91,6 @@ import MyMap from './GoogleMaps/MyMap.jsx';
     }
 
     render() {
-
         return (
             <Grid className="pageContainer">
                 <Row>
@@ -96,9 +99,7 @@ import MyMap from './GoogleMaps/MyMap.jsx';
                     </PageHeader>
                 </Row>
             <Row className="simpleReportContainer">
-                <div className="imageholder" style={{width: 400, height: 'auto'}}>
                     {this.renderImg()}
-                </div>
                 <br/>
                 <ListGroupItem className="user">
                     <strong>Bruker:</strong> {this.props.report[0].user}
@@ -176,13 +177,13 @@ import MyMap from './GoogleMaps/MyMap.jsx';
 
 
 ViewReport.propTypes = {
-    report: PropTypes.array,
+    report: PropTypes.array.isRequired,
     reportId: PropTypes.string.isRequired
 };
 
 export default createContainer(() => {
     let rId = Session.get('report.id');
-    Meteor.subscribe('reports.findOne', rId);
+    remote.subscribe('reports.findOne', rId);
     return {
         report: Reports.find({_id: rId}).fetch(),
     }

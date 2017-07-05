@@ -7,7 +7,7 @@ import { IsLoggedIn, loggedIn } from '../../lib/helpers.jsx';
 
 //Representerer vår server som vi ikke har fått tid til å sette opp enda
 export const Tasks = new Mongo.Collection('tasks');
-const remote = DDP.connect('http://172.16.251.182:3000/');
+export const remote = DDP.connect('http://172.16.251.182:3000/');
 export const Reports = new Meteor.Collection('reports', remote);
 
 
@@ -16,9 +16,11 @@ if(Meteor.isServer) {
         return Reports.find({isValidated: false}, {sort: {createdAt: -1}});
     });
 
+    /*
     Meteor.publish('reports.findOne', function reportPublication(rId){
         return Reports.find({_id: rId});
     });
+    */
 
     Meteor.publish('tasks', function taskPublication() {
         return Tasks.find();
@@ -63,7 +65,7 @@ Meteor.methods({
 
     'sendAEmail'(userEmail, reportName){
         console.log(userEmail);
-        this.unblock();
+        //this.unblock();
         if(Meteor.isServer) {
             console.log("Sending email");
             Email.send({

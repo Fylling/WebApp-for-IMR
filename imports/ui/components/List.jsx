@@ -5,7 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import TaskList from './TaskList.jsx';
 import ReportListing from './ReportListing.jsx';
-import {Tasks, Reports} from '../../api/tasks.js';
+import {Tasks, Reports, remote} from '../../api/tasks.js';
 import SimpleTask from "./SimpleTask.jsx";
 import ViewReport from "./viewReport";
 
@@ -65,12 +65,14 @@ List.propTypes = {
 
 //Det er her uthentingen skjer
 export default ListContainer = createContainer(() => {
-    Meteor.subscribe('reports.list');
+    remote.subscribe('reports.adminPageList');
+
+    //Meteor.subscribe('reports.list');
     let id = Session.get('report.id');//FlowRouter.getParam('_id');
 
     //Om Id ikke er satt hentes alle rapporter som ikke er validert
         return {
-            reports: Reports.find({}, {sort: {createdAt: -1}, isValidated: false}).fetch(),
+            reports: Reports.find({isValidated: false}, {sort: {createdAt: -1}}).fetch(),
         }
 
 }, List);

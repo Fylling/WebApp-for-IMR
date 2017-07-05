@@ -26,6 +26,15 @@ function checkLoggedIn(context, doRidirect) {
     }
 }
 
+function checkLoggedInAndReportId(context, doRedirect) {
+    if(!IsLoggedIn()) {
+        doRedirect('/login');
+    }
+    if(Session.get('report.id') === false || Session.get('report.id') === undefined) {
+        doRedirect('/reports')
+    }
+}
+
 function alreadyLoggedIn(context, doRidirect) {
     if(IsLoggedIn()) {
         doRidirect('/reports')
@@ -70,14 +79,14 @@ FlowRouter.route('/reports/', {
     name: "Reports",
     triggersEnter: checkLoggedIn,
     action() {
-        Meteor.call('getReports');
+        //Meteor.call('getReports');
         renderMainLayoutWith(<ListContainer/>)
     }
 });
 
 FlowRouter.route('/report/', {
     name: "viewReport",
-    triggersEnter: checkLoggedIn,
+    triggersEnter: checkLoggedInAndReportId,
     action() {
         renderMainLayoutWith(<ViewReport reportId={Session.get('report.id')}/>)
     }

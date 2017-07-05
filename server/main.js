@@ -3,6 +3,7 @@
  */
 import { Meteor } from 'meteor/meteor';
 import '../imports/api/tasks.js';
+import { Accounts } from 'meteor/accounts-base';
 
 
 //Sjekk om det finst en adminbruker, opprett en visst ikke.

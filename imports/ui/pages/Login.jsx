@@ -19,6 +19,7 @@ export default class Login extends Component {
                 console.log(error.reason);
 
             } else {
+                localStorage.setItem('userMail', Meteor.user().emails[0].address);
                 FlowRouter.go('Reports');
             }
         })

@@ -12,6 +12,8 @@ export function IsLoggedIn() {
     return !! Meteor.userId();
     }
 
+
+
 export function loggedIn() {
     console.log("loggedIn fungerer");
     console.log("loggedIn fungerer");

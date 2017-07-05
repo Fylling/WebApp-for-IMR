@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { ListGroup, PageHeader, Grid, Row } from 'react-bootstrap';
 import { createContainer } from 'meteor/react-meteor-data';
-
+import { Meteor } from 'meteor/meteor';
 
 import TaskList from './TaskList.jsx';
 import ReportListing from './ReportListing.jsx';
@@ -42,7 +42,6 @@ class List extends Component {
         if(id) {
             title = "Rapport";
         }
-
         return (
             <Grid className="pageContainer">
                 <Row>
@@ -60,7 +59,7 @@ class List extends Component {
 
 List.propTypes = {
     reports: PropTypes.array.isRequired,
-    category: PropTypes.string
+    category: PropTypes.string,
 };
 
 

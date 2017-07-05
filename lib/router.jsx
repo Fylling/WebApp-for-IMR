@@ -16,6 +16,7 @@ if(Meteor.isClient) {
         console.log("GoogleMaps loading");
         GoogleMaps.load({key: 'AIzaSyD1qlkvidSHsU8eqUTUjQ-KVD_nPI8uCRg'});
         console.log("Googlemaps loaded");
+
     });
 }
 
@@ -97,7 +98,6 @@ FlowRouter.route('/reports/:category', {
     triggersEnter: checkLoggedIn,
     action: function(params) {
         console.log("Param: ", params.category);
-
         mount(MainLayout, {
             header: <Header/>,
             content: (<ListContainer category={params.category}/>)

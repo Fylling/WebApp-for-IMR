@@ -120,7 +120,7 @@ Meteor.methods({
         check(checkedOut, Boolean);
         let r = Reports.findOne({_id: id});
         Reports.update(id, {
-            $set: {checkedOut: checkedOut}
+            $set: {checkedOut: checkedOut, scientist: Meteor.user().emails[0].address}
         });
     },
 

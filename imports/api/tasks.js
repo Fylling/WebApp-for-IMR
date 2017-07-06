@@ -55,14 +55,6 @@ Meteor.methods({
         });
     },
 
-    'unsubReports'(){
-        remote.subscribe('reports.adminPage').stop();
-        console.log("Unsub");
-        console.log("Unsub");
-        console.log("Unsub");
-        console.log("Unsub");
-    },
-
     'sendAEmail'(userEmail, reportName){
         console.log(userEmail);
         //this.unblock();
@@ -85,8 +77,6 @@ Meteor.methods({
     },
 
     'tasks.remove'(taskId) {
-
-
         if(!IsLoggedIn) {
             throw new  Meteor.error('not-authorized');
         }
@@ -118,10 +108,10 @@ Meteor.methods({
     'reports.setCheckedOut'(id, checkedOut, scientistEmail){
         check(id, String);
         check(checkedOut, Boolean);
-        let r = Reports.findOne({_id: id});
         Reports.update(id, {
-            $set: {checkedOut: checkedOut, scientist: scientistEmail}
-        });
+                $set: {checkedOut: checkedOut, scientist: scientistEmail}
+            });
+
     },
 
     'reports.updateFeedback'(reportId, feedback){
@@ -155,34 +145,6 @@ Meteor.methods({
         });
 
         console.log("Antall reports: " + Tasks.find().count());
-    },
-
-    //Kun brukt her for testing av databasen
-    'tasks.insert'(text, geoTag, amount, depth, reportFeedback, checkedOut=false, isValidated=false,) {
-        if(!IsLoggedIn) {
-            throw new  Meteor.error('not-authorized');
-        }
-        check(text, String);
-        check(amount, Number);
-        check(depth, String);
-        check(checkedOut, Boolean);
-        check(isValidated, Boolean);
-
-        let date = new Date();
-
-        Tasks.insert({
-            text,
-            user: Meteor.user().emails[0].address,
-            submitDate: moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a"),
-            geoTag,
-            amount,
-            depth,
-            reportFeedback: '',
-            checkedOut: false,
-            isValidated: false,
-
-        });
-
     },
 
     //Legger feedback inn i rapporten og setter validert til true

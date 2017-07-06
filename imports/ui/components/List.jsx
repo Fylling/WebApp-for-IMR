@@ -37,16 +37,11 @@ class List extends Component {
     }
 
     render() {
-        let id = FlowRouter.getParam('_id');
-        let title = "Liste av rapporter";
-        if(id) {
-            title = "Rapport";
-        }
         return (
             <Grid className="pageContainer">
                 <Row>
                 <PageHeader>
-                    {title}
+                    Liste av rapporter
                 </PageHeader>
 
                     {this.renderReports()}

@@ -31,7 +31,6 @@ export default class ReportListing extends Component {
         this.setState({
             buttonVisible: !this.state.buttonVisible,
         });
-        console.log(this.state.buttonVisible);
         let scientistEmail;
         if(!this.state.buttonVisible){
             scientistEmail = localStorage.getItem('userMail');
@@ -40,15 +39,17 @@ export default class ReportListing extends Component {
         }
         Meteor.call('reports.setCheckedOut', this.props.report._id, !this.state.buttonVisible, scientistEmail);
 
+        this.setState({
+            checkedOutToUser: (localStorage.getItem('userMail') === scientistEmail),
+        });
+        console.log(this.state.checkedOutToUser);
     }
 
     componentWillMount(){
         Meteor.call('reports.setCheckedOut', this.props.report._id, this.state.buttonVisible);
     }
 
-    componentWillUpdate(){
 
-    }
 
     render() {
         if(this.props.report) {

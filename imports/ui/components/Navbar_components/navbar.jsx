@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import { Meteor } from 'meteor/meteor';
 
 import {Navbar, Nav, NavItem, NavbarBrand, NavDropdown, MenuItem } from 'react-bootstrap';
-import { IsLoggedIn } from '../../../lib/helpers.jsx';
+import { IsLoggedIn } from '../../../../lib/helpers.jsx';
 
-//Denne komponenter representerer Headeren på siden
-Header = React.createClass({
-    getInitialState() {
-        return {
+export default class header extends Component{
+    constructor(props){
+        super(props);
+        this.setState = {
             isLoggedIn: IsLoggedIn()
         };
-    },
+    }
 
     handleLogout() {
         Meteor.logout((error) => {
@@ -23,31 +23,29 @@ Header = React.createClass({
                 FlowRouter.go('/');
             }
         });
-    },
+    }
 
     unValidatedReportCategory(category){
         console.log("Category under");
         console.log(category.toString());
         FlowRouter.setParams({category: category});
         FlowRouter.go('/unvalidatedreports/' + category);
-    },
+    }
 
-    unValidatedFishReports(){
+    unValidatedFishReports(e){
+        e.preventDefault();
         this.unValidatedReportCategory("Fiske art");
-    },
-    unValidatedCoralReports(){
+    }
+    unValidatedCoralReports(e){
+        e.preventDefault();
         this.unValidatedReportCategory("Koral");
-    },
-    unValidatedUnknownReports(){
+    }
+    unValidatedUnknownReports(e){
+        e.preventDefault();
         this.unValidatedReportCategory("Fremmed art");
-    },
+    }
 
-    render() {
-        let loginButton = IsLoggedIn() ?  <NavItem eventKey={1} href="/reports" onClick={this.handleLogout}>Logout</NavItem> : <NavItem eventKey={1} href="/login">Login</NavItem>;
-        let reportButton = IsLoggedIn() ?
-            <NavItem eventKey={1} href="/reports">Reports</NavItem>
-            : "";
-
+    render(){
         return(
             <Navbar>
                 <Navbar.Header>
@@ -56,24 +54,18 @@ Header = React.createClass({
                     </NavbarBrand>
                 </Navbar.Header>
                 <Nav>
-                    {loginButton}
-
-                    {reportButton}
-
+                    {IsLoggedIn() ? <NavItem onClick={this.handleLogout}>Logout</NavItem> : <NavItem eventKey={1} href="/login">Login</NavItem>}
                     {
                         IsLoggedIn() ? <NavDropdown title="Uvaliderte Rapporter" id="report-category-dropdown">
-                        <MenuItem onClick={this.unValidatedFishReports}>Fiske art rapporter</MenuItem>
-                        <MenuItem onClick={this.unValidatedCoralReports}>Koral rapporter</MenuItem>
-                        <MenuItem onClick={this.unValidatedUnknownReports}>Fremmed art rapporter</MenuItem>
+                            <MenuItem onClick={this.unValidatedFishReports.bind(this)}>Fiske art rapporter</MenuItem>
+                            <MenuItem onClick={this.unValidatedCoralReports.bind(this)}>Koral rapporter</MenuItem>
+                            <MenuItem onClick={this.unValidatedUnknownReports.bind(this)}>Fremmed art rapporter</MenuItem>
                             <MenuItem href="/reports">Se alle rapporter</MenuItem>
-                                        </NavDropdown> : null
+                        </NavDropdown> : null
                     }
                 </Nav>
 
             </Navbar>
-
         )
     }
-});
-
-export default Header;
+}

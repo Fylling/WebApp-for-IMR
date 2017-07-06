@@ -9,28 +9,14 @@ import {Tasks, Reports, remote} from '../../api/tasks.js';
 import SimpleTask from "./SimpleTask.jsx";
 import ViewReport from "./viewReport";
 
-//Controller klassen som henter info fra databasen
-class List extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            showReport: false,
-        }
-    }
-    renderReports() {
-            return this.props.reports.map((report) => (
-                <ReportListing key={report._id} report={report} remote={remote}/>
-            ))
-
-    }
-
+class ValidReportList extends Component {
     render() {
         return (
             <Grid className="pageContainer">
                 <Row>
-                <PageHeader>
-                    Liste av rapporter
-                </PageHeader>
+                    <PageHeader>
+                        Liste av rapporter
+                    </PageHeader>
 
                     {this.renderReports()}
 
@@ -40,23 +26,21 @@ class List extends Component {
     }
 }
 
-
-//Det er her uthentingen skjer
 export default ListContainer = createContainer(() => {
     let category = FlowRouter.getParam('category');
     let validated = FlowRouter.getParam('validatedReport');
 
-        console.log("It's not validated");
+        console.log("It's validated");
         if(category === undefined){
-            remote.subscribe('reports.adminPageList', false);
+            remote.subscribe('reports.adminPageList', true);
             return {
-                reports: Reports.find({isValidated: false}, {sort: {createdAt: -1}}).fetch(),
+                reports: Reports.find({isValidated: true}, {sort: {createdAt: -1}}).fetch(),
             }
         } else {
-            remote.subscribe('reports.adminPageListWithCategory', category, false);
+            remote.subscribe('reports.adminPageListWithCategory', category, true);
             return {
-                reports: Reports.find({isValidated: false, category: category}, {sort: {createdAt: -1}}).fetch(),
+                reports: Reports.find({isValidated: true, category: category}, {sort: {createdAt: -1}}).fetch(),
             }
         }
 
-}, List);
+}, ValidReportList);

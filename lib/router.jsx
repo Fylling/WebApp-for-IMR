@@ -3,7 +3,8 @@ import {mount} from 'react-mounter';
 import {Meteor} from 'meteor/meteor';
 
 import { MainLayout } from '../imports/ui/pages/MainLayout.jsx';
-import Header from '../imports/ui/components/Header.jsx';
+//import Header from '../imports/ui/components/Header.jsx';
+import Header from '../imports/ui/components/Navbar_components/navbar.jsx'
 import ListContainer from '../imports/ui/components/List.jsx';
 import Login from '../imports/ui/pages/Login.jsx';
 import Home from '../imports/ui/pages/Home.jsx';
@@ -93,8 +94,8 @@ FlowRouter.route('/report/', {
     }
 });
 
-FlowRouter.route('/reports/:category', {
-    name: "Report",
+FlowRouter.route('/unvalidatedreports/:category/', {
+    name: "ReportsList",
     triggersEnter: checkLoggedIn,
     action: function(params) {
         console.log("Param: ", params.category);

@@ -44,9 +44,30 @@ class List extends Component {
 //Det er her uthentingen skjer
 export default ListContainer = createContainer(() => {
     let category = FlowRouter.getParam('category');
-    let validated = FlowRouter.getParam('validatedReport');
+    let validated = localStorage.getItem('validated') !== 'false';
+    console.log(validated);
+    let selector;
+    let options;
 
-        console.log("It's not validated");
+    if(category === "Alle rapporter"){
+        selector = {isValidated: validated};
+        options = {sort: {createdAt: -1}};
+        remote.subscribe('reports.adminPageList', validated);
+        return {
+            reports: Reports.find(selector, options).fetch(),
+        }
+    } else {
+        console.log("Hallo");
+        selector = {isValidated: validated, category: category};
+        options = {sort: {createdAt: -1}};
+        remote.subscribe('reports.adminPageListWithCategory', category, validated);
+        return {
+            reports: Reports.find(selector, options).fetch(),
+        }
+    }
+
+
+    /*
         if(category === undefined){
             remote.subscribe('reports.adminPageList', false);
             return {
@@ -58,5 +79,6 @@ export default ListContainer = createContainer(() => {
                 reports: Reports.find({isValidated: false, category: category}, {sort: {createdAt: -1}}).fetch(),
             }
         }
+        */
 
 }, List);

@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import { Meteor } from 'meteor/meteor';
 
 import {Navbar, Nav, NavItem, NavbarBrand, NavDropdown, MenuItem } from 'react-bootstrap';
-import { IsLoggedIn } from '../../../../lib/helpers.jsx';
+import {IsLoggedIn} from '../../../../lib/helpers.jsx';
+
+import ValidatedReportsDropDown from './validatedReportsDropDown.jsx';
 
 export default class header extends Component{
     constructor(props){
@@ -20,14 +22,14 @@ export default class header extends Component{
                 this.setState({isLoggedIn: !this.state.isLoggedIn});
                 localStorage.removeItem('userMail');
                 localStorage.removeItem('report.id');
+                localStorage.removeItem('validated');
                 FlowRouter.go('/');
             }
         });
     }
 
     unValidatedReportCategory(category){
-        console.log("Category under");
-        console.log(category.toString());
+        localStorage.setItem('validated', false);
         FlowRouter.setParams({category: category});
         FlowRouter.go('/unvalidatedreports/' + category);
     }
@@ -43,6 +45,10 @@ export default class header extends Component{
     unValidatedUnknownReports(e){
         e.preventDefault();
         this.unValidatedReportCategory("Fremmed art");
+    }
+    unValidatedAllReports(e){
+        e.preventDefault();
+        this.unValidatedReportCategory("Alle rapporter");
     }
 
     render(){
@@ -60,9 +66,11 @@ export default class header extends Component{
                             <MenuItem onClick={this.unValidatedFishReports.bind(this)}>Fiske art rapporter</MenuItem>
                             <MenuItem onClick={this.unValidatedCoralReports.bind(this)}>Koral rapporter</MenuItem>
                             <MenuItem onClick={this.unValidatedUnknownReports.bind(this)}>Fremmed art rapporter</MenuItem>
-                            <MenuItem href="/reports">Se alle rapporter</MenuItem>
+                            <MenuItem onClick={this.unValidatedAllReports.bind(this)}>Se alle rapporter</MenuItem>
                         </NavDropdown> : null
                     }
+
+                    {IsLoggedIn() ? <ValidatedReportsDropDown/> : null}
                 </Nav>
 
             </Navbar>

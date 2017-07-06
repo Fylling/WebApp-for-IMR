@@ -3,7 +3,6 @@ import {mount} from 'react-mounter';
 import {Meteor} from 'meteor/meteor';
 
 import { MainLayout } from '../imports/ui/pages/MainLayout.jsx';
-//import Header from '../imports/ui/components/Header.jsx';
 import Header from '../imports/ui/components/Navbar_components/navbar.jsx'
 import ListContainer from '../imports/ui/components/List.jsx';
 import Login from '../imports/ui/pages/Login.jsx';
@@ -25,15 +24,6 @@ if(Meteor.isClient) {
 function checkLoggedIn(context, doRidirect) {
     if(!IsLoggedIn()) {
         doRidirect('/login');
-    }
-}
-
-function checkLoggedInAndReportId(context, doRedirect) {
-    if(!IsLoggedIn()) {
-        doRedirect('/login');
-    }
-    if(Session.get('report.id') === false || Session.get('report.id') === undefined) {
-        doRedirect('/reports')
     }
 }
 
@@ -81,7 +71,6 @@ FlowRouter.route('/reports/', {
     name: "Reports",
     triggersEnter: checkLoggedIn,
     action() {
-        //Meteor.call('getReports');
         renderMainLayoutWith(<ListContainer/>)
     }
 });
@@ -95,10 +84,20 @@ FlowRouter.route('/report/', {
 });
 
 FlowRouter.route('/unvalidatedreports/:category/', {
-    name: "ReportsList",
+    name: "ReportsListUnValidated",
     triggersEnter: checkLoggedIn,
     action: function(params) {
-        console.log("Param: ", params.category);
+        mount(MainLayout, {
+            header: <Header/>,
+            content: (<ListContainer category={params.category}/>)
+        })
+    }
+});
+
+FlowRouter.route('/validatedreports/:category/', {
+    name: "ReportsListValidated",
+    triggersEnter: checkLoggedIn,
+    action: function(params) {
         mount(MainLayout, {
             header: <Header/>,
             content: (<ListContainer category={params.category}/>)

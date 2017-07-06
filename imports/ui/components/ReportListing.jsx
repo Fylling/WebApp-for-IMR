@@ -72,15 +72,15 @@ export default class ReportListing extends Component {
                 return (
                     <ListGroup>
                         <ListGroupItem header={this.props.report.text}>
-                            {this.props.report.scientist === localStorage.getItem('userMail') ?
-                                <p>Hallo</p> : ''}
-                            Denne jobbes med nå av en annen forsker.
+                            {!this.props.report.isValidated ? "Denne jobbes med nå av en annen forsker." : <p> Denne rapporten er ferdig validert. </p> }
                                 {(!this.showSeRapport())?
                                     ''
                                     :
                                     <ButtonToolbar>
+
+                                        {!this.props.report.isValidated ?
                                         <Checkbox checked="true" onChange={this.toggleCheckedOut.bind(this)}>Gå
-                                            tilbake</Checkbox>
+                                            tilbake</Checkbox> : null }
                                         <Button className="checkOut" bsStyle="primary" bsSize="xsmall"
                                                 onClick={this.openReport.bind(this)}>Se rapport</Button>
                                     </ButtonToolbar>

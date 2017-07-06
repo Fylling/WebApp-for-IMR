@@ -1,13 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { ListGroup, PageHeader, Grid, Row } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { PageHeader, Grid, Row } from 'react-bootstrap';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Meteor } from 'meteor/meteor';
 
-import TaskList from './TaskList.jsx';
 import ReportListing from './ReportListing.jsx';
-import {Tasks, Reports, remote} from '../../api/tasks.js';
-import SimpleTask from "./SimpleTask.jsx";
-import ViewReport from "./viewReport";
+import {Reports, remote} from '../../api/tasks.js';
 
 //Controller klassen som henter info fra databasen
 class List extends Component {
@@ -65,20 +61,4 @@ export default ListContainer = createContainer(() => {
             reports: Reports.find(selector, options).fetch(),
         }
     }
-
-
-    /*
-        if(category === undefined){
-            remote.subscribe('reports.adminPageList', false);
-            return {
-                reports: Reports.find({isValidated: false}, {sort: {createdAt: -1}}).fetch(),
-            }
-        } else {
-            remote.subscribe('reports.adminPageListWithCategory', category, false);
-            return {
-                reports: Reports.find({isValidated: false, category: category}, {sort: {createdAt: -1}}).fetch(),
-            }
-        }
-        */
-
 }, List);

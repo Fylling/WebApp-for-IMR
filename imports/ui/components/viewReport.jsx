@@ -22,7 +22,7 @@ import ShowImg from './ShowImg.jsx';
 import MyMap from './GoogleMaps/MyMap.jsx';
 
 //Representerer en liste over hver eneste rapport som ligger i databasen
- class ViewReport extends Component {
+class ViewReport extends Component {
     constructor(props) {
         super(props);
 
@@ -131,15 +131,22 @@ import MyMap from './GoogleMaps/MyMap.jsx';
                             <MyMap report={this.props.report}/>
                         </Row>
                         <hr/>
-                        <Row className="feedbackContainer">
-                            <FormGroup>
-                                <ControlLabel>Tilbakemelding:</ControlLabel>
-                                <FormControl id="feedback" componentClass="textarea"
-                                             placeholder="Skriv tilbakemelding her.."/>
-                            </FormGroup>
-                        </Row>
-                        <Button className="feedbackBtn" type="submit" bsStyle="primary" onClick={ this.showModal }>Send
-                            tilbakemelding</Button>
+                        {!this.props.report.isValidated ?
+                            <div>
+                                <Row className="feedbackContainer">
+                                    <FormGroup>
+                                        <ControlLabel>Tilbakemelding:</ControlLabel>
+                                        <FormControl id="feedback" componentClass="textarea"
+                                                     placeholder="Skriv tilbakemelding her.."/>
+                                    </FormGroup>
+                                    <Button className="feedbackBtn" type="submit" bsStyle="primary"
+                                            onClick={ this.showModal }>Send
+                                        tilbakemelding</Button>
+                                </Row>
+                                <br/>
+                            </div>
+                            : null }
+
 
                         <Modal className="confirmModal" show={this.state.modalVisible} onHide={this.closeModal}>
                             <Modal.Header>
@@ -182,12 +189,11 @@ import MyMap from './GoogleMaps/MyMap.jsx';
 }
 
 
-
 export default createContainer(() => {
     let rId = localStorage.getItem('report.id');
     let reportSub = remote.subscribe('reports.findOne', rId);
     let reportId;
-    if(reportSub.ready()){
+    if (reportSub.ready()) {
         reportId = Reports.findOne(rId);
     }
     return {

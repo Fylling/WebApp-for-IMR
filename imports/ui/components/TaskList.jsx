@@ -34,18 +34,6 @@ export default class TaskList extends Component {
 
     }
 
-
-
-    /*
-    insertMethod() {
-        Meteor.call('tasks.insert', "Kvithai", "" , 2, "15 meter", "");
-    }
-
-    deleteMethod(){
-        let id = this.props.task._id;
-        Meteor.call('tasks.remove', id);
-    }*/
-
     render() {
         if(!this.state.buttonVisible) {
         return(

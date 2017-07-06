@@ -87,9 +87,9 @@ FlowRouter.route('/reports/', {
 
 FlowRouter.route('/report/', {
     name: "viewReport",
-    triggersEnter: checkLoggedInAndReportId,
+    triggersEnter: checkLoggedIn,
     action() {
-        renderMainLayoutWith(<ViewReport reportId={Session.get('report.id')}/>)
+        renderMainLayoutWith(<ViewReport/>)
     }
 });
 

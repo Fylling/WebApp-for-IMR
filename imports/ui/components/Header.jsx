@@ -19,6 +19,7 @@ Header = React.createClass({
             } else {
                 this.setState({isLoggedIn: !this.state.isLoggedIn});
                 localStorage.removeItem('userMail');
+                localStorage.removeItem('report.id');
                 FlowRouter.go('/');
             }
         });

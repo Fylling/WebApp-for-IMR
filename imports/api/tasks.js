@@ -7,7 +7,7 @@ import { IsLoggedIn, loggedIn } from '../../lib/helpers.jsx';
 
 //Representerer vår server som vi ikke har fått tid til å sette opp enda
 export const Tasks = new Mongo.Collection('tasks');
-export const remote = DDP.connect('http://172.16.251.182:3000/');
+export const remote = DDP.connect('http://172.16.251.212:3000/');
 export const Reports = new Meteor.Collection('reports', remote);
 
 
@@ -115,12 +115,12 @@ Meteor.methods({
         Tasks.update(taskId, { $set: { checkedOut: setCheckedOut } });
     },
 
-    'reports.setCheckedOut'(id, checkedOut){
+    'reports.setCheckedOut'(id, checkedOut, scientistEmail){
         check(id, String);
         check(checkedOut, Boolean);
         let r = Reports.findOne({_id: id});
         Reports.update(id, {
-            $set: {checkedOut: checkedOut, scientist: Meteor.user().emails[0].address}
+            $set: {checkedOut: checkedOut, scientist: scientistEmail}
         });
     },
 

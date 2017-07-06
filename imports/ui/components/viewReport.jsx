@@ -65,8 +65,8 @@ import MyMap from './GoogleMaps/MyMap.jsx';
             });
         } else {
             Session.set('report.id', false);
-            Meteor.call('reports.updateFeedback', this.props.report[0]._id, feedback);
-            Meteor.call('sendAEmail', this.props.report[0].user, this.props.report[0].text);
+            Meteor.call('reports.updateFeedback', this.props.report._id, feedback);
+            Meteor.call('sendAEmail', this.props.report.user, this.props.report.text);
             console.log(feedback);
             FlowRouter.go('/reports');
         }
@@ -76,13 +76,13 @@ import MyMap from './GoogleMaps/MyMap.jsx';
     renderImg() {
         let imgArray = [];
         console.log("Mengde bilder");
-        console.log(this.props.report[0].photo.length);
+        console.log(this.props.report.photo.length);
         console.log("Reports");
         console.log(this.props.report.length);
-        for (let i = 0; i < this.props.report[0].photo.length; i++) {
+        for (let i = 0; i < this.props.report.photo.length; i++) {
             imgArray.push(
                 <CarouselItem>
-                    <ShowImg key={i} img={this.props.report[0].photo[i]}/>
+                    <ShowImg key={i} img={this.props.report.photo[i]}/>
                 </CarouselItem>
             )
         }
@@ -91,100 +91,113 @@ import MyMap from './GoogleMaps/MyMap.jsx';
     }
 
     render() {
-        return (
-            <Grid className="pageContainer">
-                <Row>
-                    <PageHeader>
-                        Rapport
-                    </PageHeader>
-                </Row>
-            <Row className="simpleReportContainer">
-                    {this.renderImg()}
-                <br/>
-                <ListGroupItem className="user">
-                    <strong>Bruker:</strong> {this.props.report[0].user}
-                </ListGroupItem>
-                <ListGroupItem className="species">
-                    <strong>Art:</strong> {this.props.report[0].text}
-                </ListGroupItem>
-                <ListGroupItem className="date">
-                    <strong>Dato: </strong> {this.props.report[0].submitDate}
-                </ListGroupItem>
-                <ListGroupItem className="geoLocation">
-                    <strong>Breddegrad: </strong> {this.props.report[0].latitude}
-                </ListGroupItem>
-                <ListGroupItem className="geoLocation">
-                    <strong>Lengdegrad: </strong> {this.props.report[0].longitude}
-                </ListGroupItem>
-                <ListGroupItem className="amount">
-                    <strong>Antall: </strong>{this.props.report[0].amount}
-                </ListGroupItem>
-                <ListGroupItem className="depth">
-                    <strong>Dybde: </strong> {this.props.report[0].depth}
-                </ListGroupItem>
-                <ListGroupItem className="feedback">
-                    <strong>Tilbakemelding: </strong>{this.props.report[0].reportFeedback}
-                </ListGroupItem>
-                <hr/>
-                <Row>
-                    <MyMap report={this.props.report[0]}/>
-                </Row>
-                <hr/>
-                <Row className="feedbackContainer">
-                    <FormGroup>
-                        <ControlLabel>Tilbakemelding:</ControlLabel>
-                        <FormControl id="feedback" componentClass="textarea" placeholder="Skriv tilbakemelding her.."/>
-                    </FormGroup>
-                </Row>
-                <Button className="feedbackBtn" type="submit" bsStyle="primary" onClick={ this.showModal }>Send
-                    tilbakemelding</Button>
+        if (this.props.report) {
+            return (
+                <Grid className="pageContainer">
+                    <Row>
+                        <PageHeader>
+                            Rapport
+                        </PageHeader>
+                    </Row>
+                    <Row className="simpleReportContainer">
+                        {this.renderImg()}
+                        <br/>
+                        <ListGroupItem className="user">
+                            <strong>Bruker:</strong> {this.props.report.user}
+                        </ListGroupItem>
+                        <ListGroupItem className="species">
+                            <strong>Art:</strong> {this.props.report.text}
+                        </ListGroupItem>
+                        <ListGroupItem className="date">
+                            <strong>Dato: </strong> {this.props.report.submitDate}
+                        </ListGroupItem>
+                        <ListGroupItem className="geoLocation">
+                            <strong>Breddegrad: </strong> {this.props.report.latitude}
+                        </ListGroupItem>
+                        <ListGroupItem className="geoLocation">
+                            <strong>Lengdegrad: </strong> {this.props.report.longitude}
+                        </ListGroupItem>
+                        <ListGroupItem className="amount">
+                            <strong>Antall: </strong>{this.props.report.amount}
+                        </ListGroupItem>
+                        <ListGroupItem className="depth">
+                            <strong>Dybde: </strong> {this.props.report.depth}
+                        </ListGroupItem>
+                        <ListGroupItem className="feedback">
+                            <strong>Tilbakemelding: </strong>{this.props.report.reportFeedback}
+                        </ListGroupItem>
+                        <hr/>
+                        <Row>
+                            <MyMap report={this.props.report}/>
+                        </Row>
+                        <hr/>
+                        <Row className="feedbackContainer">
+                            <FormGroup>
+                                <ControlLabel>Tilbakemelding:</ControlLabel>
+                                <FormControl id="feedback" componentClass="textarea"
+                                             placeholder="Skriv tilbakemelding her.."/>
+                            </FormGroup>
+                        </Row>
+                        <Button className="feedbackBtn" type="submit" bsStyle="primary" onClick={ this.showModal }>Send
+                            tilbakemelding</Button>
 
-                <Modal className="confirmModal" show={this.state.modalVisible} onHide={this.closeModal}>
-                    <Modal.Header>
-                        <Modal.Title>Bekreftelse</Modal.Title>
-                        <Modal.Body>
-                            Er du sikker på at du vil sende denne tilbakemeldingen til {this.props.report[0].user}?
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button bsSize="large" type="submit" bsStyle="primary"
-                                    onClick={this.handleFeedback.bind(this)}>OK</Button>
-                            <Button bsSize="large" bsStyle="warning" onClick={this.closeModal}>Avbryt</Button>
-                        </Modal.Footer>
-                    </Modal.Header>
-                </Modal>
+                        <Modal className="confirmModal" show={this.state.modalVisible} onHide={this.closeModal}>
+                            <Modal.Header>
+                                <Modal.Title>Bekreftelse</Modal.Title>
+                                <Modal.Body>
+                                    Er du sikker på at du vil sende denne tilbakemeldingen
+                                    til {this.props.report.user}?
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button bsSize="large" type="submit" bsStyle="primary"
+                                            onClick={this.handleFeedback.bind(this)}>OK</Button>
+                                    <Button bsSize="large" bsStyle="warning" onClick={this.closeModal}>Avbryt</Button>
+                                </Modal.Footer>
+                            </Modal.Header>
+                        </Modal>
 
-                <Modal className="alertModal" show={this.state.alertVisible} onHide={this.alertVisible}>
-                    <Modal.Header>
-                        <Modal.Title>Denne tilbakemeldingen er tom!</Modal.Title>
-                        <Modal.Body>
-                            Prøv igjen.
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <ButtonGroup vertical block>
-                                <Button bsStyle="warning" onClick={this.alertVisible}>OK</Button>
-                            </ButtonGroup>
-                        </Modal.Footer>
-                    </Modal.Header>
-                </Modal>
+                        <Modal className="alertModal" show={this.state.alertVisible} onHide={this.alertVisible}>
+                            <Modal.Header>
+                                <Modal.Title>Denne tilbakemeldingen er tom!</Modal.Title>
+                                <Modal.Body>
+                                    Prøv igjen.
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <ButtonGroup vertical block>
+                                        <Button bsStyle="warning" onClick={this.alertVisible}>OK</Button>
+                                    </ButtonGroup>
+                                </Modal.Footer>
+                            </Modal.Header>
+                        </Modal>
 
-            </Row>
-            </Grid>
+                    </Row>
+                </Grid>
 
-        );
+            );
 
+        } else {
+            return null;
+        }
     }
 }
 
 
-ViewReport.propTypes = {
-    report: PropTypes.array.isRequired,
-    reportId: PropTypes.string.isRequired
-};
 
 export default createContainer(() => {
-    let rId = Session.get('report.id');
-    remote.subscribe('reports.findOne', rId);
+    console.log("createcontainer");
+    console.log(localStorage.getItem('report.id'));
+    console.log(localStorage.getItem('report.id'));
+    let rId = localStorage.getItem('report.id');
+    console.log(rId);
+    console.log(rId);
+    let reportSub = remote.subscribe('reports.findOne', rId);
+    let reportId;
+    if(reportSub.ready()){
+        reportId = Reports.findOne(rId);
+    }
+    console.log(reportId);
+
     return {
-        report: Reports.find({_id: rId}).fetch(),
+        report: reportId,
     }
 }, ViewReport);

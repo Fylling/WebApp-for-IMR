@@ -184,19 +184,12 @@ import MyMap from './GoogleMaps/MyMap.jsx';
 
 
 export default createContainer(() => {
-    console.log("createcontainer");
-    console.log(localStorage.getItem('report.id'));
-    console.log(localStorage.getItem('report.id'));
     let rId = localStorage.getItem('report.id');
-    console.log(rId);
-    console.log(rId);
     let reportSub = remote.subscribe('reports.findOne', rId);
     let reportId;
     if(reportSub.ready()){
         reportId = Reports.findOne(rId);
     }
-    console.log(reportId);
-
     return {
         report: reportId,
     }

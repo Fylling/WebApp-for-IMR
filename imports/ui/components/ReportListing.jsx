@@ -37,7 +37,7 @@ export default class ReportListing extends Component {
         } else {
             scientistEmail = '';
         }
-        Meteor.call('reports.setCheckedOut', this.props.report._id, !this.state.buttonVisible, scientistEmail);
+        this.props.remote.call('reports.setCheckedOut', this.props.report._id, !this.state.buttonVisible, scientistEmail);
 
         this.setState({
             checkedOutToUser: (localStorage.getItem('userMail') === scientistEmail),
@@ -46,14 +46,16 @@ export default class ReportListing extends Component {
     }
 
     componentWillMount(){
-        Meteor.call('reports.setCheckedOut', this.props.report._id, this.state.buttonVisible);
+        //Meteor.call('reports.setCheckedOut', this.props.report._id, this.state.buttonVisible);
     }
 
-
+    showSeRapport(){
+        return (this.props.checkedOut || this.props.report.scientist === localStorage.getItem('userMail'));
+    }
 
     render() {
         if(this.props.report) {
-            if (!this.state.buttonVisible) {
+            if (!this.props.report.checkedOut) {
                 return (
 
                     <ListGroup>
@@ -70,18 +72,19 @@ export default class ReportListing extends Component {
                 return (
                     <ListGroup>
                         <ListGroupItem header={this.props.report.text}>
+                            {this.props.report.scientist === localStorage.getItem('userMail') ?
+                                <p>Hallo</p> : ''}
                             Denne jobbes med nå av en annen forsker.
-                            <ButtonToolbar>
-                                {this.state.checkedOutToUser ?
-                                    <div>
+                                {(!this.showSeRapport())?
+                                    ''
+                                    :
+                                    <ButtonToolbar>
                                         <Checkbox checked="true" onChange={this.toggleCheckedOut.bind(this)}>Gå
                                             tilbake</Checkbox>
                                         <Button className="checkOut" bsStyle="primary" bsSize="xsmall"
-                                            onClick={this.openReport.bind(this)}>Se rapport</Button>
-                                    </div>
-                                    : ''
+                                                onClick={this.openReport.bind(this)}>Se rapport</Button>
+                                    </ButtonToolbar>
                                 }
-                            </ButtonToolbar>
                         </ListGroupItem>
                     </ListGroup>
                 );
@@ -93,8 +96,3 @@ export default class ReportListing extends Component {
         }
     }
 }
-
-ReportListing.propTypes = {
-    report: PropTypes.object.isRequired,
-
-};

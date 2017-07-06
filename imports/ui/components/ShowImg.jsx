@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import {CarouselItem, Image} from 'react-bootstrap';
+import React, {Component} from 'react';
+import {Image} from 'react-bootstrap';
 
 export default class ShowImg extends Component {
 
@@ -10,6 +10,3 @@ export default class ShowImg extends Component {
     }
 }
 
-ShowImg.propTypes = {
-    img: PropTypes.string.isRequired,
-};

@@ -31,7 +31,7 @@ class List extends Component {
     }
     renderReports() {
             return this.props.reports.map((report) => (
-                <ReportListing key={report._id} report={report}/>
+                <ReportListing key={report._id} report={report} remote={remote}/>
             ))
 
     }
@@ -51,11 +51,6 @@ class List extends Component {
         );
     }
 }
-
-List.propTypes = {
-    reports: PropTypes.array.isRequired,
-    category: PropTypes.string,
-};
 
 
 //Det er her uthentingen skjer

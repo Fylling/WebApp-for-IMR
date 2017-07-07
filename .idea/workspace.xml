@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1a8ecf29-d97c-44c9-8115-3423f847a03b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/components/List.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/List.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/components/Navbar_components/validatedReportsDropDown.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Navbar_components/validatedReportsDropDown.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/components/viewReport.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/viewReport.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/pages/Login.jsx" afterPath="$PROJECT_DIR$/imports/ui/pages/Login.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/router.jsx" afterPath="$PROJECT_DIR$/lib/router.jsx" />
     </list>
@@ -882,11 +880,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499352176956</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fikset overskriftene for både uvalidert og validerte rapporter. Tar også kun de verdiene den trenger fra reports på både list og viewreport. Laster inn raskere enn før. Viewreport kan tar tid å laste inn på grunn av bildene og google map. Den fryser, må snakke med petter om å implementere en loading ikon eller lignende">
+      <created>1499438444025</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1499438444025</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="314860000" />
+    <option name="totallyTimeSpent" value="315270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="18" width="1481" height="1149" extended-state="4" />
@@ -987,7 +992,8 @@
     <MESSAGE value="Byttet ut header med navbar.jsx, siden header.jsx brukte react.createclass." />
     <MESSAGE value="Lagt til en dropdown meny for validerte rapporter. Listen fungerer nå, støtter kategori på samme måten." />
     <MESSAGE value="Visser ikke feedback input felt og send tilbakemelding knapp når bruker ser på validerte rapporter." />
-    <option name="LAST_COMMIT_MESSAGE" value="Visser ikke feedback input felt og send tilbakemelding knapp når bruker ser på validerte rapporter." />
+    <MESSAGE value="fikset overskriftene for både uvalidert og validerte rapporter. Tar også kun de verdiene den trenger fra reports på både list og viewreport. Laster inn raskere enn før. Viewreport kan tar tid å laste inn på grunn av bildene og google map. Den fryser, må snakke med petter om å implementere en loading ikon eller lignende" />
+    <option name="LAST_COMMIT_MESSAGE" value="fikset overskriftene for både uvalidert og validerte rapporter. Tar også kun de verdiene den trenger fra reports på både list og viewreport. Laster inn raskere enn før. Viewreport kan tar tid å laste inn på grunn av bildene og google map. Den fryser, må snakke med petter om å implementere en loading ikon eller lignende" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1242,7 +1248,7 @@
         <state relative-caret-position="80">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1276,7 +1282,7 @@
         <state relative-caret-position="240">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#43#69#0" expanded="true" />
+            <element signature="e#43#69#0" expanded="false" />
           </folding>
         </state>
       </provider>

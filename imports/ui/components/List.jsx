@@ -20,12 +20,24 @@ class List extends Component {
 
     }
 
+    isValidated(){
+        return localStorage.getItem('validated') === 'true' ? "validerte" : "uvaliderte";
+    }
+
+    headerText(){
+        if(FlowRouter.getParam('category') === "Alle"){
+            return ("alle " + this.isValidated());
+        } else {
+            return (this.isValidated() + " " + FlowRouter.getParam('category').toLowerCase())
+        }
+    }
+
     render() {
         return (
             <Grid className="pageContainer">
                 <Row>
                 <PageHeader>
-                    Liste av rapporter
+                    Liste av {this.headerText()} rapporter
                 </PageHeader>
 
                     {this.renderReports()}
@@ -41,22 +53,21 @@ class List extends Component {
 export default ListContainer = createContainer(() => {
     let category = FlowRouter.getParam('category');
     let validated = localStorage.getItem('validated') !== 'false';
-    console.log(validated);
     let selector;
     let options;
+    let fields = {"text": 1, "user": 1, "isValidated": 1, "checkedOut": 1, "scientist": 1, "category": 1};
 
-    if(category === "Alle rapporter"){
+    if(category === "Alle"){
         selector = {isValidated: validated};
-        options = {sort: {createdAt: -1}};
-        remote.subscribe('reports.adminPageList', validated);
+        options = {sort: {createdAt: -1}, fields: fields};
+        remote.subscribe('reports.adminPageList', validated, fields);
         return {
             reports: Reports.find(selector, options).fetch(),
         }
     } else {
-        console.log("Hallo");
         selector = {isValidated: validated, category: category};
-        options = {sort: {createdAt: -1}};
-        remote.subscribe('reports.adminPageListWithCategory', category, validated);
+        options = {sort: {createdAt: -1}, fields: fields};
+        remote.subscribe('reports.adminPageListWithCategory', category, validated, fields);
         return {
             reports: Reports.find(selector, options).fetch(),
         }

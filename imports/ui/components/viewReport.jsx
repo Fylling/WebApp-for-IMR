@@ -64,21 +64,15 @@ class ViewReport extends Component {
                 alertVisible: true,
             });
         } else {
-            Session.set('report.id', false);
             Meteor.call('reports.updateFeedback', this.props.report._id, feedback);
             Meteor.call('sendAEmail', this.props.report.user, this.props.report.text);
-            console.log(feedback);
-            FlowRouter.go('/reports');
+            history.back();
         }
         this.closeModal();
     }
 
     renderImg() {
         let imgArray = [];
-        console.log("Mengde bilder");
-        console.log(this.props.report.photo.length);
-        console.log("Reports");
-        console.log(this.props.report.length);
         for (let i = 0; i < this.props.report.photo.length; i++) {
             imgArray.push(
                 <CarouselItem>
@@ -109,7 +103,7 @@ class ViewReport extends Component {
                             <strong>Art:</strong> {this.props.report.text}
                         </ListGroupItem>
                         <ListGroupItem className="date">
-                            <strong>Dato: </strong> {this.props.report.submitDate}
+                            <strong>Dato: </strong> {moment(this.props.report.taken).format("dddd, MMMM Do YYYY, h:mm:ss a")}
                         </ListGroupItem>
                         <ListGroupItem className="geoLocation">
                             <strong>Breddegrad: </strong> {this.props.report.latitude}
@@ -121,11 +115,15 @@ class ViewReport extends Component {
                             <strong>Antall: </strong>{this.props.report.amount}
                         </ListGroupItem>
                         <ListGroupItem className="depth">
-                            <strong>Dybde: </strong> {this.props.report.depth}
+                            <strong>Dybde: </strong> {this.props.report.depth} meter
                         </ListGroupItem>
-                        <ListGroupItem className="feedback">
-                            <strong>Tilbakemelding: </strong>{this.props.report.reportFeedback}
+                        <ListGroupItem className="length">
+                            <strong>Lengde: </strong> {this.props.report.length} cm
                         </ListGroupItem>
+                        {this.props.report.reportFeedback === "" ? '' :
+                            <ListGroupItem className="feedback">
+                                <strong>Tilbakemelding: </strong>{this.props.report.reportFeedback}
+                            </ListGroupItem> }
                         <hr/>
                         <Row>
                             <MyMap report={this.props.report}/>
@@ -191,7 +189,14 @@ class ViewReport extends Component {
 
 export default createContainer(() => {
     let rId = localStorage.getItem('report.id');
-    let reportSub = remote.subscribe('reports.findOne', rId);
+    let fields = {
+        text: 1, user: 1, scientist: 1,
+        latitude: 1, longitude: 1,
+        depth: 1, amount: 1, photo: 1,
+        taken: 1, length: 1, reportFeedback: 1,
+        isValidated: 1
+    };
+    let reportSub = remote.subscribe('reports.findOne', rId, fields);
     let reportId;
     if (reportSub.ready()) {
         reportId = Reports.findOne(rId);

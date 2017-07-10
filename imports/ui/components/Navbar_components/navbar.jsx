@@ -9,7 +9,7 @@ import ValidatedReportsDropDown from './validatedReportsDropDown.jsx';
 export default class header extends Component{
     constructor(props){
         super(props);
-        this.setState = {
+        this.state = {
             isLoggedIn: IsLoggedIn()
         };
     }
@@ -19,11 +19,11 @@ export default class header extends Component{
             if(error) {
                 console.log(error.reason);
             } else {
-                this.setState({isLoggedIn: !this.state.isLoggedIn});
+                this.setState({isLoggedIn: false});
                 localStorage.removeItem('userMail');
                 localStorage.removeItem('report.id');
                 localStorage.removeItem('validated');
-                FlowRouter.go('/');
+                FlowRouter.go('/login');
             }
         });
     }
@@ -48,7 +48,7 @@ export default class header extends Component{
     }
     unValidatedAllReports(e){
         e.preventDefault();
-        this.unValidatedReportCategory("Alle rapporter");
+        this.unValidatedReportCategory("Alle");
     }
 
     render(){
@@ -60,7 +60,7 @@ export default class header extends Component{
                     </NavbarBrand>
                 </Navbar.Header>
                 <Nav>
-                    {IsLoggedIn() ? <NavItem onClick={this.handleLogout}>Logout</NavItem> : <NavItem eventKey={1} href="/login">Login</NavItem>}
+                    {IsLoggedIn() ? <NavItem onClick={this.handleLogout.bind(this)}>Logout</NavItem> : <NavItem eventKey={1} href="/login">Login</NavItem>}
                     {
                         IsLoggedIn() ? <NavDropdown title="Uvaliderte Rapporter" id="report-category-dropdown">
                             <MenuItem onClick={this.unValidatedFishReports.bind(this)}>Fiske art rapporter</MenuItem>

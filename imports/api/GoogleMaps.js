@@ -40,17 +40,7 @@ class GoogleMap extends React.Component {
     }
 }
 
-GoogleMap.propTypes = {
-    loaded: PropTypes.bool.isRequired,
-    onReady: PropTypes.func.isRequired,
-    options: PropTypes.object,
-    mapOptions: PropTypes.func.isRequired,
-    children: PropTypes.node,
-};
-
-GoogleMapContainer = createContainer(
+export default GoogleMapContainer = createContainer(
     () => ({ loaded: GoogleMaps.loaded() }),
     GoogleMap,
 );
-
-export default GoogleMapContainer;

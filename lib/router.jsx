@@ -4,11 +4,11 @@ import {Meteor} from 'meteor/meteor';
 
 import { MainLayout } from '../imports/ui/pages/MainLayout.jsx';
 import Header from '../imports/ui/components/Navbar_components/navbar.jsx'
-import ListContainer from '../imports/ui/components/List.jsx';
+import ListContainer from '../imports/ui/pages/List.jsx';
 import Login from '../imports/ui/pages/Login.jsx';
 import Home from '../imports/ui/pages/Home.jsx';
 import { IsLoggedIn } from '../lib/helpers.jsx';
-import ViewReport from "../imports/ui/components/viewReport";
+import ViewReport from "../imports/ui/pages/viewReport";
 import MyMap from '../imports/ui/components/GoogleMaps/MyMap.jsx';
 
 if(Meteor.isClient) {
@@ -44,7 +44,6 @@ function renderMainLayoutWith(component) {
 
 FlowRouter.route('/', {
     name: "Home",
-    triggersEnter: checkLoggedIn,
     action() {
         renderMainLayoutWith(<Home/>)
     }

@@ -29,13 +29,18 @@ export default class ValidatedReportsDropDown extends Component {
         this.validatedReportCategory("Fremmed art");
     }
 
+    validatedAllReports(e) {
+        e.preventDefault();
+        this.validatedReportCategory("Alle");
+    }
+
     render() {
         return (
                 <NavDropdown title="Validerte Rapporter" id="report-category-dropdown">
                         <MenuItem onClick={this.validatedFishReports.bind(this)}>Fiske art rapporter</MenuItem>
                         <MenuItem onClick={this.validatedCoralReports.bind(this)}>Koral rapporter</MenuItem>
                         <MenuItem onClick={this.validatedUnknownReports.bind(this)}>Fremmed art rapporter</MenuItem>
-                        <MenuItem href="/validatedreports">Se alle rapporter</MenuItem>
+                        <MenuItem onClick={this.validatedAllReports.bind(this)}>Se alle rapporter</MenuItem>
                 </NavDropdown>
         )
     }

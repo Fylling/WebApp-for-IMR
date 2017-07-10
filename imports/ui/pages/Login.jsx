@@ -19,16 +19,16 @@ export default class Login extends Component {
                 console.log(error.reason);
 
             } else {
+                let category = "Alle";
                 localStorage.setItem('userMail', Meteor.user().emails[0].address);
-                FlowRouter.go('Reports');
+                localStorage.setItem('validated', false);
+                FlowRouter.setParams({category: category});
+                FlowRouter.go('/unvalidatedreports/' + category);
             }
         })
 
     }
 
-    insertMethod() {
-        Meteor.call('tasks.insert', "Kvithai", "" , 2, "15 meter", "");
-    }
 
     render () {
         return (

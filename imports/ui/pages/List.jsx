@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { PageHeader, Grid, Row } from 'react-bootstrap';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import ReportListing from './ReportListing.jsx';
+import ReportListing from '../components/ReportListing.jsx';
 import {Reports, remote} from '../../api/tasks.js';
 
 //Controller klassen som henter info fra databasen
@@ -14,9 +14,13 @@ class List extends Component {
         }
     }
     renderReports() {
+        if(this.props.reports.length === 0) {
+            return (<p>Fant ingen rapporter</p>)
+        } else {
             return this.props.reports.map((report) => (
                 <ReportListing key={report._id} report={report} remote={remote}/>
             ))
+        }
 
     }
 

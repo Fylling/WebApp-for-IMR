@@ -91,7 +91,7 @@ export default class ReportListing extends Component {
             }
         } else {
             return (
-                <p>loading...</p>
+                <div className="loader"/>
             )
         }
     }

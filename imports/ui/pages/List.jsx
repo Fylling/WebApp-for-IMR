@@ -3,7 +3,8 @@ import { PageHeader, Grid, Row } from 'react-bootstrap';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import ReportListing from '../components/ReportListing.jsx';
-import {Reports, remote} from '../../api/tasks.js';
+import {Reports, remote} from '../../api/reports.js';
+import {Loading_feedback} from '../components/Loading_feedback.jsx';
 
 //Controller klassen som henter info fra databasen
 class List extends Component {
@@ -48,7 +49,7 @@ class List extends Component {
                 </Grid>
             );
         } else {
-            return <div className="loader"/>
+            return <Loading_feedback/>
         }
     }
 }

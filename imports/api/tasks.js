@@ -105,14 +105,14 @@ Meteor.methods({
         Tasks.update(taskId, { $set: { checkedOut: setCheckedOut } });
     },
 
-    'reports.setCheckedOut'(id, checkedOut, scientistEmail){
+    /*'reports.setCheckedOut'(id, checkedOut, scientistEmail){
         check(id, String);
         check(checkedOut, Boolean);
         Reports.update(id, {
                 $set: {checkedOut: checkedOut, scientist: scientistEmail}
             });
 
-    },
+    },*/
 
     'reports.updateFeedback'(reportId, feedback){
         Reports.update(reportId, {
@@ -123,7 +123,7 @@ Meteor.methods({
         });
     },
 
-    'reports.insert'(r){
+    /*'reports.insert'(r){
         Tasks.insert({
             text: r.text,
             length: r.length,
@@ -145,7 +145,7 @@ Meteor.methods({
         });
 
         console.log("Antall reports: " + Tasks.find().count());
-    },
+    },*/
 
     //Legger feedback inn i rapporten og setter validert til true
     'tasks.sendFeedback' (taskId, reportFeedback) {

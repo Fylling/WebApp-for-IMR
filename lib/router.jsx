@@ -86,10 +86,7 @@ FlowRouter.route('/unvalidatedreports/:category/', {
     name: "ReportsListUnValidated",
     triggersEnter: checkLoggedIn,
     action: function(params) {
-        mount(MainLayout, {
-            header: <Header/>,
-            content: (<ListContainer category={params.category}/>)
-        })
+        renderMainLayoutWith(<ListContainer category={params.category}/>)
     }
 });
 
@@ -97,10 +94,7 @@ FlowRouter.route('/validatedreports/:category/', {
     name: "ReportsListValidated",
     triggersEnter: checkLoggedIn,
     action: function(params) {
-        mount(MainLayout, {
-            header: <Header/>,
-            content: (<ListContainer category={params.category}/>)
-        })
+        renderMainLayoutWith(<ListContainer category={params.category}/>)
     }
 });
 

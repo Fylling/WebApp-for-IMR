@@ -23,6 +23,7 @@ import ShowImg from '../components/ShowImg.jsx';
 import MyMap from '../components/GoogleMaps/MyMap.jsx';
 import ViewReport_info from '../components/viewReport_components/ViewReport_info.jsx';
 import ViewReport_confirm from '../components/viewReport_components/ViewReport_confirm';
+import {Loading_feedback} from '../components/Loading_feedback.jsx';
 
 //Representerer en liste over hver eneste rapport som ligger i databasen
 class ViewReport extends Component {
@@ -70,7 +71,9 @@ class ViewReport extends Component {
 
         } else {
             return (
-                    <div className="loader"/>
+                    <div>
+                        <Loading_feedback/>
+                    </div>
             );
         }
     }

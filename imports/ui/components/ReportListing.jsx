@@ -1,8 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import { Meteor } from 'meteor/meteor';
+import React, { Component } from 'react';
 import { ButtonToolbar, Checkbox, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 
-import {Reports} from '/imports/api/tasks.js';
+
 
 //Representerer en liste over hver eneste rapport som ligger i databasen
 export default class ReportListing extends Component {

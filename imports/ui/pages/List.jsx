@@ -14,13 +14,10 @@ class List extends Component {
         }
     }
     renderReports() {
-        if(this.props.reports.length === 0) {
-            return (<p>Fant ingen rapporter</p>)
-        } else {
             return this.props.reports.map((report) => (
                 <ReportListing key={report._id} report={report} remote={remote}/>
             ))
-        }
+
 
     }
 
@@ -37,18 +34,22 @@ class List extends Component {
     }
 
     render() {
-        return (
-            <Grid className="pageContainer">
-                <Row>
-                <PageHeader>
-                    Liste av {this.headerText()} rapporter
-                </PageHeader>
+        if(this.props.reports) {
+            return (
+                <Grid className="pageContainer">
+                    <Row>
+                        <PageHeader>
+                            Liste av {this.headerText()} rapporter
+                        </PageHeader>
 
-                    {this.renderReports()}
+                        {this.renderReports()}
 
-                </Row>
-            </Grid>
-        );
+                    </Row>
+                </Grid>
+            );
+        } else {
+            return <div className="loader"/>
+        }
     }
 }
 

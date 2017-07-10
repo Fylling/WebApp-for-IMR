@@ -1,6 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import GoogleMap from '../../../api/GoogleMaps.js';
-import Markers from './markers';
 
 export default class MyMap extends Component {
     constructor() {

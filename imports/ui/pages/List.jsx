@@ -15,11 +15,14 @@ class List extends Component {
         }
     }
     renderReports() {
-            return this.props.reports.map((report) => (
+            let reportlistings = this.props.reports.map((report) => (
                 <ReportListing key={report._id} report={report} remote={remote}/>
-            ))
-
-
+            ));
+        if(typeof reportlistings !== 'undefined' && reportlistings.length > 0){
+            return reportlistings;
+        }else {
+            return <p>Fant ingen rapporter</p>;
+        }
     }
 
     isValidated(){

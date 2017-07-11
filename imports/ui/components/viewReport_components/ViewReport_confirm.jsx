@@ -10,7 +10,8 @@ import {
     FormGroup,
     ControlLabel,
 } from 'react-bootstrap';
-import {createContainer} from 'meteor/react-meteor-data';
+import { createContainer } from 'meteor/react-meteor-data';
+import { remote } from '../../../api/reports.js';
 
 
 //Representerer en liste over hver eneste rapport som ligger i databasen
@@ -55,8 +56,8 @@ export default class ViewReport_confirm extends Component {
                 alertVisible: true,
             });
         } else {
-            Meteor.call('reports.updateFeedback', this.props.report._id, feedback);
-            Meteor.call('sendAEmail', this.props.report.user, this.props.report.text);
+            remote.call('reports.updateFeedback', this.props.report._id, feedback);
+            remote.call('sendAEmail', this.props.report.user, this.props.report.text);
             history.back();
         }
         this.closeModal();

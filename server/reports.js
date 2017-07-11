@@ -29,8 +29,8 @@ if (Meteor.isServer) {
         return Reports.find({ owner: this.userId }, {sort: {createdAt: -1} });
     });
 
-    Meteor.publish('reports.reportingToolList', function reportsPublication( fields, userId ){
-        return Reports.find({owner: userId}, {sort: { createdAt: -1}, fields: fields});
+    Meteor.publish('reports.reportingToolList', function reportsPublication( fields, userId, limit ){
+        return Reports.find({owner: userId}, {sort: { createdAt: -1}, limit: limit, fields: fields});
     });
 
     Meteor.publish('reports.test2', function reportsPublication(userId, fields) {
@@ -82,6 +82,19 @@ Meteor.methods({
         }
     },
 
+    'sendAEmail'(userEmail, reportName){
+        console.log(userEmail);
+        if(Meteor.isServer) {
+            console.log("Sending email");
+            Email.send({
+                from: "sebastianfroyen@gmail.com",
+                to: userEmail,
+                subject: reportName + " har blitt validert av forskerne hos IMR.",
+                text: "Tilbakemelding for " + reportName + " er tilgjengelig.",
+            });
+        }
+    },
+
     'reports.insert'(titelText, /*substrartInput,*/ lengdeNr, img, posLat, posLong,
                      depthInput, amountInput, markerId, useCurrPos, category, date, mail, brukerId){
         /*check(titelText, String);
@@ -114,27 +127,6 @@ Meteor.methods({
             date = new Date();
         }
 
-        let report = {text: titelText,
-            length: lengdeNr,
-            photo: img,
-            user: mail,
-            latitude: posLat,
-            longitude: posLong,
-            depth: depthInput,
-            amount: amountInput,
-            markerId: markerId,
-            createdAt: new Date(),
-            taken: date,
-            category: category,
-            //substrart: substrartInput,
-            owner: brukerId,
-            isValidated: false,
-            checkedOut: false,
-            reportFeedback: '',
-            scientist: ''};
-
-
-
         console.log(brukerId);
         Reports.insert({
             text: titelText,
@@ -149,7 +141,6 @@ Meteor.methods({
             createdAt: new Date(),
             taken: date,
             category: category,
-            //substrart: substrartInput,
             owner: brukerId,
             isValidated: false,
             checkedOut: false,
@@ -179,8 +170,6 @@ Meteor.methods({
         Reports.update(reportId, {
             $set: {isValidated: true},
         });
-        let report = Reports.findOne({_id: reportId});
-        //newReportValidated(report.text, report._id, report.markerId);
     },
 
 
@@ -190,5 +179,15 @@ Meteor.methods({
         Reports.update(id, {
             $set: {checkedOut: checkedOut, scientist: scientistEmail}
         });
+    },
+
+    'reports.updateFeedback'(reportId, feedback){
+        check(feedback, String);
+        Reports.update(reportId, {
+            $set: {reportFeedback: feedback, isValidated: true, checkedOut: false}
+        });
+        /*Reports.update(reportId, {
+         $set: {isValidated: true}
+         });*/
     },
 });

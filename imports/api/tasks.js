@@ -55,7 +55,7 @@ Meteor.methods({
         });
     },
 
-    'sendAEmail'(userEmail, reportName){
+    /*'sendAEmail'(userEmail, reportName){
         console.log(userEmail);
         //this.unblock();
         if(Meteor.isServer) {
@@ -67,7 +67,7 @@ Meteor.methods({
                 text: "Tilbakemelding for " + reportName + " er tilgjengelig.",
             });
         }
-    },
+    },*/
 
     'check.reports'(){
         let rep = Reports.find();
@@ -114,14 +114,14 @@ Meteor.methods({
 
     },*/
 
-    'reports.updateFeedback'(reportId, feedback){
+    /*'reports.updateFeedback'(reportId, feedback){
         Reports.update(reportId, {
-            $set: {reportFeedback: feedback}
+            $set: {reportFeedback: feedback, isValidated: true}
         });
-        Reports.update(reportId, {
+        /*Reports.update(reportId, {
             $set: {isValidated: true}
         });
-    },
+    },*/
 
     /*'reports.insert'(r){
         Tasks.insert({

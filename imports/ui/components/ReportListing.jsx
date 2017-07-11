@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ButtonToolbar, Checkbox, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
-
+import {Loading_feedback} from '../components/Loading_feedback.jsx';
 
 
 //Representerer en liste over hver eneste rapport som ligger i databasen
@@ -41,7 +41,6 @@ export default class ReportListing extends Component {
         this.setState({
             checkedOutToUser: (localStorage.getItem('userMail') === scientistEmail),
         });
-        console.log(this.state.checkedOutToUser);
     }
 
     componentWillMount(){
@@ -49,7 +48,11 @@ export default class ReportListing extends Component {
     }
 
     showSeRapport(){
-        return (this.props.checkedOut || this.props.report.scientist === localStorage.getItem('userMail'));
+        if(this.props.report.isValidated){
+            return true;
+        } else {
+            return (this.props.report.checkedOut && this.props.report.scientist === localStorage.getItem('userMail'));
+        }
     }
 
     render() {
@@ -90,7 +93,7 @@ export default class ReportListing extends Component {
             }
         } else {
             return (
-                <div className="loader"/>
+                <Loading_feedback/>
             )
         }
     }

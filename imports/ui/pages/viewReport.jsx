@@ -18,8 +18,8 @@ import {
 } from 'react-bootstrap';
 import {createContainer} from 'meteor/react-meteor-data';
 
-import {Reports, remote} from '/imports/api/tasks.js';
-import ShowImg from '../components/ShowImg.jsx';
+import {Reports, remote} from '/imports/api/reports.js';
+import ShowImg from '../components/viewReport_components/ShowImg.jsx';
 import MyMap from '../components/GoogleMaps/MyMap.jsx';
 import ViewReport_info from '../components/viewReport_components/ViewReport_info.jsx';
 import ViewReport_confirm from '../components/viewReport_components/ViewReport_confirm';

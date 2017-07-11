@@ -16,11 +16,8 @@ export default class MyMap extends Component {
     }
 
     handleOnReady(name) {
-        console.log("Handleonready");
         GoogleMaps.ready(name, map => {
-            console.log("googlemaps.ready");
             Tracker.autorun(c => {
-                console.log("tracker.autorun");
 
                 const marker = new google.maps.Marker({
                     draggable: false,
@@ -36,7 +33,6 @@ export default class MyMap extends Component {
 
 
     render() {
-        console.log("HHHHHHHHHHHH");
         return (
             <div>
             <GoogleMap

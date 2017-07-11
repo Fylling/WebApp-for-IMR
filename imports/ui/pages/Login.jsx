@@ -22,6 +22,8 @@ export default class Login extends Component {
                 let category = "Alle";
                 localStorage.setItem('userMail', Meteor.user().emails[0].address);
                 localStorage.setItem('validated', false);
+                localStorage.setItem('limit', 10);
+
                 FlowRouter.setParams({category: category});
                 FlowRouter.go('/unvalidatedreports/' + category);
             }

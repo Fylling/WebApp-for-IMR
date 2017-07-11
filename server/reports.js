@@ -39,12 +39,12 @@ if (Meteor.isServer) {
         return Reports.find({owner: userId}, {sort: { createdAt: -1}, fields: fields});
     });
 
-    Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields){
-        return Reports.find({isValidated: validated}, { sort: { createdAt: -1}, fields: fields});
+    Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit){
+        return Reports.find({isValidated: validated}, { limit: limit, sort: { createdAt: -1}, fields: fields});
     });
 
-    Meteor.publish('reports.adminPageListWithCategory', function reportsPublication(category, validated, fields){
-        return Reports.find({isValidated: validated, category: category}, { sort: { createdAt: -1}, fields: fields});
+    Meteor.publish('reports.adminPageListWithCategory', function reportsPublication(category, validated, fields, limit){
+        return Reports.find({isValidated: validated, category: category}, { limit: limit, sort: { createdAt: -1}, fields: fields});
     });
 
     Meteor.publish('reports.findOne', function reportsPublication(rId, fields){
@@ -149,10 +149,6 @@ Meteor.methods({
         }, function(err, res){
             if(err){
                 console.log(err.reason);
-            } else {
-                console.log(res);
-                let re = Reports.findOne(res);
-                console.log(re);
             }
         });
         console.log(brukerId);

@@ -7,7 +7,7 @@ export default class ShowImg extends Component {
 
     render() {
         return (
-            <Image src={this.props.img} relative/>
+            <Image src={this.props.img}/>
         );
     }
 }

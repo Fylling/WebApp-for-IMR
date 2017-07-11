@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ButtonToolbar, Checkbox, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
-import {Loading_feedback} from '../components/Loading_feedback.jsx';
+import {Loading_feedback} from '../Loading_feedback.jsx';
 
 
 //Representerer en liste over hver eneste rapport som ligger i databasen

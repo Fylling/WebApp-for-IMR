@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import {PageHeader, Grid, Row} from 'react-bootstrap';
 import {createContainer} from 'meteor/react-meteor-data';
+import i18n from 'meteor/universe:i18n';
 
 import ReportListing from '../components/ReportList/ReportListing.jsx';
 import {Reports, remote} from '../../api/reports.js';
 import {Loading_feedback} from '../components/Loading_feedback.jsx';
 import ShowMoreBtn from '../components/ReportList/ShowMoreBtn.jsx';
 import ShowMoreDropDown from '../components/ReportList/ShowMoreDropDown.jsx';
+
+const T = i18n.createComponent();
+
 
 //Controller klassen som henter info fra databasen
 class List extends Component {
@@ -29,14 +33,17 @@ class List extends Component {
     }
 
     isValidated() {
-        return localStorage.getItem('validated') === 'true' ? "validerte" : "uvaliderte";
+        return localStorage.getItem('validated') === 'true' ?
+            <T>common.list.valid</T> : <T>common.list.inValid</T>;
     }
 
     headerText() {
+        let textStyle = { display: 'inline' };
+        
         if (FlowRouter.getParam('category') === "Alle") {
-            return ("alle " + this.isValidated());
+            return (<div style={textStyle}><T>common.list.all</T> {this.isValidated()}</div>);
         } else {
-            return (this.isValidated() + " " + FlowRouter.getParam('category').toLowerCase())
+            return (<div style={textStyle}>{this.isValidated()} {FlowRouter.getParam('category').toLowerCase()}</div>)
         }
     }
 
@@ -51,10 +58,12 @@ class List extends Component {
                 <Grid className="pageContainer">
                     <Row>
                         <PageHeader>
-                            <p>
-                                Liste av {this.headerText()} rapporter
+                            <div>
+                                <p>
+                                    <T>common.list.list</T> {this.headerText()} <T>common.list.reports</T>
+                                </p>
                                 <ShowMoreDropDown/>
-                            </p>
+                            </div>
                         </PageHeader>
 
                         {this.renderReports()}
@@ -77,7 +86,7 @@ export default ListContainer = createContainer(() => {
     let selector;
     let options;
     let fields = {"text": 1, "user": 1, "isValidated": 1,
-        "checkedOut": 1, "scientist": 1, "category": 1};
+        "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1};
     let localLimit = parseInt(localStorage.getItem('limit'));
     let sessionLimit = Session.get('limit');
     let limit = sessionLimit < localLimit ? localLimit : sessionLimit;

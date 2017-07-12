@@ -18,6 +18,10 @@ import Markers from '../imports/ui/components/GoogleMaps/markers.jsx';
 export const remote = DDP.connect('http://172.16.251.182:3030/');
 export const Reports = new Mongo.Collection('reports');
 
+export const adminPageFields = {"text": 1, "user": 1, "isValidated": 1,
+    "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1};
+
+
 if (Meteor.isServer) {
     //This code only runs on the server
     Meteor.publish('reports', function reportsPublication(limit, fields) {
@@ -40,11 +44,13 @@ if (Meteor.isServer) {
     });
 
     Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit){
-        return Reports.find({isValidated: validated}, { limit: limit, sort: { createdAt: -1}, fields: fields});
+        return Reports.find({isValidated: validated}, { limit: limit, sort: { createdAt: -1},
+            fields: adminPageFields});
     });
 
     Meteor.publish('reports.adminPageListWithCategory', function reportsPublication(category, validated, fields, limit){
-        return Reports.find({isValidated: validated, category: category}, { limit: limit, sort: { createdAt: -1}, fields: fields});
+        return Reports.find({isValidated: validated, category: category}, { limit: limit, sort: { createdAt: -1},
+            fields: adminPageFields});
     });
 
     Meteor.publish('reports.findOne', function reportsPublication(rId, fields){

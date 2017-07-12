@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import { Meteor } from 'meteor/meteor';
+import i18n from 'meteor/universe:i18n';
 
 import {Navbar, Nav, NavItem, NavbarBrand, NavDropdown, MenuItem } from 'react-bootstrap';
 import {IsLoggedIn} from '../../../../lib/helpers.jsx';
 
 import ValidatedReportsDropDown from './validatedReportsDropDown.jsx';
+import FlagBtn from './flagbtn.jsx';
+
+const T = i18n.createComponent();
 
 export default class header extends Component{
     constructor(props){
@@ -56,21 +60,24 @@ export default class header extends Component{
             <Navbar>
                 <Navbar.Header>
                     <NavbarBrand>
-                        <a href="/">IMR</a>
+                        <a>IMR</a>
                     </NavbarBrand>
                 </Navbar.Header>
                 <Nav>
-                    {IsLoggedIn() ? <NavItem onClick={this.handleLogout.bind(this)}>Logout</NavItem> : <NavItem eventKey={1} href="/login">Login</NavItem>}
+                    {IsLoggedIn() ? <NavItem onClick={this.handleLogout.bind(this)}><T>common.navbar.logout</T></NavItem> :
+                        <NavItem eventKey={1} href="/login"><T>common.loginform.Login</T></NavItem>}
                     {
-                        IsLoggedIn() ? <NavDropdown title="Uvaliderte Rapporter" id="report-category-dropdown">
-                            <MenuItem onClick={this.unValidatedFishReports.bind(this)}>Fiske art rapporter</MenuItem>
-                            <MenuItem onClick={this.unValidatedCoralReports.bind(this)}>Koral rapporter</MenuItem>
-                            <MenuItem onClick={this.unValidatedUnknownReports.bind(this)}>Fremmed art rapporter</MenuItem>
-                            <MenuItem onClick={this.unValidatedAllReports.bind(this)}>Se alle rapporter</MenuItem>
+                        IsLoggedIn() ? <NavDropdown title={<T>common.navbar.inValid</T>} id="report-category-dropdown">
+                            <MenuItem onClick={this.unValidatedFishReports.bind(this)}><T>common.navbar.fishSpecies</T></MenuItem>
+                            <MenuItem onClick={this.unValidatedCoralReports.bind(this)}><T>common.navbar.coralSpecies</T></MenuItem>
+                            <MenuItem onClick={this.unValidatedUnknownReports.bind(this)}><T>common.navbar.unknownSpecies</T></MenuItem>
+                            <MenuItem onClick={this.unValidatedAllReports.bind(this)}><T>common.navbar.seeReports</T></MenuItem>
                         </NavDropdown> : null
                     }
 
                     {IsLoggedIn() ? <ValidatedReportsDropDown/> : null}
+
+                    {IsLoggedIn() ? <FlagBtn/> : null}
                 </Nav>
 
             </Navbar>

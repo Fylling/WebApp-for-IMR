@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
+import i18n from 'meteor/universe:i18n';
+
+const T = i18n.createComponent();
 
 const style = {
     color: '#ffffff',
@@ -19,15 +22,15 @@ export default class ShowMoreDropDown extends Component {
     render() {
         return (
             <div>
-                <DropdownButton id="Viss flere rapporter" title="Viss flere">
+                <DropdownButton id="Viss flere rapporter" title={<T>common.showMoreBtnDrpDwn.showMore</T>}>
                     <MenuItem id="Show 20 report" eventKey="1" onClick={this.setShowLimit.bind(this, 10)}>
-                        Viss 10
+                        <T>common.showMoreBtnDrpDwn.showTen</T>
                     </MenuItem>
                     <MenuItem id="Show 50 report" eventKey="2" onClick={this.setShowLimit.bind(this, 50)}>
-                        Viss 50
+                        <T>common.showMoreBtnDrpDwn.showFifty</T>
                     </MenuItem>
                     <MenuItem id="Show 100 report" eventKey="3" onClick={this.setShowLimit.bind(this, 100)}>
-                        Viss 100
+                        <T>common.showMoreBtnDrpDwn.showHundred</T>
                     </MenuItem>
                 </DropdownButton>
             </div>

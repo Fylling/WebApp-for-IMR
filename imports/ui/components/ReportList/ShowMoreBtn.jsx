@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Button, Panel, ListGroupItem, ButtonGroup} from 'react-bootstrap';
+import i18n from 'meteor/universe:i18n';
+
+const T = i18n.createComponent();
 
 const style = {
     color: '#ffffff',
@@ -21,7 +24,7 @@ export default class ShowMoreBtn extends Component {
             <div>
                 <ButtonGroup vertical block>
                     <Button style={style} onClick={this.setShowMoreBtn.bind(this)}>
-                        Viss flere
+                        <T>common.showMoreBtnDrpDwn.showMore</T>
                     </Button>
                 </ButtonGroup>
                 <br/><br/>

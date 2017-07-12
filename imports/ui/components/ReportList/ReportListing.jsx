@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { ButtonToolbar, Checkbox, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import i18n from 'meteor/universe:i18n';
+
 import {Loading_feedback} from '../Loading_feedback.jsx';
 
+const T = i18n.createComponent();
 
 //Representerer en liste over hver eneste rapport som ligger i databasen
 export default class ReportListing extends Component {
@@ -62,10 +65,12 @@ export default class ReportListing extends Component {
 
                     <ListGroup>
                         <ListGroupItem header={this.props.report.text}> {/*sendt inn av {this.props.report.user}*/}
-                            <strong>Sendt inn av: </strong>
+                            <strong><T>common.reportListing.submittedBy</T></strong>
                             {this.props.report.user}
                             <ButtonToolbar>
-                                <Checkbox onChange={this.toggleCheckedOut.bind(this)}>Sjekk ut</Checkbox>
+                                <Checkbox onChange={this.toggleCheckedOut.bind(this)}>
+                                    <T>common.reportListing.checkOut</T>
+                                </Checkbox>
                             </ButtonToolbar>
                         </ListGroupItem>
                     </ListGroup>
@@ -74,17 +79,21 @@ export default class ReportListing extends Component {
                 return (
                     <ListGroup>
                         <ListGroupItem header={this.props.report.text}>
-                            {!this.props.report.isValidated ? "Denne jobbes med nå av en annen forsker." : <p> Denne rapporten er ferdig validert. </p> }
+                            <p>{!this.props.report.isValidated ? <T>common.reportListing.diffScientistWorking</T> :
+                                <T>common.reportListing.reportValid</T> }</p>
                                 {(!this.showSeRapport())?
                                     ''
                                     :
                                     <ButtonToolbar>
 
                                         {!this.props.report.isValidated ?
-                                        <Checkbox checked="true" onChange={this.toggleCheckedOut.bind(this)}>Gå
-                                            tilbake</Checkbox> : null }
+                                        <Checkbox checked="true" onChange={this.toggleCheckedOut.bind(this)}>
+                                            <T>common.reportListing.goBack</T>
+                                        </Checkbox> : null }
                                         <Button className="checkOut" bsStyle="primary" bsSize="xsmall"
-                                                onClick={this.openReport.bind(this)}>Se rapport</Button>
+                                                onClick={this.openReport.bind(this)}>
+                                            <T>common.reportListing.seeReport</T>
+                                        </Button>
                                     </ButtonToolbar>
                                 }
                         </ListGroupItem>

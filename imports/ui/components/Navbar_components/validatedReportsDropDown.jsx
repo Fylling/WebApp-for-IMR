@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
+import i18n from 'meteor/universe:i18n';
 
 import { NavDropdown, MenuItem } from 'react-bootstrap';
 import {IsLoggedIn} from '../../../../lib/helpers.jsx';
+
+const T = i18n.createComponent();
 
 export default class ValidatedReportsDropDown extends Component {
     constructor(props) {
@@ -36,11 +39,11 @@ export default class ValidatedReportsDropDown extends Component {
 
     render() {
         return (
-                <NavDropdown title="Validerte Rapporter" id="report-category-dropdown">
-                        <MenuItem onClick={this.validatedFishReports.bind(this)}>Fiske art rapporter</MenuItem>
-                        <MenuItem onClick={this.validatedCoralReports.bind(this)}>Koral rapporter</MenuItem>
-                        <MenuItem onClick={this.validatedUnknownReports.bind(this)}>Fremmed art rapporter</MenuItem>
-                        <MenuItem onClick={this.validatedAllReports.bind(this)}>Se alle rapporter</MenuItem>
+                <NavDropdown title={<T>common.navbar.valid</T>} id="report-category-dropdown">
+                        <MenuItem onClick={this.validatedFishReports.bind(this)}><T>common.navbar.fishSpecies</T></MenuItem>
+                        <MenuItem onClick={this.validatedCoralReports.bind(this)}><T>common.navbar.coralSpecies</T></MenuItem>
+                        <MenuItem onClick={this.validatedUnknownReports.bind(this)}><T>common.navbar.unknownSpecies</T></MenuItem>
+                        <MenuItem onClick={this.validatedAllReports.bind(this)}><T>common.navbar.seeReports</T></MenuItem>
                 </NavDropdown>
         )
     }

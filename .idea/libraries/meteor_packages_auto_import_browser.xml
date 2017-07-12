@@ -176,6 +176,11 @@
         <item url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/throw-compile-error.js" />
         <item url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/code-generation.js" />
         <item url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.2.0/web.browser/check-npm-versions.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/client/api.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/lib/i18n.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/lib/locales.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/lib/utilities.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/builder.js" />
         <item url="file://$USER_HOME$/.meteor/packages/id-map/1.0.9/web.browser/id-map.js" />
         <item url="file://$USER_HOME$/.meteor/packages/jquery/1.11.10/web.browser/jquery.js" />
         <item url="file://$USER_HOME$/.meteor/packages/jquery/1.11.10/web.browser/main.js" />
@@ -397,6 +402,11 @@
       <root url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/throw-compile-error.js" />
       <root url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/code-generation.js" />
       <root url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.2.0/web.browser/check-npm-versions.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/client/api.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/lib/i18n.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/lib/locales.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/lib/utilities.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/universe_i18n/1.14.0/web.browser/builder.js" />
       <root url="file://$USER_HOME$/.meteor/packages/id-map/1.0.9/web.browser/id-map.js" />
       <root url="file://$USER_HOME$/.meteor/packages/jquery/1.11.10/web.browser/jquery.js" />
       <root url="file://$USER_HOME$/.meteor/packages/jquery/1.11.10/web.browser/main.js" />

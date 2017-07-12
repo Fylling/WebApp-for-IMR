@@ -1,22 +1,14 @@
-import React, {Component, PropTypes} from 'react';
-import {Meteor} from 'meteor/meteor';
+import React, {Component} from 'react';
 import {Random} from 'meteor/random';
 import {
-    ButtonGroup,
-    Modal,
-    Button,
     Row,
-    FormControl,
-    FormGroup,
-    ControlLabel,
-    ListGroupItem,
-    ListGroup,
     Carousel,
     CarouselItem,
     Grid,
     PageHeader
 } from 'react-bootstrap';
 import {createContainer} from 'meteor/react-meteor-data';
+import i18n from 'meteor/universe:i18n';
 
 import {Reports, remote} from '/imports/api/reports.js';
 import ShowImg from '../components/viewReport_components/ShowImg.jsx';
@@ -24,6 +16,8 @@ import MyMap from '../components/GoogleMaps/MyMap.jsx';
 import ViewReport_info from '../components/viewReport_components/ViewReport_info.jsx';
 import ViewReport_confirm from '../components/viewReport_components/ViewReport_confirm';
 import {Loading_feedback} from '../components/Loading_feedback.jsx';
+
+const T = i18n.createComponent();
 
 //Representerer en liste over hver eneste rapport som ligger i databasen
 class ViewReport extends Component {
@@ -50,7 +44,7 @@ class ViewReport extends Component {
                 <Grid className="pageContainer">
                     <Row>
                         <PageHeader>
-                            Rapport
+                            <T>common.viewReport.report</T>
                         </PageHeader>
                     </Row>
                     <Row className="simpleReportContainer">
@@ -71,9 +65,9 @@ class ViewReport extends Component {
 
         } else {
             return (
-                    <div>
-                        <Loading_feedback/>
-                    </div>
+                <div>
+                    <Loading_feedback/>
+                </div>
             );
         }
     }

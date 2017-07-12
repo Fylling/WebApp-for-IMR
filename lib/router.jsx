@@ -1,6 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 import {Meteor} from 'meteor/meteor';
+import i18n from 'meteor/universe:i18n';
 
 import { MainLayout } from '../imports/ui/pages/MainLayout.jsx';
 import Header from '../imports/ui/components/Navbar_components/navbar.jsx'
@@ -13,6 +14,9 @@ import MyMap from '../imports/ui/components/GoogleMaps/MyMap.jsx';
 
 if(Meteor.isClient) {
     Meteor.startup(function () {
+        i18n.setLocale('en-US');
+        i18n.getLocale();
+        console.log(i18n.getLocale());
         console.log("GoogleMaps loading");
         GoogleMaps.load({key: 'AIzaSyD1qlkvidSHsU8eqUTUjQ-KVD_nPI8uCRg'});
         console.log("Googlemaps loaded");

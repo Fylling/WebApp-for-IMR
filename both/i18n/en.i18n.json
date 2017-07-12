@@ -1,0 +1,62 @@
+{
+  "_locale": "en-US",
+  "_namespace": "common",
+  "navbar": {
+    "Logout": "Log out",
+    "inValid": "Unvalidated reports",
+    "valid": "Validated reports",
+    "fishSpecies": "Fish species",
+    "coralSpecies": "Coral species",
+    "unknownSpecies": "Unknown species",
+    "seeReports": "See all reports",
+    "logout": "Log out"
+  },
+
+  "loginform": {
+    "Login": "Login",
+    "Email": "Enter email...",
+    "Password": "Enter password...",
+    "ForgotPassword": "Forgot Password?"
+  },
+
+  "list": {
+    "list" : "List off ",
+    "valid" : " validated ",
+    "inValid" : " unvalidated ",
+    "reports" : " reports ",
+    "all" : "all"
+  },
+
+  "reportListing": {
+    "diffScientistWorking": "A different scientist is currently working on this one.",
+    "reportValid": "This report has been validated",
+    "goBack": "Go back",
+    "seeReport": "See report",
+    "submittedBy": "Submitted by: ",
+    "checkOut": "Check out"
+  },
+
+  "showMoreBtnDrpDwn": {
+    "showMore": "Show more",
+    "showTen": "Show 10",
+    "showFifty": "Show 50",
+    "showHundred": "Show 100"
+  },
+
+  "viewReport_info": {
+    "user": "User: ",
+    "species": "Species: ",
+    "date": "Date: ",
+    "latitude": "latitude: ",
+    "longitude": "longitude: ",
+    "amount": "Amount: ",
+    "depth": "Depth: ",
+    "length": "Length: ",
+    "feedback": "feedback: "
+  },
+
+  "viewReport": {
+    "report": "Report"
+  }
+
+}

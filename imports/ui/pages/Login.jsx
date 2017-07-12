@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
+import i18n from 'meteor/universe:i18n';
+
+const T = i18n.createComponent();
 
 import { Button, FormGroup, FormControl} from 'react-bootstrap';
 
@@ -33,27 +36,28 @@ export default class Login extends Component {
 
 
     render () {
+
         return (
             <div className="container">
                 <div>
-                    <h1>Login</h1>
+                    <h1><T>common.loginform.Login</T></h1>
                     <form onSubmit={ this.handleSubmit }>
                         <FormGroup>
                         <FormControl
                                 id="Email"
                                 type="email"
                                 label="Email address"
-                                placeholder="Enter email..."
+                                placeholder={i18n.__('common.loginform.Email')}
                         />
                         <FormControl
                             id="Password"
                             type="password"
                             label="Admin password"
-                            placeholder="Enter password..."
+                            placeholder={i18n.__('common.loginform.Password')}
                         />
 
                         </FormGroup>
-                        <button type="submit" value="Login" >Logg inn</button>
+                        <button type="submit" value="Login" ><T>common.loginform.Login</T></button>
                     </form>
 
                 </div>

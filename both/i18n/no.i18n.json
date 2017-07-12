@@ -1,0 +1,62 @@
+{
+  "_locale": "nb-NO",
+  "_namespace": "common",
+  "navbar": {
+    "Logout": "Logg ut",
+    "inValid": "Uvaliderte Rapporter",
+    "valid": "Validerte Rapporter",
+    "fishSpecies": "Fiske art",
+    "coralSpecies": "Koral art",
+    "unknownSpecies": "Fremmed art",
+    "seeReports": "Se alle rapporter",
+    "logout": "Logg ut"
+  },
+
+  "loginform": {
+    "Login": "Logg inn",
+    "Email": "Skriv inn email...",
+    "Password": "Skriv inn passord...",
+    "ForgotPassword": "Forgot Password?"
+  },
+
+  "list": {
+    "list" : "Liste av ",
+    "valid" : " validerte ",
+    "inValid" : " uvaliderte ",
+    "reports" : " rapporter ",
+    "all" : "alle"
+  },
+
+  "reportListing": {
+    "diffScientistWorking": "Denne jobbes med nå av en annen forsker.",
+    "reportValid": "Denne rapporten er ferdig validert.",
+    "goBack": "Gå tilbake",
+    "seeReport": "Se rapport",
+    "submittedBy": "Sendt inn av: ",
+    "checkOut": "Sjekk ut"
+  },
+
+  "showMoreBtnDrpDwn": {
+    "showMore": "Viss flere",
+    "showTen": "Viss 10",
+    "showFifty": "Viss 50",
+    "showHundred": "Viss 100"
+  },
+
+  "viewReport_info": {
+    "user": "Bruker: ",
+    "species": "Art: ",
+    "date": "Dato: ",
+    "latitude": "Breddegrad: ",
+    "longitude": "Lengdegrad: ",
+    "amount": "Antall: ",
+    "depth": "Dybde: ",
+    "length": "Lengde: ",
+    "feedback": "Tilbakemelding: "
+  },
+
+  "viewReport": {
+    "report": "Rapport"
+  }
+
+}

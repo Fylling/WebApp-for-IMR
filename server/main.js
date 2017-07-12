@@ -9,6 +9,7 @@ import { Accounts } from 'meteor/accounts-base';
 //Sjekk om det finst en adminbruker, opprett en visst ikke.
 Meteor.startup(() => {
 
+    //process.env.UNIVERSE_I18N_LOCALES = 'nb-NO';
    if(Meteor.users.find().count() === 0) {
        Accounts.createUser({
            email: "example@mail.com",

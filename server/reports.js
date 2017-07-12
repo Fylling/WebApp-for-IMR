@@ -10,6 +10,7 @@ import { check } from 'meteor/check';
 import { Accounts } from 'meteor/accounts-base';
 import { Email } from 'meteor/email';
 import { DDP } from 'meteor/ddp-client';
+import i18n from 'meteor/universe:i18n';
 
 import Markers from '../imports/ui/components/GoogleMaps/markers.jsx';
 //import newReportValidated from './router.jsx';

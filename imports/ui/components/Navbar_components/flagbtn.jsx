@@ -8,14 +8,21 @@ export default class FlagBtn extends Component {
     constructor(props){
         super(props);
         this.state = {
-            flag: "/norway_flag_icon.png"
+            flag: localStorage.getItem('language') === 'en-US' ?
+                "/united_kingdom_flag_icon.png" : "/norway_flag_icon.png"
         }
     }
 
     changeLanguage(){
         console.log("In change langauge");
-        i18n.getLocale() === 'en-US' ? i18n.setLocale('nb-NO') : i18n.setLocale('en-US');
+        i18n.getLocale() === 'en-US' ? this.setLanguage('nb-NO') :
+            this.setLanguage('en-US');
         this.showFlag();
+    }
+
+    setLanguage(locale){
+        i18n.setLocale(locale);
+        localStorage.setItem('language', locale);
     }
 
     showFlag(){

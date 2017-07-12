@@ -14,12 +14,19 @@ import MyMap from '../imports/ui/components/GoogleMaps/MyMap.jsx';
 
 if(Meteor.isClient) {
     Meteor.startup(function () {
-        i18n.setLocale('en-US');
-        i18n.getLocale();
-        console.log(i18n.getLocale());
-        console.log("GoogleMaps loading");
+
+
+        process.UNIVERSE_I18N_LOCALES='all';
+        //process.env.UNIVERSE_I18N_LOCALES = 'nb-NO';
+        if(localStorage.getItem('language')){
+            i18n.setLocale(localStorage.getItem('language'))
+        } else {
+            i18n.setLocale('nb-NO')
+        }
+        console.log("Here are all languages");
+        console.log(i18n.getLanguages());
+
         GoogleMaps.load({key: 'AIzaSyD1qlkvidSHsU8eqUTUjQ-KVD_nPI8uCRg'});
-        console.log("Googlemaps loaded");
 
     });
 }

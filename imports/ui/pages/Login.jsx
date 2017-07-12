@@ -36,7 +36,7 @@ export default class Login extends Component {
 
 
     render () {
-
+        console.log(i18n.__('common.loginform.Email'));
         return (
             <div className="container">
                 <div>
@@ -46,13 +46,13 @@ export default class Login extends Component {
                         <FormControl
                                 id="Email"
                                 type="email"
-                                label="Email address"
+                                label={i18n.__('common.loginform.Email')}
                                 placeholder={i18n.__('common.loginform.Email')}
                         />
                         <FormControl
                             id="Password"
                             type="password"
-                            label="Admin password"
+                            label={i18n.__('common.loginform.Password')}
                             placeholder={i18n.__('common.loginform.Password')}
                         />
 

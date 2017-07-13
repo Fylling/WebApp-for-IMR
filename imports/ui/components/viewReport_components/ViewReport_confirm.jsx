@@ -51,6 +51,7 @@ export default class ViewReport_confirm extends Component {
     handleFeedback() {
 
         let feedback = document.getElementById('feedback').value.trim();
+
         if (feedback === "") {
             this.setState({
                 alertVisible: true,

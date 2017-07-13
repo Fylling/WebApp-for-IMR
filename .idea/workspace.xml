@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a8ecf29-d97c-44c9-8115-3423f847a03b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/helpMethods.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_07_17_15_18__Default_.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/components/Navbar_components/flagbtn.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Navbar_components/flagbtn.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/pages/Login.jsx" afterPath="$PROJECT_DIR$/imports/ui/pages/Login.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/router.jsx" afterPath="$PROJECT_DIR$/lib/router.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main.js" afterPath="$PROJECT_DIR$/server/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/pages/List.jsx" afterPath="$PROJECT_DIR$/imports/ui/pages/List.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/reports.js" afterPath="$PROJECT_DIR$/server/reports.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -55,7 +59,7 @@
               <entry file="file://$PROJECT_DIR$/imports/ui/pages/viewReport.jsx">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="320">
-                    <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+                    <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
                     <folding>
                       <element signature="e#0#39#0" expanded="true" />
                     </folding>
@@ -63,11 +67,11 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="List.jsx" pinned="false" current-in-tab="false">
+            <file leaf-file-name="List.jsx" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/imports/ui/pages/List.jsx">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="700">
-                    <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+                  <state relative-caret-position="596">
+                    <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
                     <folding>
                       <element signature="e#0#39#0" expanded="true" />
                     </folding>
@@ -75,11 +79,11 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="flagbtn.jsx" pinned="false" current-in-tab="true">
+            <file leaf-file-name="flagbtn.jsx" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/flagbtn.jsx">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="520">
-                    <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+                  <state relative-caret-position="420">
+                    <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
                     <folding>
                       <element signature="e#0#39#0" expanded="true" />
                     </folding>
@@ -91,7 +95,7 @@
               <entry file="file://$PROJECT_DIR$/imports/ui/pages/Login.jsx">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="840">
-                    <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+                    <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
                     <folding>
                       <element signature="e#0#41#0" expanded="true" />
                     </folding>
@@ -107,11 +111,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="reports.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="reports.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/reports.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="2833">
+              <caret line="196" column="6" lean-forward="false" selection-start-line="196" selection-start-column="6" selection-end-line="196" selection-end-column="6" />
               <folding>
                 <element signature="e#88#127#0" expanded="true" />
               </folding>
@@ -119,11 +123,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="router.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="router.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/router.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="24" selection-end-column="9" />
+            <state relative-caret-position="520">
+              <caret line="26" column="41" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -145,8 +159,40 @@
         <entry file="file://$PROJECT_DIR$/both/i18n/en.i18n.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
-              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+              <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewReport_confirm.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-60">
+              <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReportListing.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/ReportList/ReportListing.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,36 +208,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>login</find>
-      <find>fields</find>
-      <find>adminPageFields</find>
-      <find>pagetext</find>
-      <find>pageText</find>
-      <find>listTextDoc</find>
-      <find>checkedout</find>
-      <find>console.log</find>
-      <find>setl</find>
-      <find>i</find>
-      <find>i18</find>
-      <find>this</find>
-      <find>i18n</find>
-      <find>console</find>
-      <find>locale</find>
-      <find>loca</find>
-      <find>e</find>
-      <find>l</find>
-      <find>localsto</find>
-      <find>localstor</find>
-      <find>localstorage</find>
-      <find>s</find>
-      <find>se</find>
-      <find>setlo</find>
-      <find>setloca</find>
-      <find>setlocal</find>
-      <find>setlocale</find>
-      <find>setLocaleAndLocalStorage</find>
-      <find>updatefeed</find>
+      <find>reports.k</find>
+      <find>reports.</find>
+      <find>reports.j</find>
       <find>viss</find>
+      <find>limit</find>
+      <find>brukerid</find>
+      <find>reports.js</find>
+      <find>i</find>
+      <find>i128n</find>
+      <find>i128</find>
+      <find>i12</find>
+      <find>i1</find>
+      <find>i18</find>
+      <find>i18n</find>
+      <find>i18n.</find>
+      <find>i18n._</find>
+      <find>i18n.__</find>
+      <find>.</find>
+      <find>.bin</find>
+      <find>.bind</find>
+      <find>.bind(</find>
+      <find>.bind(thi</find>
+      <find>.bind(this</find>
+      <find>.bind(this)</find>
+      <find>feedback</find>
+      <find>rem</find>
+      <find>remote</find>
+      <find>remote.</find>
+      <find>remote.cal</find>
+      <find>remote.call</find>
     </findStrings>
     <replaceStrings>
       <replace>this.props.report</replace>
@@ -220,8 +266,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/main.html" />
-        <option value="$PROJECT_DIR$/imports/startup/server/accounts-config.js" />
         <option value="$PROJECT_DIR$/imports/ui/pages/Home.jsx" />
         <option value="$PROJECT_DIR$/lib/User.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/FullTask.jsx" />
@@ -246,7 +290,6 @@
         <option value="$PROJECT_DIR$/imports/ui/components/TaskList.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/SimpleTask.jsx" />
         <option value="$PROJECT_DIR$/imports/api/reports.js" />
-        <option value="$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx" />
         <option value="$PROJECT_DIR$/imports/api/tasks.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/Loading_feedback.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/GoogleMaps/MyMap.jsx" />
@@ -254,7 +297,6 @@
         <option value="$PROJECT_DIR$/imports/ui/components/ReportListing.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/viewReport_components/ShowImg.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/temp/i18nTest.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/pages/List.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Navbar_components/validatedReportsDropDown.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/ReportList/ReportListing.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/ReportList/ShowMoreBtn.jsx" />
@@ -263,14 +305,18 @@
         <option value="$PROJECT_DIR$/imports/ui/pages/viewReport.jsx" />
         <option value="$PROJECT_DIR$/both/i18n/no.i18n.json" />
         <option value="$PROJECT_DIR$/both/i18n/en.i18n.json" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/Login.jsx" />
         <option value="$PROJECT_DIR$/server/both/i18n/no.i18n.json" />
-        <option value="$PROJECT_DIR$/server/reports.js" />
         <option value="$PROJECT_DIR$/server/both/i18n/en.i18n.json" />
         <option value="$PROJECT_DIR$/imports/ui/components/Navbar_components/flagbtn.jsx" />
         <option value="$PROJECT_DIR$/server/main.js" />
         <option value="$PROJECT_DIR$/lib/router.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/pages/List.jsx" />
+        <option value="$PROJECT_DIR$/server/helpMethodfs.js" />
+        <option value="$PROJECT_DIR$/server/helpMethods.js" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx" />
+        <option value="$PROJECT_DIR$/server/reports.js" />
       </list>
     </option>
   </component>
@@ -286,9 +332,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="18" />
-    <option name="width" value="1008" />
-    <option name="height" value="1149" />
+    <option name="y" value="-3" />
+    <option name="width" value="1920" />
+    <option name="height" value="1170" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -1050,14 +1096,21 @@
       <option name="project" value="LOCAL" />
       <updated>1499851850782</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Små ting">
+      <created>1499870865953</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1499870865953</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="383734000" />
+    <option name="totallyTimeSpent" value="397230000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="18" width="1008" height="1149" extended-state="4" />
+    <frame x="0" y="-3" width="1920" height="1170" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1066,8 +1119,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22135922" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29784825" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20582524" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2900208" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14843006" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16595517" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291262" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32815534" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1167,7 +1220,8 @@
     <MESSAGE value="Lagt til limit i adminpage sin liste. Sortering ser ut til å komme i feil rekkefølge" />
     <MESSAGE value="i18n har blitt implementer, må bare legge til knapp" />
     <MESSAGE value="i18n er implementert, knapp er også med (i egen klasse/komponent)" />
-    <option name="LAST_COMMIT_MESSAGE" value="i18n er implementert, knapp er også med (i egen klasse/komponent)" />
+    <MESSAGE value="Små ting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Små ting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1176,23 +1230,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="44" column="15" lean-forward="false" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/tasks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/pages/List.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
@@ -1366,16 +1403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1103">
-          <caret line="86" column="34" lean-forward="true" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Loading_feedback.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1405,17 +1432,7 @@
         <state relative-caret-position="140">
           <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="e#45#84#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/ReportList/ReportListing.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="56" lean-forward="true" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#45#84#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1474,14 +1491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/both/i18n/no.i18n.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1501,7 +1510,7 @@
     <entry file="file://$PROJECT_DIR$/imports/ui/pages/viewReport.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+          <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -1511,18 +1520,8 @@
     <entry file="file://$PROJECT_DIR$/both/i18n/en.i18n.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding>
-            <element signature="e#43#82#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1537,49 +1536,101 @@
     <entry file="file://$PROJECT_DIR$/imports/ui/pages/Login.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
-          <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+          <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/List.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/flagbtn.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+        <state relative-caret-position="420">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/reports.js">
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/List.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="596">
+          <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
           <folding>
-            <element signature="e#88#127#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/helpMethodfs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/router.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="24" selection-end-column="9" />
+        <state relative-caret-position="520">
+          <caret line="26" column="41" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="41" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/flagbtn.jsx">
+    <entry file="file://$PROJECT_DIR$/server/helpMethods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!doc;n#validateNr#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/ReportList/ReportListing.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/reports.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2833">
+          <caret line="196" column="6" lean-forward="false" selection-start-line="196" selection-start-column="6" selection-end-line="196" selection-end-column="6" />
+          <folding>
+            <element signature="e#88#127#0" expanded="true" />
           </folding>
         </state>
       </provider>

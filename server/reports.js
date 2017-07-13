@@ -10,10 +10,8 @@ import { check } from 'meteor/check';
 import { Accounts } from 'meteor/accounts-base';
 import { Email } from 'meteor/email';
 import { DDP } from 'meteor/ddp-client';
-import i18n from 'meteor/universe:i18n';
 
 import Markers from '../imports/ui/components/GoogleMaps/markers.jsx';
-//import newReportValidated from './router.jsx';
 
 //Reports komponent - her ligger alle rapportene lagret
 export const remote = DDP.connect('http://172.16.251.182:3030/');
@@ -22,10 +20,18 @@ export const Reports = new Mongo.Collection('reports');
 export const adminPageFields = {"text": 1, "user": 1, "isValidated": 1,
     "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1};
 
+Reports.deny({
+    insert() { return true; },
+    update() { return true; },
+    remove() { return true; },
+});
 
 if (Meteor.isServer) {
     //This code only runs on the server
     Meteor.publish('reports', function reportsPublication(limit, fields) {
+        if(limit < 0){
+            limit = 10;
+        }
         return Reports.find({ owner: this.userId }, {sort: {createdAt: -1}, fields: fields,
             limit: limit });
     });
@@ -35,21 +41,24 @@ if (Meteor.isServer) {
     });
 
     Meteor.publish('reports.reportingToolList', function reportsPublication( fields, userId, limit ){
+        if(limit < 0){
+            limit = 10;
+        }
         return Reports.find({owner: userId}, {sort: { createdAt: -1}, limit: limit, fields: fields});
     });
 
-    Meteor.publish('reports.test2', function reportsPublication(userId, fields) {
-        console.log("Her kommer bruker id");
-        console.log(userId);
-        return Reports.find({owner: userId}, {sort: { createdAt: -1}, fields: fields});
-    });
-
     Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit){
+        if(limit < 0){
+            limit = 10;
+        }
         return Reports.find({isValidated: validated}, { limit: limit, sort: { createdAt: -1},
             fields: adminPageFields});
     });
 
     Meteor.publish('reports.adminPageListWithCategory', function reportsPublication(category, validated, fields, limit){
+        if(limit < 0){
+            limit = 10;
+        }
         return Reports.find({isValidated: validated, category: category}, { limit: limit, sort: { createdAt: -1},
             fields: adminPageFields});
     });
@@ -104,19 +113,30 @@ Meteor.methods({
 
     'reports.insert'(titelText, /*substrartInput,*/ lengdeNr, img, posLat, posLong,
                      depthInput, amountInput, markerId, useCurrPos, category, date, mail, brukerId){
-        /*check(titelText, String);
+        check(titelText, String);
         check(img, [String]);
-        check(lengdeNr, Number);
+        //check(lengdeNr, Number);
         check(posLat, Number);
         check(posLong, Number);
-        check(depthInput, Number);
-        check(amountInput, Number);
-        check(markerId, String);
+        //check(depthInput, Number);
+        //check(amountInput, Number);
+        //check(markerId, String);
         check(useCurrPos, Boolean);
         check(category, String);
-        check(date, Date);
         check(mail, String);
-        check(brukerId, String);*/
+        check(brukerId, String);
+
+        if(lengdeNr){ check(lengdeNr, Number); }
+        if(depthInput){ check(depthInput, Number); }
+        if(amountInput){ check(amountInput, Number); }
+        if(markerId){ check(markerId, String); }
+
+        if(!date){
+            date = new Date();
+            console.log(date);
+        } else {
+            check(date, String);
+        }
 
         //Make sure user is logged in before inserting a report
         if(!brukerId){
@@ -128,10 +148,6 @@ Meteor.methods({
             Markers.update(markerId, {
                 $set: {markerCreated: true}
             });
-        }
-
-        if(!date){
-            date = new Date();
         }
 
         console.log(brukerId);
@@ -159,20 +175,6 @@ Meteor.methods({
             }
         });
         console.log(brukerId);
-
-    },
-    'reports.setChecked'(reportId, setChecked){
-        check(reportId, String);
-        check(setChecked, Boolean);
-
-        Reports.update(reportId, { $set: { checked: setChecked } });
-    },
-    'reports.update'(reportId){
-        check(reportId, String);
-
-        Reports.update(reportId, {
-            $set: {isValidated: true},
-        });
     },
 
 
@@ -187,7 +189,7 @@ Meteor.methods({
     'reports.updateFeedback'(reportId, feedback){
         check(feedback, String);
         Reports.update(reportId, {
-            $set: {reportFeedback: feedback, isValidated: true, checkedOut: false}
+            $set: {reportFeedback: feedback, isValidated: true, checkedOut: true}
         });
         /*Reports.update(reportId, {
          $set: {isValidated: true}

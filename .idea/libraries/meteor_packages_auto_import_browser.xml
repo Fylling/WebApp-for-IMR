@@ -121,6 +121,8 @@
         <item url="file://$USER_HOME$/.meteor/packages/dburles_google-maps/1.1.5/web.browser/google-maps.js" />
         <item url="file://$USER_HOME$/.meteor/packages/msavin_mongol/2.0.1/web.browser/lib/common.js" />
         <item url="file://$USER_HOME$/.meteor/packages/msavin_mongol/2.0.1/web.browser/style/Mongol.css" />
+        <item url="file://$USER_HOME$/.meteor/packages/mdg_validated-method/1.1.0/web.browser/validated-method-tests.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/mdg_validated-method/1.1.0/web.browser/validated-method.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ryanwu_please-wait/0.1.0/web.browser/lib/please-wait.js/build/please-wait.min.js" />
         <item url="file://$USER_HOME$/.meteor/packages/random/1.0.10/web.browser/deprecated.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ryanwu_please-wait/0.1.0/web.browser/lib/please-wait.js/build/please-wait.css" />
@@ -347,6 +349,8 @@
       <root url="file://$USER_HOME$/.meteor/packages/dburles_google-maps/1.1.5/web.browser/google-maps.js" />
       <root url="file://$USER_HOME$/.meteor/packages/msavin_mongol/2.0.1/web.browser/lib/common.js" />
       <root url="file://$USER_HOME$/.meteor/packages/msavin_mongol/2.0.1/web.browser/style/Mongol.css" />
+      <root url="file://$USER_HOME$/.meteor/packages/mdg_validated-method/1.1.0/web.browser/validated-method-tests.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/mdg_validated-method/1.1.0/web.browser/validated-method.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ryanwu_please-wait/0.1.0/web.browser/lib/please-wait.js/build/please-wait.min.js" />
       <root url="file://$USER_HOME$/.meteor/packages/random/1.0.10/web.browser/deprecated.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ryanwu_please-wait/0.1.0/web.browser/lib/please-wait.js/build/please-wait.css" />

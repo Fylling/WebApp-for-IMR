@@ -84,25 +84,23 @@ export default ListContainer = createContainer(() => {
     let category = FlowRouter.getParam('category');
     let validated = localStorage.getItem('validated') !== 'false';
     let selector;
-    let options;
     let fields = {"text": 1, "user": 1, "isValidated": 1,
         "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1};
     let localLimit = parseInt(localStorage.getItem('limit'));
     let sessionLimit = Session.get('limit');
     let limit = sessionLimit < localLimit ? localLimit : sessionLimit;
+    let options = {limit: limit, sort: {createdAt: -1}, fields: fields};
 
     console.log(limit);
 
     if (category === "Alle") {
         selector = {isValidated: validated};
-        options = {limit: limit, sort: {createdAt: -1}, fields: fields};
         remote.subscribe('reports.adminPageList', validated, fields, limit);
         return {
             reports: Reports.find(selector, options).fetch(),
         }
     } else {
         selector = {isValidated: validated, category: category};
-        options = {limit: limit, sort: {createdAt: -1}, fields: fields};
         remote.subscribe('reports.adminPageListWithCategory', category, validated, fields, limit);
         return {
             reports: Reports.find(selector, options).fetch(),

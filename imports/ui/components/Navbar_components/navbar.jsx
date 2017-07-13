@@ -60,7 +60,9 @@ export default class header extends Component{
             <Navbar>
                 <Navbar.Header>
                     <NavbarBrand>
-                        <a>IMR</a>
+                        <a>
+                            <img src="/imrlogo.png" height={20} width={200} alt=""/>
+                        </a>
                     </NavbarBrand>
                 </Navbar.Header>
                 <Nav>

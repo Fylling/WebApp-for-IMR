@@ -28,6 +28,7 @@ Reports.deny({
 
 if (Meteor.isServer) {
     //This code only runs on the server
+
     Meteor.publish('reports', function reportsPublication(limit, fields) {
         if(limit < 0){
             limit = 10;
@@ -79,8 +80,9 @@ if (Meteor.isServer) {
 
 //Metoder for å legge til, slette og oppdateres
 Meteor.methods({
-    'sendVerificationLink'(){
-        let userId = Meteor.userId();
+    'sendVerificationLink'(user){
+        let userId = user ? user : Meteor.userId();
+
         if(userId){
             return Accounts.sendVerificationEmail(userId);
         }

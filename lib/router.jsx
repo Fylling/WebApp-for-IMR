@@ -28,6 +28,14 @@ if(Meteor.isClient) {
 
         GoogleMaps.load({key: 'AIzaSyD1qlkvidSHsU8eqUTUjQ-KVD_nPI8uCRg'});
 
+        AdminConfig = {
+            name: 'My App',
+            adminEmails: ['sebastianfroyen@gmail.com'],
+            collections: {
+                reports: {}
+            }
+        };
+
     });
 }
 

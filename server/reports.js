@@ -112,16 +112,12 @@ Meteor.methods({
         }
     },
 
-    'reports.insert'(titelText, /*substrartInput,*/ lengdeNr, img, posLat, posLong,
+    'reports.insert'(titelText, lengdeNr, img, posLat, posLong,
                      depthInput, amountInput, useCurrPos, category, date, mail, brukerId){
         check(titelText, String);
         check(img, [String]);
-        //check(lengdeNr, Number);
         check(posLat, Number);
         check(posLong, Number);
-        //check(depthInput, Number);
-        //check(amountInput, Number);
-        //check(markerId, String);
         check(useCurrPos, Boolean);
         check(category, String);
         check(mail, String);

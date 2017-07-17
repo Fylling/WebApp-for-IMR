@@ -1445,6 +1445,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/trim-left.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/anchor.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/pad-end.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.3.1/npm/node_modules/semver/semver.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/at.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/fixed.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/sub.js" />
@@ -2222,7 +2223,6 @@
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/_an-instance.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/es6.weak-map.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/es6.math.clz32.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.2.0/npm/node_modules/semver/semver.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/es6.string.strike.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/_collection-weak.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/es7.object.lookup-getter.js" />
@@ -6594,6 +6594,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/trim-left.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/anchor.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/pad-end.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.3.1/npm/node_modules/semver/semver.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/at.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/fixed.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/fn/string/sub.js" />
@@ -7371,7 +7372,6 @@
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/_an-instance.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/es6.weak-map.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/es6.math.clz32.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.2.0/npm/node_modules/semver/semver.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/es6.string.strike.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/_collection-weak.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-compiler/6.18.2/npm/node_modules/core-js/library/modules/es7.object.lookup-getter.js" />

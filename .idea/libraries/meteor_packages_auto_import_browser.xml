@@ -92,6 +92,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/kadira_flow-router/2.12.1/web.browser/client/triggers.js" />
         <item url="file://$USER_HOME$/.meteor/packages/kadira_flow-router/2.12.1/web.browser/client/route.js" />
         <item url="file://$USER_HOME$/.meteor/packages/kadira_flow-router/2.12.1/web.browser/client/modules.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/aldeed_collection2-core/2.0.1/web.browser/collection2.js" />
         <item url="file://$USER_HOME$/.meteor/packages/es5-shim/4.6.15/web.browser/export_globals.js" />
         <item url="file://$USER_HOME$/.meteor/packages/es5-shim/4.6.15/web.browser/import_globals.js" />
         <item url="file://$USER_HOME$/.meteor/packages/es5-shim/4.6.15/web.browser/console.js" />
@@ -103,6 +104,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/client/js/helpers.coffee" />
         <item url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/client/js/slim_scroll.js" />
         <item url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/client/js/events.coffee" />
+        <item url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.3.1/web.browser/check-npm-versions.js" />
         <item url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/both/startup.coffee" />
         <item url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/both/utils.coffee" />
         <item url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/both/AdminDashboard.coffee" />
@@ -216,6 +218,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/session/1.1.7/web.browser/session.js" />
         <item url="file://$USER_HOME$/.meteor/packages/sha/1.0.9/web.browser/sha256.js" />
         <item url="file://$USER_HOME$/.meteor/packages/aldeed_simple-schema/1.3.3/web.browser/packages/aldeed_simple-schema.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/raix_eventemitter/0.1.3/web.browser/packages/raix_eventemitter.js" />
         <item url="file://$USER_HOME$/.meteor/packages/srp/1.0.10/web.browser/srp.js" />
         <item url="file://$USER_HOME$/.meteor/packages/aldeed_collection2/2.5.0/web.browser/packages/aldeed_collection2.js" />
         <item url="file://$USER_HOME$/.meteor/packages/srp/1.0.10/web.browser/biginteger.js" />
@@ -276,7 +279,6 @@
         <item url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/html-scanner-tests.js" />
         <item url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/throw-compile-error.js" />
         <item url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/code-generation.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.2.0/web.browser/check-npm-versions.js" />
         <item url="file://$USER_HOME$/.meteor/packages/aldeed_autoform/5.7.1/web.browser/components/afEachArrayItem/afEachArrayItem.js" />
         <item url="file://$USER_HOME$/.meteor/packages/aldeed_autoform/5.7.1/web.browser/components/afQuickFields/afQuickFields.js" />
         <item url="file://$USER_HOME$/.meteor/packages/aldeed_autoform/5.7.1/web.browser/components/afObjectField/afObjectField.js" />
@@ -457,6 +459,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/kadira_flow-router/2.12.1/web.browser/client/triggers.js" />
       <root url="file://$USER_HOME$/.meteor/packages/kadira_flow-router/2.12.1/web.browser/client/route.js" />
       <root url="file://$USER_HOME$/.meteor/packages/kadira_flow-router/2.12.1/web.browser/client/modules.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/aldeed_collection2-core/2.0.1/web.browser/collection2.js" />
       <root url="file://$USER_HOME$/.meteor/packages/es5-shim/4.6.15/web.browser/export_globals.js" />
       <root url="file://$USER_HOME$/.meteor/packages/es5-shim/4.6.15/web.browser/import_globals.js" />
       <root url="file://$USER_HOME$/.meteor/packages/es5-shim/4.6.15/web.browser/console.js" />
@@ -468,6 +471,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/client/js/helpers.coffee" />
       <root url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/client/js/slim_scroll.js" />
       <root url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/client/js/events.coffee" />
+      <root url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.3.1/web.browser/check-npm-versions.js" />
       <root url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/both/startup.coffee" />
       <root url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/both/utils.coffee" />
       <root url="file://$USER_HOME$/.meteor/packages/sach_flow-db-admin/1.1.5/web.browser/lib/both/AdminDashboard.coffee" />
@@ -581,6 +585,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/session/1.1.7/web.browser/session.js" />
       <root url="file://$USER_HOME$/.meteor/packages/sha/1.0.9/web.browser/sha256.js" />
       <root url="file://$USER_HOME$/.meteor/packages/aldeed_simple-schema/1.3.3/web.browser/packages/aldeed_simple-schema.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/raix_eventemitter/0.1.3/web.browser/packages/raix_eventemitter.js" />
       <root url="file://$USER_HOME$/.meteor/packages/srp/1.0.10/web.browser/srp.js" />
       <root url="file://$USER_HOME$/.meteor/packages/aldeed_collection2/2.5.0/web.browser/packages/aldeed_collection2.js" />
       <root url="file://$USER_HOME$/.meteor/packages/srp/1.0.10/web.browser/biginteger.js" />
@@ -641,7 +646,6 @@
       <root url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/html-scanner-tests.js" />
       <root url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/throw-compile-error.js" />
       <root url="file://$USER_HOME$/.meteor/packages/templating-tools/1.1.2/web.browser/code-generation.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/tmeasday_check-npm-versions/0.2.0/web.browser/check-npm-versions.js" />
       <root url="file://$USER_HOME$/.meteor/packages/aldeed_autoform/5.7.1/web.browser/components/afEachArrayItem/afEachArrayItem.js" />
       <root url="file://$USER_HOME$/.meteor/packages/aldeed_autoform/5.7.1/web.browser/components/afQuickFields/afQuickFields.js" />
       <root url="file://$USER_HOME$/.meteor/packages/aldeed_autoform/5.7.1/web.browser/components/afObjectField/afObjectField.js" />

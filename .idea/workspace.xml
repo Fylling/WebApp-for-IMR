@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a8ecf29-d97c-44c9-8115-3423f847a03b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/userLogin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/FiskWB.iml" afterPath="$PROJECT_DIR$/.idea/FiskWB.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imports/api/schemaValidator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/schemaValidator.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_npm.xml" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_npm.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/router.jsx" afterPath="$PROJECT_DIR$/lib/router.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main.js" afterPath="$PROJECT_DIR$/server/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/api/reports.js" afterPath="$PROJECT_DIR$/imports/api/reports.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/reports.js" afterPath="$PROJECT_DIR$/server/reports.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,38 +26,34 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="schemaValidator.js" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/server/schemaValidator.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="784">
+                    <caret line="58" column="10" lean-forward="false" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="reports.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/reports.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-              <folding>
-                <element signature="e#88#127#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-              <folding>
-                <element signature="e#43#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="router.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="router.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/router.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="112" column="18" lean-forward="false" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="18" />
+            <state relative-caret-position="434">
+              <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -65,24 +61,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/pages/Login.jsx">
+      <file leaf-file-name="reports.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/api/reports.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="30" column="65" lean-forward="false" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+            <state relative-caret-position="28">
+              <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#45#84#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userLogin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/userLogin.js">
+      <file leaf-file-name="reports.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/reports.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="537">
+              <caret line="178" column="13" lean-forward="true" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="13" />
+              <folding>
+                <element signature="e#88#127#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,36 +96,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>172.1</find>
-      <find>172.16</find>
-      <find>172.16.</find>
-      <find>172.16.2</find>
-      <find>172.16.25</find>
-      <find>172.16.251</find>
-      <find>172.16.251.</find>
-      <find>172.16.251.2</find>
-      <find>172.16.251.212</find>
-      <find>s</find>
+      <find>sendverifgi</find>
+      <find>sendverifg</find>
+      <find>sendverif</find>
       <find>send</find>
-      <find>sendv</find>
-      <find>sendver</find>
-      <find>sendveri</find>
-      <find>lo</find>
-      <find>l</find>
-      <find>login</find>
-      <find>fl</find>
-      <find>flowrout</find>
-      <find>flowrouter</find>
       <find>sendverifi</find>
-      <find>c</find>
-      <find>create</find>
-      <find>createclass</find>
-      <find>createclas</find>
-      <find>createcla</find>
-      <find>createcl</find>
-      <find>createc</find>
-      <find>users</find>
+      <find>sendverific</find>
+      <find>sendverifica</find>
+      <find>sendverificati</find>
+      <find>sendverificatio</find>
+      <find>sendverification</find>
+      <find>s</find>
+      <find>schema.reports</find>
+      <find>schema.report</find>
+      <find>schema.repor</find>
+      <find>schema.repo</find>
+      <find>schema.rep</find>
+      <find>schema.re</find>
+      <find>schema.r</find>
+      <find>schema.</find>
+      <find>schemas</find>
+      <find>schemas.</find>
+      <find>schemas.re</find>
+      <find>schemas.rep</find>
+      <find>schemas.repor</find>
+      <find>schemas.report</find>
+      <find>schemas.reports</find>
+      <find>schema</find>
+      <find>reportingtoollist</find>
       <find>reports</find>
+      <find>photo</find>
     </findStrings>
     <replaceStrings>
       <replace>this.props.report</replace>
@@ -156,9 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/User.js" />
-        <option value="$PROJECT_DIR$/imports/ui/components/FullTask.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/pages/Validation.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Task.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Alert.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/MainLayout.jsx" />
@@ -202,11 +197,14 @@
         <option value="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx" />
         <option value="$PROJECT_DIR$/imports/api/tasks.js" />
-        <option value="$PROJECT_DIR$/imports/api/reports.js" />
         <option value="$PROJECT_DIR$/server/userLogin.js" />
-        <option value="$PROJECT_DIR$/server/reports.js" />
         <option value="$PROJECT_DIR$/server/main.js" />
         <option value="$PROJECT_DIR$/lib/router.jsx" />
+        <option value="$PROJECT_DIR$/imports/api/reports.js" />
+        <option value="$PROJECT_DIR$/imports/api/schemaValidator.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/server/schemaValidator.js" />
+        <option value="$PROJECT_DIR$/server/reports.js" />
       </list>
     </option>
   </component>
@@ -222,9 +220,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="-3" />
-    <option name="width" value="1920" />
-    <option name="height" value="1170" />
+    <option name="y" value="18" />
+    <option name="width" value="1274" />
+    <option name="height" value="1149" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -532,6 +530,7 @@
       <recent name="$PROJECT_DIR$/imports/ui/components" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/imports/api" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="C:\Users\Danie\Desktop\Prosjekt\FiskWB\lib" />
     </key>
@@ -699,7 +698,7 @@
       <workItem from="1499156463009" duration="17124000" />
       <workItem from="1499238855002" duration="19291000" />
       <workItem from="1500023396781" duration="1294000" />
-      <workItem from="1500025564748" duration="11683000" />
+      <workItem from="1500025564748" duration="24792000" />
     </task>
     <task id="LOCAL-00001" summary="Har lagt til DDP.connect, klarer å snakke med rapporteringsverktøyet uten problemer.">
       <created>1498655830230</created>
@@ -883,25 +882,32 @@
       <option name="project" value="LOCAL" />
       <updated>1499964397725</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Har lagt til meteor flow db admin, Det er et admin dashboard. Fungerer greit til å legge til nye brukere.">
+      <created>1500277108195</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1500277108195</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="413131000" />
+    <option name="totallyTimeSpent" value="426240000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-3" width="1920" height="1170" extended-state="6" />
+    <frame x="0" y="18" width="1274" height="1149" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23222749" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24501197" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292402" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32639545" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26206243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36293435" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36842105" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28666037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21718147" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -966,7 +972,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Kan nå visse frem alle rapportene fra rapporteringsvertøyet, sjekkut fungerer som den skal nå. Kan sende respons, men validerte rapporter forsvinner ikke fra listen som de skal. Bildene visses med hjelp av react-bootstrap sin carousel. Bildene kan sendes fra rapporteringsverktøy til administasjons siden." />
     <MESSAGE value="Gjort navbar svart for bedre kontrast, og endret hvordan rapporter ser ut på listen." />
     <MESSAGE value="Har stylet siden med et bootstrap theme jeg fant. Google maps fungerer ute marker collection." />
     <MESSAGE value="Validerte rapporter gjemmes fra brukere." />
@@ -991,19 +996,16 @@
     <MESSAGE value="i18n er implementert, knapp er også med (i egen klasse/komponent)" />
     <MESSAGE value="Små ting" />
     <MESSAGE value="Pusher i tilfelle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pusher i tilfelle" />
+    <MESSAGE value="Har lagt til meteor flow db admin, Det er et admin dashboard. Fungerer greit til å legge til nye brukere." />
+    <option name="LAST_COMMIT_MESSAGE" value="Har lagt til meteor flow db admin, Det er et admin dashboard. Fungerer greit til å legge til nye brukere." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/imports/startup/server/accounts-config.js" />
-    <entry file="file://$PROJECT_DIR$/imports/startup/server/main.js" />
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/LoginWrapper.jsx" />
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Reports.jsx" />
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Alert.jsx" />
     <entry file="file://$PROJECT_DIR$/.meteor/packages">
       <provider selected="true" editor-type-id="text-editor">
@@ -1047,13 +1049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/GoogleMaps/MyMap.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1141,16 +1136,6 @@
         <state relative-caret-position="476">
           <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/viewReport.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-          <folding>
             <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
@@ -1203,14 +1188,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-191">
@@ -1219,44 +1196,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/List.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="108" column="9" lean-forward="true" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/helpMethods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/reports.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="9" column="52" lean-forward="false" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/userLogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -1271,12 +1214,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/reports.js">
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/GoogleMaps/MyMap.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        <state relative-caret-position="280">
+          <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/reports.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
           <folding>
-            <element signature="e#88#127#0" expanded="true" />
+            <element signature="e#45#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/List.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="75" column="36" lean-forward="false" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/viewReport.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_confirm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/router.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/schemaValidator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/helpMethods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/userLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding>
+            <element signature="e#45#85#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1284,19 +1303,35 @@
     <entry file="file://$PROJECT_DIR$/server/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding>
-            <element signature="e#43#82#0" expanded="true" />
+            <element signature="e#43#82#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/router.jsx">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="112" column="18" lean-forward="false" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="18" />
+        <state relative-caret-position="42">
+          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/schemaValidator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="784">
+          <caret line="58" column="10" lean-forward="false" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/reports.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="178" column="13" lean-forward="true" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="13" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#88#127#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -10,15 +10,22 @@ import { check } from 'meteor/check';
 import { Accounts } from 'meteor/accounts-base';
 import { Email } from 'meteor/email';
 import { DDP } from 'meteor/ddp-client';
+import SimpleSchema from 'simpl-schema';
+import { Schemas } from './schemaValidator.js';
 
 import Markers from '../imports/ui/components/GoogleMaps/markers.jsx';
 
 //Reports komponent - her ligger alle rapportene lagret
 export const remote = DDP.connect('http://172.16.251.182:3030/');
 export const Reports = new Mongo.Collection('reports');
+export const Images = new Mongo.Collection('images');
 
 export const adminPageFields = {"text": 1, "user": 1, "isValidated": 1,
     "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1};
+
+Meteor.startup(function () {
+    Reports.attachSchema(Schemas.Reports);
+});
 
 Reports.deny({
     insert() { return true; },
@@ -30,9 +37,7 @@ if (Meteor.isServer) {
     //This code only runs on the server
 
     Meteor.publish('reports', function reportsPublication(limit, fields) {
-        if(limit < 0){
-            limit = 10;
-        }
+        limit = limit < 0 || !limit  ? 10 : limit;
         return Reports.find({ owner: this.userId }, {sort: {createdAt: -1}, fields: fields,
             limit: limit });
     });
@@ -42,24 +47,18 @@ if (Meteor.isServer) {
     });
 
     Meteor.publish('reports.reportingToolList', function reportsPublication( fields, userId, limit ){
-        if(limit < 0){
-            limit = 10;
-        }
+        limit = limit < 0 || !limit ? 10 : limit;
         return Reports.find({owner: userId}, {sort: { createdAt: -1}, limit: limit, fields: fields});
     });
 
     Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit){
-        if(limit < 0){
-            limit = 10;
-        }
+        limit = limit < 0 || !limit ? 10 : limit;
         return Reports.find({isValidated: validated}, { limit: limit, sort: { createdAt: -1},
             fields: adminPageFields});
     });
 
     Meteor.publish('reports.adminPageListWithCategory', function reportsPublication(category, validated, fields, limit){
-        if(limit < 0){
-            limit = 10;
-        }
+        limit = limit < 0 || !limit ? 10 : limit;
         return Reports.find({isValidated: validated, category: category}, { limit: limit, sort: { createdAt: -1},
             fields: adminPageFields});
     });
@@ -114,7 +113,7 @@ Meteor.methods({
     },
 
     'reports.insert'(titelText, /*substrartInput,*/ lengdeNr, img, posLat, posLong,
-                     depthInput, amountInput, markerId, useCurrPos, category, date, mail, brukerId){
+                     depthInput, amountInput, useCurrPos, category, date, mail, brukerId){
         check(titelText, String);
         check(img, [String]);
         //check(lengdeNr, Number);
@@ -131,11 +130,9 @@ Meteor.methods({
         if(lengdeNr){ check(lengdeNr, Number); }
         if(depthInput){ check(depthInput, Number); }
         if(amountInput){ check(amountInput, Number); }
-        if(markerId){ check(markerId, String); }
 
         if(!date){
             date = new Date();
-            console.log(date);
         } else {
             check(date, String);
         }
@@ -144,6 +141,7 @@ Meteor.methods({
         if(!brukerId){
             throw new Meteor.Error('not-authorized');
         }
+        /*
         if(useCurrPos) {
             Markers.insert({lat: posLong, lng: posLat, markerCreated: false});
             markerId = Markers.findOne({markerCreated: false})._id;
@@ -151,8 +149,8 @@ Meteor.methods({
                 $set: {markerCreated: true}
             });
         }
-
-        console.log(brukerId);
+        */
+        console.log(img);
         Reports.insert({
             text: titelText,
             length: lengdeNr,
@@ -162,7 +160,6 @@ Meteor.methods({
             longitude: posLong,
             depth: depthInput,
             amount: amountInput,
-            markerId: markerId,
             createdAt: new Date(),
             taken: date,
             category: category,
@@ -173,10 +170,14 @@ Meteor.methods({
             scientist: ''
         }, function(err, res){
             if(err){
+                console.log("error");
                 console.log(err.reason);
+                console.log(err.message);
+            } else if (res) {
+                console.log("success");
+                console.log(res);
             }
         });
-        console.log(brukerId);
     },
 
 

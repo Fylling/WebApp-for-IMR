@@ -23,6 +23,13 @@ export const Images = new Mongo.Collection('images');
 export const adminPageFields = {"text": 1, "user": 1, "isValidated": 1,
     "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1};
 
+const reportingToolListFields = {
+    text: 1, user: 1,
+    isValidated: 1, createdAt: 1,
+    scientist: 1, category: 1, owner: 1,
+    markerId: 1, taken: 1,
+};
+
 Meteor.startup(function () {
     Reports.attachSchema(Schemas.Reports);
 });
@@ -46,9 +53,9 @@ if (Meteor.isServer) {
         return Reports.find({ owner: this.userId }, {sort: {createdAt: -1} });
     });
 
-    Meteor.publish('reports.reportingToolList', function reportsPublication( fields, userId, limit ){
+    Meteor.publish('reports.reportingToolList', function reportsPublication( userId, limit ){
         limit = limit < 0 || !limit ? 10 : limit;
-        return Reports.find({owner: userId}, {sort: { createdAt: -1}, limit: limit, fields: fields});
+        return Reports.find({owner: userId}, {sort: { createdAt: -1}, limit: limit, fields: reportingToolListFields});
     });
 
     Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit){
@@ -79,7 +86,7 @@ if (Meteor.isServer) {
 
 //Metoder for å legge til, slette og oppdateres
 Meteor.methods({
-    'sendVerificationLink'(user){
+    'sendVerificationEmail'(user){
         let userId = user ? user : Meteor.userId();
 
         if(userId){
@@ -114,11 +121,19 @@ Meteor.methods({
 
     'reports.insert'(titelText, lengdeNr, img, posLat, posLong,
                      depthInput, amountInput, useCurrPos, category, date, mail, brukerId){
+
+        console.log("category");
+        console.log(category);
+        console.log("mail");
+        console.log(mail);
+        console.log("brukerid");
+        console.log(brukerId);
+
         check(titelText, String);
         check(img, [String]);
         check(posLat, Number);
         check(posLong, Number);
-        check(useCurrPos, Boolean);
+        //check(useCurrPos, Boolean);
         check(category, String);
         check(mail, String);
         check(brukerId, String);
@@ -130,7 +145,8 @@ Meteor.methods({
         if(!date){
             date = new Date();
         } else {
-            check(date, String);
+            date = new Date(date);
+            check(date, Date);
         }
 
         //Make sure user is logged in before inserting a report
@@ -146,7 +162,6 @@ Meteor.methods({
             });
         }
         */
-        console.log(img);
         Reports.insert({
             text: titelText,
             length: lengdeNr,
@@ -167,8 +182,7 @@ Meteor.methods({
         }, function(err, res){
             if(err){
                 console.log("error");
-                console.log(err.reason);
-                console.log(err.message);
+                console.log(err);
             } else if (res) {
                 console.log("success");
                 console.log(res);

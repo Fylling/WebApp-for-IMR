@@ -68,7 +68,6 @@ class List extends Component {
 
                         {this.renderReports()}
                         <ShowMoreBtn/>
-
                     </Row>
                 </Grid>
             );

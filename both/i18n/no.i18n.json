@@ -5,8 +5,8 @@
     "Logout": "Logg ut",
     "inValid": "Uvaliderte Rapporter",
     "valid": "Validerte Rapporter",
-    "fishSpecies": "Fiske art",
-    "coralSpecies": "Koral art",
+    "fishSpecies": "Fiskefunn",
+    "coralSpecies": "Korall",
     "unknownSpecies": "Fremmed art",
     "seeReports": "Se alle rapporter",
     "logout": "Logg ut"
@@ -37,10 +37,10 @@
   },
 
   "showMoreBtnDrpDwn": {
-    "showMore": "Viss flere",
-    "showTen": "Viss 10",
-    "showFifty": "Viss 50",
-    "showHundred": "Viss 100"
+    "showMore": "Vis flere",
+    "showTen": "Vis 10",
+    "showFifty": "Vis 50",
+    "showHundred": "Vis 100"
   },
 
   "viewReport_info": {

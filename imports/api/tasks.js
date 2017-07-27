@@ -7,7 +7,7 @@ import { IsLoggedIn, loggedIn } from '../../lib/helpers.jsx';
 
 //Representerer vår server som vi ikke har fått tid til å sette opp enda
 export const Tasks = new Mongo.Collection('tasks');
-export const remote = DDP.connect('http://172.16.251.212:3000/');
+export const remote = DDP.connect('http://hi-07586.imr.no:3000/');
 export const Reports = new Meteor.Collection('reports', remote);
 
 

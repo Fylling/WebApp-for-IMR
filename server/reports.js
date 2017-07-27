@@ -16,7 +16,7 @@ import { Schemas } from './schemaValidator.js';
 import Markers from '../imports/ui/components/GoogleMaps/markers.jsx';
 
 //Reports komponent - her ligger alle rapportene lagret
-export const remote = DDP.connect('http://172.16.251.182:3030/');
+export const remote = DDP.connect('http://hi-07586.imr.no:3030/');
 export const Reports = new Mongo.Collection('reports');
 export const Images = new Mongo.Collection('images');
 

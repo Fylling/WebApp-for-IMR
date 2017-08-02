@@ -29,7 +29,7 @@ class ViewReport extends Component {
         let imgArray = [];
         for (let i = 0; i < this.props.report.photo.length; i++) {
             imgArray.push(
-                <CarouselItem>
+                <CarouselItem className="carouselItemImg">
                     <ShowImg key={i} img={this.props.report.photo[i]}/>
                 </CarouselItem>
             )

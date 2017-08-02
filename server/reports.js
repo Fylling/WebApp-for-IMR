@@ -131,6 +131,12 @@ Meteor.methods({
 
         check(titelText, String);
         check(img, [String]);
+        console.log('poslat and poslong: ');
+        console.log(posLat);
+        console.log(posLong);
+        console.log('poslat and poslong type:');
+        console.log(typeof posLat);
+        console.log(typeof posLong);
         check(posLat, Number);
         check(posLong, Number);
         //check(useCurrPos, Boolean);

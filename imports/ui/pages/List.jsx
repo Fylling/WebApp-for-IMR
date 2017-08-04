@@ -90,8 +90,6 @@ export default ListContainer = createContainer(() => {
     let limit = sessionLimit < localLimit ? localLimit : sessionLimit;
     let options = {limit: limit, sort: {createdAt: -1}, fields: fields};
 
-    console.log(limit);
-
     if (category === "Alle") {
         selector = {isValidated: validated};
         remote.subscribe('reports.adminPageList', validated, fields, limit);

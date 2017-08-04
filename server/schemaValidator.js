@@ -67,7 +67,7 @@ Schemas.Reports = new SimpleSchema({
     scientist: {
         type: String,
         label: 'scientist',
-        optional: false
+        optional: true
     },
 
     taken: {

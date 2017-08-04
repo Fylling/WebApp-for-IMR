@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ButtonToolbar, Checkbox, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import i18n from 'meteor/universe:i18n';
+import {remote} from '../../../api/reports.js';
 
 import {Loading_feedback} from '../Loading_feedback.jsx';
 

@@ -1,11 +1,9 @@
 /**
  * Created by sebastian on 14.07.17.
  */
-import i18n from 'meteor/universe:i18n';
 import {Meteor} from 'meteor/meteor'
 import {Accounts} from 'meteor/accounts-base';
 
-import {remote} from './reports.js'
 
 Meteor.methods({
 

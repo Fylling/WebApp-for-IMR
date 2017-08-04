@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { ButtonToolbar, Checkbox, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {ButtonToolbar, Checkbox, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 import i18n from 'meteor/universe:i18n';
 import {remote} from '../../../api/reports.js';
 
@@ -9,10 +9,10 @@ const T = i18n.createComponent();
 
 //Representerer en liste over hver eneste rapport som ligger i databasen
 export default class ReportListing extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.state= {
+        this.state = {
             buttonVisible: this.props.report.checkedOut,
             checkedOutToUser: (localStorage.getItem('userMail') === this.props.report.scientist),
         };
@@ -35,7 +35,7 @@ export default class ReportListing extends Component {
             buttonVisible: !this.state.buttonVisible,
         });
         let scientistEmail;
-        if(!this.state.buttonVisible){
+        if (!this.state.buttonVisible) {
             scientistEmail = localStorage.getItem('userMail');
         } else {
             scientistEmail = '';
@@ -47,12 +47,12 @@ export default class ReportListing extends Component {
         });
     }
 
-    componentWillMount(){
+    componentWillMount() {
         //Meteor.call('reports.setCheckedOut', this.props.report._id, this.state.buttonVisible);
     }
 
-    showSeRapport(){
-        if(this.props.report.isValidated){
+    showSeRapport() {
+        if (this.props.report.isValidated) {
             return true;
         } else {
             return (this.props.report.checkedOut && this.props.report.scientist === localStorage.getItem('userMail'));
@@ -60,7 +60,7 @@ export default class ReportListing extends Component {
     }
 
     render() {
-        if(this.props.report) {
+        if (this.props.report) {
             if (!this.props.report.checkedOut) {
                 return (
 
@@ -81,22 +81,22 @@ export default class ReportListing extends Component {
                     <ListGroup>
                         <ListGroupItem header={this.props.report.text}>
                             <p>{!this.props.report.isValidated ? <T>common.reportListing.diffScientistWorking</T> :
-                                <T>common.reportListing.reportValid</T> }</p>
-                                {(!this.showSeRapport())?
-                                    ''
-                                    :
-                                    <ButtonToolbar>
+                                <T>common.reportListing.reportValid</T>}</p>
+                            {(!this.showSeRapport()) ?
+                                ''
+                                :
+                                <ButtonToolbar>
 
-                                        {!this.props.report.isValidated ?
+                                    {!this.props.report.isValidated ?
                                         <Checkbox checked="true" onChange={this.toggleCheckedOut.bind(this)}>
                                             <T>common.reportListing.goBack</T>
-                                        </Checkbox> : null }
-                                        <Button className="checkOut" bsStyle="primary" bsSize="xsmall"
-                                                onClick={this.openReport.bind(this)}>
-                                            <T>common.reportListing.seeReport</T>
-                                        </Button>
-                                    </ButtonToolbar>
-                                }
+                                        </Checkbox> : null}
+                                    <Button className="checkOut" bsStyle="primary" bsSize="xsmall"
+                                            onClick={this.openReport.bind(this)}>
+                                        <T>common.reportListing.seeReport</T>
+                                    </Button>
+                                </ButtonToolbar>
+                            }
                         </ListGroupItem>
                     </ListGroup>
                 );

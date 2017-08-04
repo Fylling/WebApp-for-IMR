@@ -107,15 +107,34 @@ Meteor.methods({
     },
 
     'sendAEmail'(userEmail, reportName){
+        let emailText;
+        let emailSubject;
+        if (reportName) {
+            emailText = "Tilbakemelding for " + reportName + " er tilgjengelig.";
+            emailSubject = reportName + " har blitt validert av forskerne hos IMR.";
+        } else {
+            emailText = "En ny rapport har blitt sendt inn";
+            emailSubject = "Ny rapport"
+        }
+
         console.log(userEmail);
         if(Meteor.isServer) {
             console.log("Sending email");
             Email.send({
                 from: "sebastianfroyen@gmail.com",
                 to: userEmail,
-                subject: reportName + " har blitt validert av forskerne hos IMR.",
-                text: "Tilbakemelding for " + reportName + " er tilgjengelig.",
+                subject: emailSubject,
+                text: emailText,
             });
+        }
+    },
+
+    'sendEmailToAll'(){
+        if (Meteor.isServer) {
+            let userList = Meteor.users.find();
+            userList.forEach((user) => {
+                Meteor.call('sendAEmail', user.emails[0].address);
+            })
         }
     },
 
@@ -192,6 +211,7 @@ Meteor.methods({
             } else if (res) {
                 console.log("success");
                 console.log(res);
+                Meteor.call('sendEmailToAll');
             }
         });
     },

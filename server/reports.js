@@ -141,27 +141,19 @@ Meteor.methods({
     'reports.insert'(titelText, lengdeNr, img, posLat, posLong,
                      depthInput, amountInput, useCurrPos, category, date, mail, brukerId){
 
-        console.log("category");
-        console.log(category);
-        console.log("mail");
-        console.log(mail);
-        console.log("brukerid");
+        console.log("brukeriden som ble sendt fra klient");
         console.log(brukerId);
 
+        console.log(typeof titelText + " titel");
         check(titelText, String);
         check(img, [String]);
-        console.log('poslat and poslong: ');
-        console.log(posLat);
-        console.log(posLong);
-        console.log('poslat and poslong type:');
-        console.log(typeof posLat);
-        console.log(typeof posLong);
         check(posLat, Number);
         check(posLong, Number);
         //check(useCurrPos, Boolean);
+        console.log(typeof category + " category");
         check(category, String);
+        console.log(typeof mail + " email");
         check(mail, String);
-        check(brukerId, String);
 
         if(lengdeNr){ check(lengdeNr, Number); }
         if(depthInput){ check(depthInput, Number); }

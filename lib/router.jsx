@@ -117,6 +117,14 @@ FlowRouter.route('/validatedreports/:category/', {
     }
 });
 
+FlowRouter.route('/map/:category/', {
+    name: "Map",
+    triggersEnter: checkLoggedIn,
+    action: function (params) {
+        renderMainLayoutWith(<MyMap report={null} category={params.category}/>)
+    }
+});
+
 FlowRouter.notFound = {
     action: function() {
         FlowRouter.go('Home');

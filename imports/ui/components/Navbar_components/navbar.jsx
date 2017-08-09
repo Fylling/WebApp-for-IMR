@@ -54,6 +54,11 @@ export default class header extends Component{
         e.preventDefault();
         this.unValidatedReportCategory("Alle");
     }
+    viewAllReportsOnMap(e){
+        e.preventDefault();
+        FlowRouter.setParams({category: "Alle"});
+        FlowRouter.go('/map/Alle');
+    }
 
     render(){
         return(
@@ -78,6 +83,8 @@ export default class header extends Component{
                     }
 
                     {IsLoggedIn() ? <ValidatedReportsDropDown/> : null}
+
+                    {IsLoggedIn() ? <MenuItem onClick={this.viewAllReportsOnMap.bind(this)}>Kart</MenuItem> : null}
 
                     {IsLoggedIn() ? <FlagBtn/> : null}
                 </Nav>

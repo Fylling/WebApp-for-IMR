@@ -21,7 +21,7 @@ export const Reports = new Mongo.Collection('reports');
 export const Images = new Mongo.Collection('images');
 
 export const adminPageFields = {"text": 1, "user": 1, "isValidated": 1,
-    "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1};
+    "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1, "longitude": 1, "latitude": 1};
 
 const reportingToolListFields = {
     text: 1, user: 1,
@@ -58,6 +58,12 @@ if (Meteor.isServer) {
         return Reports.find({owner: userId}, {sort: { createdAt: -1}, limit: limit, fields: reportingToolListFields});
     });
 
+    Meteor.publish('reports.adminMap', function reportsPublication(validated, fields, limit){
+        limit = limit < 0 || !limit ? 10 : limit;
+        return Reports.find({isValidated: validated}, { limit: limit, sort: { createdAt: -1},
+            fields: adminPageFields});
+    });
+
     Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit){
         limit = limit < 0 || !limit ? 10 : limit;
         return Reports.find({isValidated: validated}, { limit: limit, sort: { createdAt: -1},
@@ -68,6 +74,12 @@ if (Meteor.isServer) {
         limit = limit < 0 || !limit ? 10 : limit;
         return Reports.find({isValidated: validated, category: category}, { limit: limit, sort: { createdAt: -1},
             fields: adminPageFields});
+    });
+
+    Meteor.publish('reports.all', (fields) => {
+        if(this.userId()){
+            return Reports.find({isValidated: true}, {fields: fields});
+        }
     });
 
     Meteor.publish('reports.findOne', function reportsPublication(rId, fields){

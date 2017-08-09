@@ -4,13 +4,21 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {remote, Reports} from '../../../api/reports.js';
 import {Meteor} from 'meteor/meteor';
 
+let category;
+
 
 class MyMap extends Component {
     constructor() {
         super();
         this.handleOnReady = this.handleOnReady.bind(this);
-        this.handleMapOptions = this.handleMapOptions.bind(this)
+        this.handleMapOptions = this.handleMapOptions.bind(this);
+        this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
     }
+
+    forceUpdateHandler(){
+        this.forceUpdate();
+    };
+
 
     handleMapOptions() {
         if(this.props.report) {
@@ -45,6 +53,7 @@ class MyMap extends Component {
                         id: this.props.report._id,
                     });
                 } else {
+
                     console.log("I else");
                     console.log(this.props.reports);
                     for (let i = 0; i < this.props.reports.length; i++) {
@@ -61,17 +70,28 @@ class MyMap extends Component {
         });
     }
 
-
     render() {
+        console.log(localStorage.getItem('map'));
+        console.log(typeof localStorage.getItem('map'));
+        if (localStorage.getItem('map') === "true") {
+            console.log("In render if");
+            localStorage.setItem('map', false);
+            location.reload();
+        }
         console.log(this.props.reports);
         return (
             <div>
-            <GoogleMap
-                onReady={this.handleOnReady}
-                mapOptions={this.handleMapOptions}
-            >
-                Loading!
-            </GoogleMap>
+                <h1>Reports {FlowRouter.getParam('category')}</h1>
+
+                <GoogleMap
+                    onReady={this.handleOnReady}
+                    mapOptions={this.handleMapOptions}
+                >
+                    Loading!
+                </GoogleMap>
+
+                {/*<button onClick= {this.forceUpdateHandler} >FORCE UPDATE</button>*/}
+
             </div>
         );
     }
@@ -80,17 +100,18 @@ class MyMap extends Component {
 //Det er her uthentingen skjer
 export default createContainer(() => {
     let category = FlowRouter.getParam('category');
+    console.log(category);
     let validated = true;
     let selector;
     let fields = {"text": 1, "user": 1, "isValidated": 1,
         "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1,
         "longitude": 1, "latitude": 1};
     let limit = 1000;
-    let options = {limit: limit, sort: {createdAt: -1}, fields: fields};
+    let options = {sort: {createdAt: -1}, fields: fields};
 
     if (category === "Alle") {
         selector = {isValidated: validated};
-        remote.subscribe('reports.adminMap', validated, fields, limit);
+        remote.subscribe('reports.adminMap', validated);
         return {
             reports: Reports.find(selector, options).fetch(),
         }

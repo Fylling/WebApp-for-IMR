@@ -8,7 +8,9 @@
     "fishSpecies": "Fish species",
     "coralSpecies": "Coral species",
     "unknownSpecies": "Introduced species",
+    "allReports": "All reportings",
     "seeReports": "See all reports",
+    "map": "Map",
     "logout": "Log out"
   },
 

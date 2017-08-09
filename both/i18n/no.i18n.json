@@ -8,7 +8,9 @@
     "fishSpecies": "Fiskefunn",
     "coralSpecies": "Korall",
     "unknownSpecies": "Fremmed art",
+    "allReports": "Alle rapporteringer",
     "seeReports": "Se alle rapporter",
+    "map": "Kart",
     "logout": "Logg ut"
   },
 

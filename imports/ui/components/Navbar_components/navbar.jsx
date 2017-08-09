@@ -54,11 +54,39 @@ export default class header extends Component{
         e.preventDefault();
         this.unValidatedReportCategory("Alle");
     }
+
+    goToMap(category){
+        FlowRouter.setParams({category: category});
+        if (FlowRouter.current().route.name === "Map") {
+            console.log("I map");
+            localStorage.setItem('map', true);
+            FlowRouter.reload();
+        } else {
+            localStorage.setItem('map', false);
+            FlowRouter.go('/map/' + category);
+        }
+    }
+
     viewAllReportsOnMap(e){
         e.preventDefault();
-        FlowRouter.setParams({category: "Alle"});
-        FlowRouter.go('/map/Alle');
+        this.goToMap('Alle');
     }
+
+    viewFishReportsOnMap(e){
+        e.preventDefault();
+        this.goToMap('Fiske art');
+    }
+
+    viewCoralReportsOnMap(e){
+        e.preventDefault();
+        this.goToMap('Koral');
+    }
+
+    viewUnknownReportsOnMap(e){
+        e.preventDefault();
+        this.goToMap('Fremmed art');
+    }
+
 
     render(){
         return(
@@ -84,9 +112,15 @@ export default class header extends Component{
 
                     {IsLoggedIn() ? <ValidatedReportsDropDown/> : null}
 
-                    {IsLoggedIn() ? <MenuItem onClick={this.viewAllReportsOnMap.bind(this)}>Kart</MenuItem> : null}
+                    {IsLoggedIn() ? <NavDropdown title={<T>common.navbar.map</T>} id="report-category-dropdown">
+                        <MenuItem onClick={this.viewFishReportsOnMap.bind(this)}><T>common.navbar.fishSpecies</T></MenuItem>
+                        <MenuItem onClick={this.viewCoralReportsOnMap.bind(this)}><T>common.navbar.coralSpecies</T></MenuItem>
+                        <MenuItem onClick={this.viewUnknownReportsOnMap.bind(this)}><T>common.navbar.unknownSpecies</T></MenuItem>
+                        <MenuItem onClick={this.viewAllReportsOnMap.bind(this)}><T>common.navbar.allReports</T></MenuItem>
+                    </NavDropdown> : null}
 
                     {IsLoggedIn() ? <FlagBtn/> : null}
+
                 </Nav>
 
             </Navbar>

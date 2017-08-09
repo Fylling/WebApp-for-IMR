@@ -58,9 +58,14 @@ if (Meteor.isServer) {
         return Reports.find({owner: userId}, {sort: { createdAt: -1}, limit: limit, fields: reportingToolListFields});
     });
 
-    Meteor.publish('reports.adminMap', function reportsPublication(validated, fields, limit){
+    Meteor.publish('reports.adminMap', function reportsPublication(validated){
+        return Reports.find({isValidated: validated}, { sort: { createdAt: -1},
+            fields: adminPageFields});
+    });
+
+    Meteor.publish('reports.adminMapWithCategory', function reportsPublication(category, validated, fields, limit){
         limit = limit < 0 || !limit ? 10 : limit;
-        return Reports.find({isValidated: validated}, { limit: limit, sort: { createdAt: -1},
+        return Reports.find({isValidated: validated, category: category}, { limit: limit, sort: { createdAt: -1},
             fields: adminPageFields});
     });
 

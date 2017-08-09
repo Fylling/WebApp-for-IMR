@@ -119,42 +119,53 @@ Meteor.methods({
     },
 
     'sendAEmail'(userEmail, reportName){
+        let emailText;
+        let emailSubject;
+        if (reportName) {
+            emailText = "Tilbakemelding for " + reportName + " er tilgjengelig.";
+            emailSubject = reportName + " har blitt validert av forskerne hos IMR.";
+        } else {
+            emailText = "En ny rapport har blitt sendt inn";
+            emailSubject = "Ny rapport"
+        }
+
         console.log(userEmail);
         if(Meteor.isServer) {
             console.log("Sending email");
             Email.send({
                 from: "sebastianfroyen@gmail.com",
                 to: userEmail,
-                subject: reportName + " har blitt validert av forskerne hos IMR.",
-                text: "Tilbakemelding for " + reportName + " er tilgjengelig.",
+                subject: emailSubject,
+                text: emailText,
             });
+        }
+    },
+
+    'sendEmailToAll'(){
+        if (Meteor.isServer) {
+            let userList = Meteor.users.find();
+            userList.forEach((user) => {
+                Meteor.call('sendAEmail', user.emails[0].address);
+            })
         }
     },
 
     'reports.insert'(titelText, lengdeNr, img, posLat, posLong,
                      depthInput, amountInput, useCurrPos, category, date, mail, brukerId){
 
-        console.log("category");
-        console.log(category);
-        console.log("mail");
-        console.log(mail);
-        console.log("brukerid");
+        console.log("brukeriden som ble sendt fra klient");
         console.log(brukerId);
 
+        console.log(typeof titelText + " titel");
         check(titelText, String);
         check(img, [String]);
-        console.log('poslat and poslong: ');
-        console.log(posLat);
-        console.log(posLong);
-        console.log('poslat and poslong type:');
-        console.log(typeof posLat);
-        console.log(typeof posLong);
         check(posLat, Number);
         check(posLong, Number);
         //check(useCurrPos, Boolean);
+        console.log(typeof category + " category");
         check(category, String);
+        console.log(typeof mail + " email");
         check(mail, String);
-        check(brukerId, String);
 
         if(lengdeNr){ check(lengdeNr, Number); }
         if(depthInput){ check(depthInput, Number); }
@@ -204,6 +215,7 @@ Meteor.methods({
             } else if (res) {
                 console.log("success");
                 console.log(res);
+                Meteor.call('sendEmailToAll');
             }
         });
     },

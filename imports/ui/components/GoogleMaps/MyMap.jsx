@@ -12,12 +12,7 @@ class MyMap extends Component {
         super();
         this.handleOnReady = this.handleOnReady.bind(this);
         this.handleMapOptions = this.handleMapOptions.bind(this);
-        this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
     }
-
-    forceUpdateHandler(){
-        this.forceUpdate();
-    };
 
 
     handleMapOptions() {
@@ -71,8 +66,6 @@ class MyMap extends Component {
     }
 
     render() {
-        console.log(localStorage.getItem('map'));
-        console.log(typeof localStorage.getItem('map'));
         if (localStorage.getItem('map') === "true") {
             console.log("In render if");
             localStorage.setItem('map', false);
@@ -81,8 +74,6 @@ class MyMap extends Component {
         console.log(this.props.reports);
         return (
             <div>
-                <h1>Reports {FlowRouter.getParam('category')}</h1>
-
                 <GoogleMap
                     onReady={this.handleOnReady}
                     mapOptions={this.handleMapOptions}

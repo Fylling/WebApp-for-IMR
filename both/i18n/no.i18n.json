@@ -59,6 +59,11 @@
 
   "viewReport": {
     "report": "Rapport"
+  },
+
+  "viewMapOfReports": {
+    "googleMapHeading": "Oversikt av ",
+    "all": "alle rapporteringer"
   }
 
 }

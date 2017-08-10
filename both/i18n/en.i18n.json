@@ -59,6 +59,11 @@
 
   "viewReport": {
     "report": "Report"
+  },
+
+  "viewMapOfReports": {
+    "googleMapHeading": "Overview of ",
+    "all": "all reportings"
   }
 
 }

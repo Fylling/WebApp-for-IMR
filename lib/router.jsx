@@ -11,6 +11,7 @@ import Home from '../imports/ui/pages/Home.jsx';
 import { IsLoggedIn } from '../lib/helpers.jsx';
 import ViewReport from "../imports/ui/pages/viewReport";
 import MyMap from '../imports/ui/components/GoogleMaps/MyMap.jsx';
+import Profile from '../imports/ui/pages/Profile.jsx';
 
 if(Meteor.isClient) {
     Meteor.startup(function () {
@@ -122,6 +123,14 @@ FlowRouter.route('/map/:category/', {
     triggersEnter: checkLoggedIn,
     action: function (params) {
         renderMainLayoutWith(<MyMap report={null} category={params.category}/>)
+    }
+});
+
+FlowRouter.route('/profile', {
+    name: "Profile",
+    triggersEnter: checkLoggedIn,
+    action() {
+        renderMainLayoutWith(<Profile/>)
     }
 });
 

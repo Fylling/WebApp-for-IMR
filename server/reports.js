@@ -267,5 +267,9 @@ Meteor.methods({
         Reports.update(id, {
             $set: {isValidated: true, checkedOut: true}
         });
+    },
+
+    'setSendEmail'(){
+        console.log(Meteor.users.findOne(Meteor.userId()));
     }
 });

@@ -84,7 +84,9 @@ export default ListContainer = createContainer(() => {
     let validated = localStorage.getItem('validated') !== 'false';
     let selector;
     let fields = {"text": 1, "user": 1, "isValidated": 1,
-        "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1};
+        "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1,
+        "validSpecie": 1
+    };
     let localLimit = parseInt(localStorage.getItem('limit'));
     let sessionLimit = Session.get('limit');
     let limit = sessionLimit < localLimit ? localLimit : sessionLimit;

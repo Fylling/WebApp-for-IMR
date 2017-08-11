@@ -59,7 +59,7 @@ export default class ViewReport_confirm extends Component {
         } else {
             remote.call('reports.updateFeedback', this.props.report._id, feedback);
             remote.call('sendAEmail', this.props.report.user, this.props.report.text);
-            history.back();
+            //history.back();
         }
         this.closeModal();
     }

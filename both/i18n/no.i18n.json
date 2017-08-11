@@ -30,7 +30,7 @@
   },
 
   "reportListing": {
-    "diffScientistWorking": "Denne jobbes med nå av en annen forsker.",
+    "diffScientistWorking": "Denne jobbes med nå av ",
     "reportValid": "Denne rapporten er ferdig validert.",
     "goBack": "Gå tilbake",
     "seeReport": "Se rapport",
@@ -54,7 +54,8 @@
     "amount": "Antall: ",
     "depth": "Dybde: ",
     "length": "Lengde: ",
-    "feedback": "Tilbakemelding: "
+    "feedback": "Tilbakemelding: ",
+    "validSpecies": "Validert art: "
   },
 
   "viewReport": {

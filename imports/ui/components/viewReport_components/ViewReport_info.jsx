@@ -16,6 +16,11 @@ export default class ViewReport_info extends Component{
                 <ListGroupItem className="species">
                     <strong><T>common.viewReport_info.species</T></strong> {this.props.report.text}
                 </ListGroupItem>
+                {this.props.report.validSpecie === "" ? null :
+                    <ListGroupItem className="species">
+                        <strong><T>common.viewReport_info.validSpecies</T></strong> {this.props.report.validSpecie}
+                    </ListGroupItem>
+                }
                 <ListGroupItem className="date">
                     <strong><T>common.viewReport_info.date</T></strong> {moment(this.props.report.taken).format("dddd, MMMM Do YYYY, h:mm:ss a")}
                 </ListGroupItem>

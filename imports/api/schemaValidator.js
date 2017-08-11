@@ -89,7 +89,13 @@ Schemas.Reports = new SimpleSchema({
         type: String,
         label: 'user',
         optional: false
-    }
+    },
+
+    validSpecie: {
+        type: String,
+        label: "validSpecie",
+        optional: true
+    },
 
 });
 

@@ -21,7 +21,8 @@ export const Reports = new Mongo.Collection('reports');
 export const Images = new Mongo.Collection('images');
 
 export const adminPageFields = {"text": 1, "user": 1, "isValidated": 1,
-    "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1, "longitude": 1, "latitude": 1};
+    "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1,
+    "longitude": 1, "latitude": 1, "validSpecie": 1};
 
 const reportingToolListFields = {
     text: 1, user: 1,
@@ -34,11 +35,13 @@ Meteor.startup(function () {
     Reports.attachSchema(Schemas.Reports);
 });
 
+
 Reports.deny({
     insert() { return true; },
     update() { return true; },
     remove() { return true; },
 });
+
 
 if (Meteor.isServer) {
     //This code only runs on the server
@@ -212,7 +215,8 @@ Meteor.methods({
             isValidated: false,
             checkedOut: false,
             reportFeedback: '',
-            scientist: ''
+            scientist: '',
+            validSpecie: ''
         }, function(err, res){
             if(err){
                 console.log("error");
@@ -225,6 +229,24 @@ Meteor.methods({
         });
     },
 
+    'reports.validateSpecies'(rId, species){
+        check(rId, String);
+        check(species, String);
+        console.log("I server");
+        console.log(species);
+        Reports.update(rId, {
+            $set: {validSpecie: species}
+        });
+
+    },
+
+    'reports.changeValidateSpecies'(rId, species){
+        check(rId, String);
+        check(species, String);
+        Reports.update(rId, {
+            $set: {validSpecie: species}
+        });
+    },
 
     'reports.setCheckedOut'(id, checkedOut, scientistEmail){
         check(id, String);
@@ -237,10 +259,13 @@ Meteor.methods({
     'reports.updateFeedback'(reportId, feedback){
         check(feedback, String);
         Reports.update(reportId, {
-            $set: {reportFeedback: feedback, isValidated: true, checkedOut: true}
+            $set: {reportFeedback: feedback}
         });
-        /*Reports.update(reportId, {
-         $set: {isValidated: true}
-         });*/
     },
+
+    'reports.validateReport'(id){
+        Reports.update(id, {
+            $set: {isValidated: true, checkedOut: true}
+        });
+    }
 });

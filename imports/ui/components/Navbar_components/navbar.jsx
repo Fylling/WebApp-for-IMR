@@ -87,6 +87,10 @@ export default class header extends Component{
         this.goToMap('Fremmed art');
     }
 
+    goToProfile(e){
+        FlowRouter.go('/profile');
+    }
+
 
     render(){
         return(
@@ -120,6 +124,8 @@ export default class header extends Component{
                     </NavDropdown> : null}
 
                     {IsLoggedIn() ? <FlagBtn/> : null}
+
+                    <NavItem onClick={this.goToProfile.bind(this)}>Profile</NavItem>
 
                 </Nav>
 

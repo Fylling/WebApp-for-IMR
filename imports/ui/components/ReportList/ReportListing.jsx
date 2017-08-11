@@ -55,7 +55,18 @@ export default class ReportListing extends Component {
         if (this.props.report.isValidated) {
             return true;
         } else {
-            return (this.props.report.checkedOut && this.props.report.scientist === localStorage.getItem('userMail'));
+            return (this.props.report.checkedOut);
+        }
+    }
+
+    reportHeader(){
+        if(localStorage.getItem('validated') === 'false'){
+            console.log("reportheader if");
+            return this.props.report.text;
+        } else {
+            console.log("reportheader else");
+            console.log(this.props.report.validSpecie);
+            return (this.props.report.validSpecie + "(" + this.props.report.text + ")")
         }
     }
 
@@ -65,7 +76,7 @@ export default class ReportListing extends Component {
                 return (
 
                     <ListGroup>
-                        <ListGroupItem header={this.props.report.text}> {/*sendt inn av {this.props.report.user}*/}
+                        <ListGroupItem header={this.reportHeader()}> {/*sendt inn av {this.props.report.user}*/}
                             <strong><T>common.reportListing.submittedBy</T></strong>
                             {this.props.report.user}
                             <ButtonToolbar>
@@ -79,8 +90,9 @@ export default class ReportListing extends Component {
             } else {
                 return (
                     <ListGroup>
-                        <ListGroupItem header={this.props.report.text}>
-                            <p>{!this.props.report.isValidated ? <T>common.reportListing.diffScientistWorking</T> :
+                        <ListGroupItem header={this.reportHeader()}>
+                            <p>{!this.props.report.isValidated ? <p><T>common.reportListing.diffScientistWorking</T>
+                                    { " " + this.props.report.scientist + "."} </p> :
                                 <T>common.reportListing.reportValid</T>}</p>
                             {(!this.showSeRapport()) ?
                                 ''

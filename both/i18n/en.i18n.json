@@ -30,7 +30,7 @@
   },
 
   "reportListing": {
-    "diffScientistWorking": "A different scientist is currently working on this one.",
+    "diffScientistWorking": "This reporting is being validated by ",
     "reportValid": "This report has been validated",
     "goBack": "Go back",
     "seeReport": "See report",
@@ -54,7 +54,8 @@
     "amount": "Amount: ",
     "depth": "Depth: ",
     "length": "Length: ",
-    "feedback": "feedback: "
+    "feedback": "feedback: ",
+    "validSpecies": "Validated species: "
   },
 
   "viewReport": {

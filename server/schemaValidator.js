@@ -111,6 +111,9 @@ Schemas.Reports = new SimpleSchema({
         label: 'owner',
         optional: false
     },
-
-
+    validSpecie: {
+        type: String,
+        label: "validSpecie",
+        optional: true
+    },
 });

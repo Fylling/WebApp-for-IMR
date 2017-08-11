@@ -153,7 +153,9 @@ Meteor.methods({
         if (Meteor.isServer) {
             let userList = Meteor.users.find();
             userList.forEach((user) => {
-                Meteor.call('sendAEmail', user.emails[0].address);
+                if(user.profile.sendEmail){
+                    Meteor.call('sendAEmail', user.emails[0].address);
+                }
             })
         }
     },
@@ -270,6 +272,19 @@ Meteor.methods({
     },
 
     'setSendEmail'(){
-        console.log(Meteor.users.findOne(Meteor.userId()));
+        console.log("setsendemail");
+        let user = Meteor.users.findOne(Meteor.userId());
+
+        let setObject = {};
+        let sendEmail = "sendEmail";
+        setObject[sendEmail] = !user.profile.sendEmail;
+
+        try {
+            Meteor.users.update(Meteor.userId(), {
+                $set: {profile: setObject}
+            })
+        } catch (e) {
+            console.log(e.message);
+        }
     }
 });

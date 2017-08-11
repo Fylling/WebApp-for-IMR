@@ -13,6 +13,9 @@ class Profile extends Component {
     }
 
     render(){
+        if(this.props.currentUser){
+            console.log(Meteor.user().profile.sendEmail);
+        }
         return(
             <div>
                 <Grid>
@@ -20,7 +23,7 @@ class Profile extends Component {
                         <ListGroup>
                             <ListGroupItem header="Vil do motta email om ny rapporter?">
                                 <Button bsStyle="primary"
-                                        onClick={Meteor.call('setSendEmail')}
+                                        onClick={() => {Meteor.call('setSendEmail')}}
                                 >
                                     Ja
                                 </Button>

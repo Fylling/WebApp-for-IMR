@@ -61,11 +61,8 @@ export default class ReportListing extends Component {
 
     reportHeader(){
         if(localStorage.getItem('validated') === 'false'){
-            console.log("reportheader if");
             return this.props.report.text;
         } else {
-            console.log("reportheader else");
-            console.log(this.props.report.validSpecie);
             return (this.props.report.validSpecie + "(" + this.props.report.text + ")")
         }
     }

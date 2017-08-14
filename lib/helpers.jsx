@@ -15,10 +15,6 @@ export function IsLoggedIn() {
 
 
 export function loggedIn() {
-    console.log("loggedIn fungerer");
-    console.log("loggedIn fungerer");
-    console.log("loggedIn fungerer");
-    console.log("loggedIn fungerer");
     console.log(Accounts.onLogin);
 }
 

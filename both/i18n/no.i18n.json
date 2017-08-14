@@ -70,7 +70,8 @@
   "profile": {
     "yes": "Ja",
     "no": "Nei",
-    "receiveMail": "Vil du motta email om nye rapporter?"
+    "receiveMail": "Vil du motta email om nye rapporter?",
+    "setSendEmail": "Motta email"
   }
 
 }

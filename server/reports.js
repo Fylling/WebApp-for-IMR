@@ -4,14 +4,14 @@
 /**
  * Created by sebas on 03.05.2017.
  */
-import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
-import { check } from 'meteor/check';
-import { Accounts } from 'meteor/accounts-base';
-import { Email } from 'meteor/email';
-import { DDP } from 'meteor/ddp-client';
+import {Meteor} from 'meteor/meteor';
+import {Mongo} from 'meteor/mongo';
+import {check} from 'meteor/check';
+import {Accounts} from 'meteor/accounts-base';
+import {Email} from 'meteor/email';
+import {DDP} from 'meteor/ddp-client';
 import SimpleSchema from 'simpl-schema';
-import { Schemas } from './schemaValidator.js';
+import {Schemas} from './schemaValidator.js';
 
 import Markers from '../imports/ui/components/GoogleMaps/markers.jsx';
 
@@ -20,15 +20,17 @@ export const remote = DDP.connect('http://hi-07586.imr.no:3030/');
 export const Reports = new Mongo.Collection('reports');
 export const Images = new Mongo.Collection('images');
 
-export const adminPageFields = {"text": 1, "user": 1, "isValidated": 1,
+export const adminPageFields = {
+    "text": 1, "user": 1, "isValidated": 1,
     "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1,
-    "longitude": 1, "latitude": 1, "validSpecie": 1};
+    "longitude": 1, "latitude": 1, "validSpecie": 1
+};
 
 const reportingToolListFields = {
     text: 1, user: 1,
     isValidated: 1, createdAt: 1,
     scientist: 1, category: 1, owner: 1,
-    markerId: 1, taken: 1,
+    markerId: 1, taken: 1, validSpecie: 1
 };
 
 Meteor.startup(function () {
@@ -37,87 +39,109 @@ Meteor.startup(function () {
 
 
 Reports.deny({
-    insert() { return true; },
-    update() { return true; },
-    remove() { return true; },
+    insert() {
+        return true;
+    },
+    update() {
+        return true;
+    },
+    remove() {
+        return true;
+    },
 });
 
 
 if (Meteor.isServer) {
     //This code only runs on the server
 
+    Meteor.publish('user.sendEmail', () => {
+        return Meteor.users.findOne(this.userId);
+    });
+
     Meteor.publish('reports', function reportsPublication(limit, fields) {
-        limit = limit < 0 || !limit  ? 10 : limit;
-        return Reports.find({ owner: this.userId }, {sort: {createdAt: -1}, fields: fields,
-            limit: limit });
+        limit = limit < 0 || !limit ? 10 : limit;
+        return Reports.find({owner: this.userId}, {
+            sort: {createdAt: -1}, fields: fields,
+            limit: limit
+        });
     });
 
     Meteor.publish('reports.test', function reportsPublication() {
-        return Reports.find({ owner: this.userId }, {sort: {createdAt: -1} });
+        return Reports.find({owner: this.userId}, {sort: {createdAt: -1}});
     });
 
-    Meteor.publish('reports.reportingToolList', function reportsPublication( userId, limit ){
+    Meteor.publish('reports.reportingToolList', function reportsPublication(userId, limit) {
         limit = limit < 0 || !limit ? 10 : limit;
-        return Reports.find({owner: userId}, {sort: { createdAt: -1}, limit: limit, fields: reportingToolListFields});
+        return Reports.find({owner: userId}, {sort: {createdAt: -1}, limit: limit, fields: reportingToolListFields});
     });
 
-    Meteor.publish('reports.adminMap', function reportsPublication(validated){
-        return Reports.find({isValidated: validated}, { sort: { createdAt: -1},
-            fields: adminPageFields});
+    Meteor.publish('reports.adminMap', function reportsPublication(validated) {
+        return Reports.find({isValidated: validated}, {
+            sort: {createdAt: -1},
+            fields: adminPageFields
+        });
     });
 
-    Meteor.publish('reports.adminMapWithCategory', function reportsPublication(category, validated, fields, limit){
+    Meteor.publish('reports.adminMapWithCategory', function reportsPublication(category, validated, fields, limit) {
         limit = limit < 0 || !limit ? 10 : limit;
-        return Reports.find({isValidated: validated, category: category}, { limit: limit, sort: { createdAt: -1},
-            fields: adminPageFields});
+        return Reports.find({isValidated: validated, category: category}, {
+            limit: limit, sort: {createdAt: -1},
+            fields: adminPageFields
+        });
     });
 
-    Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit){
+    Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit) {
         limit = limit < 0 || !limit ? 10 : limit;
-        return Reports.find({isValidated: validated}, { limit: limit, sort: { createdAt: -1},
-            fields: adminPageFields});
+        return Reports.find({isValidated: validated}, {
+            limit: limit, sort: {taken: -1},
+            fields: adminPageFields
+        });
     });
 
-    Meteor.publish('reports.adminPageListWithCategory', function reportsPublication(category, validated, fields, limit){
+    Meteor.publish('reports.adminPageListWithCategory', function reportsPublication(category, validated, fields, limit) {
         limit = limit < 0 || !limit ? 10 : limit;
-        return Reports.find({isValidated: validated, category: category}, { limit: limit, sort: { createdAt: -1},
-            fields: adminPageFields});
+        return Reports.find({isValidated: validated, category: category}, {
+            limit: limit, sort: {taken: -1},
+            fields: adminPageFields
+        });
     });
 
     Meteor.publish('reports.all', (fields) => {
-        if(this.userId()){
+        if (this.userId()) {
             return Reports.find({isValidated: true}, {fields: fields});
         }
     });
 
-    Meteor.publish('reports.findOne', function reportsPublication(rId, fields){
+    Meteor.publish('reports.findOne', function reportsPublication(rId, fields) {
         return Reports.find({_id: rId}, {fields: fields});
     });
 
-    Meteor.startup( function() {
+    Meteor.startup(function () {
         let username = encodeURIComponent("sebastianfroyen@gmail.com");
         let pass = encodeURIComponent("Rhkwxexty69");
         let domain = "smtp.gmail.com";
         let port = 587;
-        process.env.MAIL_URL="smtp://" + username + ":" + pass + "@" + domain + ":" + port;
+        process.env.MAIL_URL = "smtp://" + username + ":" + pass + "@" + domain + ":" + port;
     })
 
 }
 
 //Metoder for å legge til, slette og oppdateres
 Meteor.methods({
-    'sendVerificationEmail'(user){
+
+
+    'sendVerificationEmail'(user) {
         let userId = user ? user : Meteor.userId();
 
-        if(userId){
+        if (userId) {
             return Accounts.sendVerificationEmail(userId);
         }
     },
-    'sendPassRecoveryLink'(email){
+    'sendPassRecoveryLink'(email) {
         let user = Meteor.users.findOne({address: email});
-        if(user){
-            Accounts.forgotPassword({email: email},function(err){
-                if(err){
+        if (user) {
+            Accounts.forgotPassword({email: email}, function (err) {
+                if (err) {
                     console.log(err.reason);
                 } else {
                     console.log("It worked");
@@ -126,7 +150,7 @@ Meteor.methods({
         }
     },
 
-    'sendAEmail'(userEmail, reportName){
+    'sendAEmail'(userEmail, reportName) {
         let emailText;
         let emailSubject;
         if (reportName) {
@@ -138,7 +162,7 @@ Meteor.methods({
         }
 
         console.log(userEmail);
-        if(Meteor.isServer) {
+        if (Meteor.isServer) {
             console.log("Sending email");
             Email.send({
                 from: "sebastianfroyen@gmail.com",
@@ -149,11 +173,11 @@ Meteor.methods({
         }
     },
 
-    'sendEmailToAll'(){
+    'sendEmailToAll'() {
         if (Meteor.isServer) {
             let userList = Meteor.users.find();
             userList.forEach((user) => {
-                if(user.profile.sendEmail){
+                if (user.profile.sendEmail) {
                     Meteor.call('sendAEmail', user.emails[0].address);
                 }
             })
@@ -161,7 +185,7 @@ Meteor.methods({
     },
 
     'reports.insert'(titelText, lengdeNr, img, posLat, posLong,
-                     depthInput, amountInput, useCurrPos, category, date, mail, brukerId){
+                     depthInput, amountInput, useCurrPos, category, date, mail, brukerId) {
 
         console.log("brukeriden som ble sendt fra klient");
         console.log(brukerId);
@@ -177,11 +201,17 @@ Meteor.methods({
         console.log(typeof mail + " email");
         check(mail, String);
 
-        if(lengdeNr){ check(lengdeNr, Number); }
-        if(depthInput){ check(depthInput, Number); }
-        if(amountInput){ check(amountInput, Number); }
+        if (lengdeNr) {
+            check(lengdeNr, Number);
+        }
+        if (depthInput) {
+            check(depthInput, Number);
+        }
+        if (amountInput) {
+            check(amountInput, Number);
+        }
 
-        if(!date){
+        if (!date) {
             date = new Date();
         } else {
             date = new Date(date);
@@ -189,7 +219,7 @@ Meteor.methods({
         }
 
         //Make sure user is logged in before inserting a report
-        if(!brukerId){
+        if (!brukerId) {
             throw new Meteor.Error('not-authorized');
         }
         /*
@@ -219,8 +249,8 @@ Meteor.methods({
             reportFeedback: '',
             scientist: '',
             validSpecie: ''
-        }, function(err, res){
-            if(err){
+        }, function (err, res) {
+            if (err) {
                 console.log("error");
                 console.log(err);
             } else if (res) {
@@ -231,18 +261,16 @@ Meteor.methods({
         });
     },
 
-    'reports.validateSpecies'(rId, species){
+    'reports.validateSpecies'(rId, species) {
         check(rId, String);
         check(species, String);
-        console.log("I server");
-        console.log(species);
         Reports.update(rId, {
             $set: {validSpecie: species}
         });
 
     },
 
-    'reports.changeValidateSpecies'(rId, species){
+    'reports.changeValidateSpecies'(rId, species) {
         check(rId, String);
         check(species, String);
         Reports.update(rId, {
@@ -250,7 +278,7 @@ Meteor.methods({
         });
     },
 
-    'reports.setCheckedOut'(id, checkedOut, scientistEmail){
+    'reports.setCheckedOut'(id, checkedOut, scientistEmail) {
         check(id, String);
         check(checkedOut, Boolean);
         Reports.update(id, {
@@ -258,33 +286,50 @@ Meteor.methods({
         });
     },
 
-    'reports.updateFeedback'(reportId, feedback){
+    'reports.updateFeedback'(reportId, feedback) {
         check(feedback, String);
         Reports.update(reportId, {
             $set: {reportFeedback: feedback}
         });
     },
 
-    'reports.validateReport'(id){
+    'reports.validateReport'(id) {
         Reports.update(id, {
             $set: {isValidated: true, checkedOut: true}
         });
     },
 
-    'setSendEmail'(){
+    'setSendEmail'() {
         console.log("setsendemail");
-        let user = Meteor.users.findOne(Meteor.userId());
-
-        let setObject = {};
-        let sendEmail = "sendEmail";
-        setObject[sendEmail] = !user.profile.sendEmail;
-
         try {
+            let user = Meteor.users.findOne(Meteor.userId());
+
+            let setObject = {};
+            let sendEmail = "sendEmail";
+            setObject[sendEmail] = user.profile.sendEmail ? !user.profile.sendEmail : true;
+
             Meteor.users.update(Meteor.userId(), {
                 $set: {profile: setObject}
             })
         } catch (e) {
+            Meteor.users.update({_id: Meteor.userId()}, {$set: {profile: {sendEmail: false}}});
             console.log(e.message);
+        }
+    },
+
+    'checkSendEmail'() {
+        if(Meteor.userId()) {
+            try {
+                console.log("in try");
+                let user = Meteor.users.findOne(Meteor.userId());
+                if (user.profile === undefined) {
+                    Meteor.users.update({_id: Meteor.userId()}, {$set: {profile: {sendEmail: false}}});
+                }
+                console.log("Finished try");
+
+            } catch (e) {
+                console.log(e.message);
+            }
         }
     }
 });

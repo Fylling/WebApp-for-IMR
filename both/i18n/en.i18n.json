@@ -70,7 +70,8 @@
   "profile": {
     "yes": "Yes",
     "no": "No",
-    "receiveMail": "Would you like to receive mail about new reports?"
+    "receiveMail": "Would you like to receive mail about new reports?",
+    "setSendEmail": "Receive email"
   }
 
 }

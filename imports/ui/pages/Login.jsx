@@ -23,6 +23,7 @@ export default class Login extends Component {
 
             } else {
                 let category = "Alle";
+                Meteor.call('checkSendEmail');
                 localStorage.setItem('userMail', Meteor.user().emails[0].address);
                 localStorage.setItem('validated', false);
                 localStorage.setItem('limit', 10);

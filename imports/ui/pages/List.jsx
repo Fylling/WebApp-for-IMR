@@ -90,7 +90,7 @@ export default ListContainer = createContainer(() => {
     let localLimit = parseInt(localStorage.getItem('limit'));
     let sessionLimit = Session.get('limit');
     let limit = sessionLimit < localLimit ? localLimit : sessionLimit;
-    let options = {limit: limit, sort: {createdAt: -1}, fields: fields};
+    let options = {limit: limit, sort: {taken: -1}, fields: fields};
 
     if (category === "Alle") {
         selector = {isValidated: validated};

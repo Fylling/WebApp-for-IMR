@@ -17,18 +17,28 @@ Meteor.startup(() => {
     };
 
     //process.env.UNIVERSE_I18N_LOCALES = 'nb-NO';
+
    if(Meteor.users.find().count() === 0) {
        Accounts.createUser({
            email: "example@mail.com",
-           password: "fisk123"
+           password: "fisk123",
+           profile : {
+               sendEmail: false
+           }
        });
        Accounts.createUser({
            email: "sebastianfroyen@gmail.com",
-           password: "v95ooa"
+           password: "v95ooa",
+           profile : {
+               sendEmail: false
+           }
        });
        Accounts.createUser({
            email: "sebastian17pepp@gmail.com",
-           password: "v95ooa"
+           password: "v95ooa",
+           profile : {
+               sendEmail: false
+           }
        })
    }
 });

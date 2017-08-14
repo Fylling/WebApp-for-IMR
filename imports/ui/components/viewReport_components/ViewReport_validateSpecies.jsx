@@ -23,26 +23,13 @@ export default class ViewReport_validateSpecies extends Component {
     validateSpecies(e) {
         e.preventDefault();
         console.log("validateSpecies");
-        Meteor.call('reports.validateSpecies', this.props.report._id, this.props.report.text);
-    }
-
-    changeValidateSpecies(e) {
-        e.preventDefault();
-        console.log("changeValidateSpecies");
-        Meteor.call('reports.changeValidateSpecies', this.props.report._id, document.getElementById('validSpecies').value.trim());
-
+        Meteor.call('reports.validateSpecies', this.props.report._id, document.getElementById('validSpecies').value.trim());
     }
 
     validSpecie(e){
         e.preventDefault();
         this.setState({modalVisible: false});
 
-        console.log(typeof document.getElementById('validSpecies').value.trim());
-        console.log(document.getElementById('validSpecies').value.trim());
-
-        console.log(document.getElementById('validSpecies').value.trim() === "");
-
-        if(this.state.change){
             if (document.getElementById('validSpecies').value.trim() === "") {
                 this.setState({
                     error: true
@@ -51,11 +38,8 @@ export default class ViewReport_validateSpecies extends Component {
                 this.setState({
                     error: false
                 });
-                this.changeValidateSpecies(e);
+                this.validateSpecies(e);
             }
-        } else {
-            this.validateSpecies(e);
-        }
     }
 
     handleChange(e){
@@ -85,13 +69,6 @@ export default class ViewReport_validateSpecies extends Component {
                                     modalVisible: true,
                                 });
                             }}>Valider</Button>
-                    <Button className="feedbackBtn" type="submit" bsStyle="primary"
-                            onClick={() => {
-                                this.setState({
-                                    change: true,
-                                    modalVisible: true,
-                                });
-                            }}>Endre</Button>
                 </ButtonGroup>
                 <br/><br/>
             </Row>

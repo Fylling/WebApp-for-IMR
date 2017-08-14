@@ -125,7 +125,7 @@ export default class header extends Component{
 
                     {IsLoggedIn() ? <FlagBtn/> : null}
 
-                    <NavItem onClick={this.goToProfile.bind(this)}>Profile</NavItem>
+                    {IsLoggedIn() ? <NavItem onClick={this.goToProfile.bind(this)}>Profile</NavItem> : null}
 
                 </Nav>
 

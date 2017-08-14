@@ -65,6 +65,12 @@
   "viewMapOfReports": {
     "googleMapHeading": "Oversikt av ",
     "all": "alle rapporteringer"
+  },
+
+  "profile": {
+    "yes": "Ja",
+    "no": "Nei",
+    "receiveMail": "Vil du motta email om nye rapporter?"
   }
 
 }

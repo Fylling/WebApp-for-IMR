@@ -4,10 +4,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a8ecf29-d97c-44c9-8115-3423f847a03b" name="Default" comment="">
+    <list default="true" id="1a8ecf29-d97c-44c9-8115-3423f847a03b" name="Default" comment="Bruker kan velge om de skal motta email eller ikke. Knappen fungerer.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/i18n/en.i18n.json" afterPath="$PROJECT_DIR$/both/i18n/en.i18n.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/i18n/no.i18n.json" afterPath="$PROJECT_DIR$/both/i18n/no.i18n.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/pages/Profile.jsx" afterPath="$PROJECT_DIR$/imports/ui/pages/Profile.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/reports.js" afterPath="$PROJECT_DIR$/server/reports.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,8 +29,8 @@
             <file leaf-file-name="List.jsx" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/imports/ui/pages/List.jsx">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="220">
-                    <caret line="56" column="20" lean-forward="true" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+                  <state relative-caret-position="318">
+                    <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
                     <folding>
                       <element signature="e#0#39#0" expanded="true" />
                     </folding>
@@ -63,8 +65,8 @@
             <file leaf-file-name="router.jsx" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/lib/router.jsx">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="234">
-                    <caret line="83" column="14" lean-forward="true" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+                  <state relative-caret-position="360">
+                    <caret line="100" column="43" lean-forward="true" selection-start-line="100" selection-start-column="43" selection-end-line="100" selection-end-column="43" />
                     <folding>
                       <element signature="e#0#26#0" expanded="true" />
                     </folding>
@@ -72,26 +74,22 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="ViewReport_info.jsx" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_info.jsx">
+            <file leaf-file-name="no.i18n.json" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/both/i18n/no.i18n.json">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="602">
-                    <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-                    <folding>
-                      <element signature="e#0#39#0" expanded="true" />
-                    </folding>
+                  <state relative-caret-position="906">
+                    <caret line="72" column="16" lean-forward="false" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="16" />
+                    <folding />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="reports.js" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/server/reports.js">
+            <file leaf-file-name="en.i18n.json" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/both/i18n/en.i18n.json">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="809">
-                    <caret line="282" column="47" lean-forward="false" selection-start-line="282" selection-start-column="47" selection-end-line="282" selection-end-column="47" />
-                    <folding>
-                      <element signature="e#88#127#0" expanded="true" />
-                    </folding>
+                  <state relative-caret-position="906">
+                    <caret line="72" column="68" lean-forward="false" selection-start-line="72" selection-start-column="68" selection-end-line="72" selection-end-column="68" />
+                    <folding />
                   </state>
                 </provider>
               </entry>
@@ -106,8 +104,8 @@
       <file leaf-file-name="ReportListing.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/ReportList/ReportListing.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="57" column="48" lean-forward="false" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+            <state relative-caret-position="456">
+              <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -118,8 +116,8 @@
       <file leaf-file-name="navbar.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="110" column="33" lean-forward="false" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+            <state relative-caret-position="513">
+              <caret line="127" column="100" lean-forward="false" selection-start-line="127" selection-start-column="100" selection-end-line="127" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -128,8 +126,8 @@
       <file leaf-file-name="Profile.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/imports/ui/pages/Profile.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+            <state relative-caret-position="644">
+              <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -137,11 +135,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Loading_feedback.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/Loading_feedback.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="56">
+              <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="validateReport.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/validateReport.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
+            <state relative-caret-position="387">
+              <caret line="33" column="44" lean-forward="true" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -161,8 +169,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>category</find>
-      <find>triggersenter</find>
       <find>test</find>
       <find>this.force</find>
       <find>this</find>
@@ -191,6 +197,8 @@
       <find>reportva</find>
       <find>fNamePath</find>
       <find>userid</find>
+      <find>profile</find>
+      <find>i18n</find>
     </findStrings>
     <replaceStrings>
       <replace>this.props.report</replace>
@@ -269,12 +277,12 @@
         <option value="$PROJECT_DIR$/imports/ui/components/viewReport_components/validateReport.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/viewReport.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/List.jsx" />
-        <option value="$PROJECT_DIR$/both/i18n/en.i18n.json" />
-        <option value="$PROJECT_DIR$/both/i18n/no.i18n.json" />
         <option value="$PROJECT_DIR$/imports/ui/components/ReportList/ReportListing.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" />
         <option value="$PROJECT_DIR$/lib/router.jsx" />
         <option value="$PROJECT_DIR$/server/reports.js" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx" />
+        <option value="$PROJECT_DIR$/both/i18n/no.i18n.json" />
+        <option value="$PROJECT_DIR$/both/i18n/en.i18n.json" />
         <option value="$PROJECT_DIR$/imports/ui/pages/Profile.jsx" />
       </list>
     </option>
@@ -405,13 +413,6 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="viewReport_components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebApp-for-IMR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebApp-for-IMR" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WebApp-for-IMR" type="b2602c69:ProjectViewProjectNode" />
@@ -632,7 +633,7 @@
       <workItem from="1502363660612" duration="52000" />
       <workItem from="1502363768471" duration="4476000" />
       <workItem from="1502438087870" duration="21327000" />
-      <workItem from="1502462287614" duration="2330000" />
+      <workItem from="1502462287614" duration="4605000" />
     </task>
     <task id="LOCAL-00001" summary="Har lagt til DDP.connect, klarer å snakke med rapporteringsverktøyet uten problemer.">
       <created>1498655830230</created>
@@ -900,21 +901,28 @@
       <option name="project" value="LOCAL" />
       <updated>1502463388797</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Bruker kan velge om de skal motta email eller ikke.">
+      <created>1502464667605</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1502464667605</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="552394000" />
+    <option name="totallyTimeSpent" value="554669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="18" width="1045" height="1149" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25390625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25390625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3678606" sideWeight="0.503428" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32623428" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28460795" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19651501" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3678606" sideWeight="0.496572" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -983,7 +991,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Utsjekking registreres hos andre brukere, Den kan være litt treg desverre. Bruker også remote.call istedenfor meteor.call." />
     <MESSAGE value="Byttet ut header med navbar.jsx, siden header.jsx brukte react.createclass." />
     <MESSAGE value="Lagt til en dropdown meny for validerte rapporter. Listen fungerer nå, støtter kategori på samme måten." />
     <MESSAGE value="Visser ikke feedback input felt og send tilbakemelding knapp når bruker ser på validerte rapporter." />
@@ -1008,7 +1015,8 @@
     <MESSAGE value="Google maps oversikt over validertre rapporter er ferdig nå, henter ofr mange variabler, må se på det senere." />
     <MESSAGE value="Fisket oppsett av googlemaps siden. Overskriften har goså blitt fikset" />
     <MESSAGE value="Påbegynt profile side for å sette om bruker skal motta email når en report sendes inn" />
-    <option name="LAST_COMMIT_MESSAGE" value="Påbegynt profile side for å sette om bruker skal motta email når en report sendes inn" />
+    <MESSAGE value="Bruker kan velge om de skal motta email eller ikke." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bruker kan velge om de skal motta email eller ikke." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1090,13 +1098,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="30" column="65" lean-forward="false" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Loading_feedback.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1188,6 +1189,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1241,26 +1243,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/validateReport.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/ReportList/ReportListing.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="57" column="48" lean-forward="false" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/validatedReportsDropDown.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1287,50 +1269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/both/i18n/en.i18n.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="110" column="33" lean-forward="false" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both/i18n/no.i18n.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/List.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="56" column="20" lean-forward="true" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/router.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="83" column="14" lean-forward="true" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/ViewReport_info.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="602">
@@ -1353,21 +1291,93 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/reports.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="282" column="47" lean-forward="false" selection-start-line="282" selection-start-column="47" selection-end-line="282" selection-end-column="47" />
+        <state relative-caret-position="95">
+          <caret line="231" column="6" lean-forward="true" selection-start-line="231" selection-start-column="6" selection-end-line="231" selection-end-column="6" />
           <folding>
             <element signature="e#88#127#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Profile.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar_components/navbar.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+        <state relative-caret-position="513">
+          <caret line="127" column="100" lean-forward="false" selection-start-line="127" selection-start-column="100" selection-end-line="127" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/router.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="100" column="43" lean-forward="true" selection-start-line="100" selection-start-column="43" selection-end-line="100" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/List.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both/i18n/en.i18n.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="906">
+          <caret line="72" column="68" lean-forward="false" selection-start-line="72" selection-start-column="68" selection-end-line="72" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/ReportList/ReportListing.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/viewReport_components/validateReport.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="33" column="44" lean-forward="true" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Loading_feedback.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Profile.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both/i18n/no.i18n.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="906">
+          <caret line="72" column="16" lean-forward="false" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>

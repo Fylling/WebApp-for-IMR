@@ -3,6 +3,7 @@ import {Meteor} from 'meteor/meteor';
 import {PageHeader, Grid, Row, ListGroupItem, ListGroup, Button} from 'react-bootstrap';
 import {createContainer} from 'meteor/react-meteor-data';
 import i18n from 'meteor/universe:i18n';
+import {Loading_feedback} from '../components/Loading_feedback'
 
 
 const T = i18n.createComponent();
@@ -14,25 +15,36 @@ class Profile extends Component {
 
     render(){
         if(this.props.currentUser){
-            console.log(Meteor.user().profile.sendEmail);
+            console.log(this.props.currentUser.profile);
         }
-        return(
-            <div>
-                <Grid>
-                    <Row>
-                        <ListGroup>
-                            <ListGroupItem header="Vil do motta email om ny rapporter?">
-                                <Button bsStyle="primary"
-                                        onClick={() => {Meteor.call('setSendEmail')}}
-                                >
-                                    Ja
-                                </Button>
-                            </ListGroupItem>
-                        </ListGroup>
-                    </Row>
-                </Grid>
-            </div>
-        )
+        if(this.props.currentUser) {
+            return (
+                <div>
+                    <Grid>
+                        <Row>
+                            <ListGroup>
+                                <ListGroupItem header={i18n.__('common.profile.receiveMail')}>
+                                    <Button bsStyle="primary"
+                                            onClick={() => {
+                                                Meteor.call('setSendEmail')
+                                            }}>
+                                        {this.props.currentUser.profile.sendEmail ?
+                                            <T>common.profile.yes</T>
+                                            :
+                                            <T>common.profile.no</T>}
+
+                                    </Button>
+                                </ListGroupItem>
+                            </ListGroup>
+                        </Row>
+                    </Grid>
+                </div>
+            )
+        } else {
+            return (
+                <Loading_feedback/>
+            )
+        }
     }
 }
 

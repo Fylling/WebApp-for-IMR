@@ -43,7 +43,7 @@ export default class ViewReport_validateSpecies extends Component {
     }
 
     handleChange(e){
-        this.setState({input: document.getElementById('validSpecies').value.trim()});
+        this.setState({input: document.getElementById('validSpecies').value});
     }
 
     render() {
@@ -55,7 +55,6 @@ export default class ViewReport_validateSpecies extends Component {
                 <FormControl
                     type="text"
                     id="validSpecies"
-                    placeholder="Enter text"
                     value={this.state.input}
                     onChange={this.handleChange.bind(this)}
                 />

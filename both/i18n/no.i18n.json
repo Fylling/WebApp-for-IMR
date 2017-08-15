@@ -45,6 +45,12 @@
     "showHundred": "Vis 100"
   },
 
+  "sortDropDown": {
+    "filter": "Filtrer",
+    "date": "Dato",
+    "alphabetic": "Alfabetisk"
+  },
+
   "viewReport_info": {
     "user": "Bruker: ",
     "species": "Art: ",

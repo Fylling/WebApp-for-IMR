@@ -12,6 +12,8 @@ export default class ValidatedReportsDropDown extends Component {
     }
 
     validatedReportCategory(category) {
+        localStorage.setItem('page', 0);
+        Session.set('page', 0);
         localStorage.setItem('validated', true);
         FlowRouter.setParams({category: category});
         FlowRouter.go('/validatedreports/' + category);

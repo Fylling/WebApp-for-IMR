@@ -33,6 +33,8 @@ export default class header extends Component{
     }
 
     unValidatedReportCategory(category){
+        localStorage.setItem('page', 0);
+        Session.set('page', 0);
         localStorage.setItem('validated', false);
         FlowRouter.setParams({category: category});
         FlowRouter.go('/unvalidatedreports/' + category);

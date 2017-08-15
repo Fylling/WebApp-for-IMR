@@ -45,6 +45,12 @@
     "showHundred": "Show 100"
   },
 
+  "sortDropDown": {
+    "filter": "Filter",
+    "date": "Date",
+    "alphabetic": "Alphabetic"
+  },
+
   "viewReport_info": {
     "user": "User: ",
     "species": "Species: ",

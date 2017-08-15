@@ -18,5 +18,6 @@ export function loggedIn() {
     console.log(Accounts.onLogin);
 }
 
+export function setPageHelper(total, current, limit){
 
-
+}

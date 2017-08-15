@@ -20,10 +20,16 @@ export const remote = DDP.connect('http://hi-07586.imr.no:3030/');
 export const Reports = new Mongo.Collection('reports');
 export const Images = new Mongo.Collection('images');
 
+export const AmountOfReports = new Mongo.Collection('amountOfReports');
+
+export const validReports = {total: 0, fish: 0, coral: 0, unknown: 0};
+export const invalidReports = {total: 0, fish: 0, coral: 0, unknown: 0};
+
+
 export const adminPageFields = {
-    "text": 1, "user": 1, "isValidated": 1,
-    "checkedOut": 1, "scientist": 1, "category": 1, "createdAt": 1,
-    "longitude": 1, "latitude": 1, "validSpecie": 1
+    'text': 1, 'user': 1, 'isValidated': 1,
+    'checkedOut': 1, 'scientist': 1, 'category': 1, 'createdAt': 1,
+    'longitude': 1, 'latitude': 1, 'validSpecie': 1
 };
 
 const reportingToolListFields = {
@@ -35,8 +41,49 @@ const reportingToolListFields = {
 
 Meteor.startup(function () {
     Reports.attachSchema(Schemas.Reports);
-});
 
+    let reportlist = Reports.find({}, {fields: {isValidated: 1, category: 1}});
+    AmountOfReports.remove({});
+    reportlist.forEach((r) => {
+        if (r.isValidated) {
+            validReports.total = validReports.total + 1;
+            if (r.category === "Fiske art") {
+                validReports.fish = validReports.fish + 1;
+            } else if (r.category === "Koral") {
+                validReports.coral = validReports.coral + 1;
+            } else {
+                validReports.unknown = validReports.unknown + 1;
+            }
+        } else {
+            invalidReports.total = invalidReports.total + 1;
+            if (r.category === "Fiske art") {
+                invalidReports.fish = invalidReports.fish + 1;
+            } else if (r.category === "Koral") {
+                invalidReports.coral = invalidReports.coral + 1;
+            } else {
+                invalidReports.unknown = invalidReports.unknown + 1;
+            }
+        }
+    });
+
+    AmountOfReports.insert({
+        valid: true,
+        total: validReports.total,
+        fish: validReports.fish,
+        coral: validReports.coral,
+        unknown: validReports.unknown
+
+    });
+    AmountOfReports.insert({
+        valid: false,
+        total: invalidReports.total,
+        fish: invalidReports.fish,
+        coral: invalidReports.coral,
+        unknown: invalidReports.unknown
+    });
+    console.log(validReports);
+    console.log(invalidReports);
+});
 
 Reports.deny({
     insert() {
@@ -50,9 +97,12 @@ Reports.deny({
     },
 });
 
-
 if (Meteor.isServer) {
     //This code only runs on the server
+
+    Meteor.publish('reports.amount', function (valid) {
+        return AmountOfReports.find({valid: valid}, {fields: {valid: 1, total: 1, fish: 1, coral: 1, unknown: 1}});
+    });
 
     Meteor.publish('user.sendEmail', () => {
         return Meteor.users.findOne(this.userId);
@@ -85,23 +135,30 @@ if (Meteor.isServer) {
     Meteor.publish('reports.adminMapWithCategory', function reportsPublication(category, validated, fields, limit) {
         limit = limit < 0 || !limit ? 10 : limit;
         return Reports.find({isValidated: validated, category: category}, {
-            limit: limit, sort: {createdAt: -1},
+            limit: limit,
             fields: adminPageFields
         });
     });
 
-    Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit) {
+    Meteor.publish('reports.adminPageList', function reportsPublication(validated, fields, limit, sort, page) {
         limit = limit < 0 || !limit ? 10 : limit;
+        page = page < 0 || !page ? 0 : page * limit;
+        console.log('reports.adminPageList');
+        console.log(page);
         return Reports.find({isValidated: validated}, {
-            limit: limit, sort: {taken: -1},
+            skip: page,
+            limit: limit, sort: sort,
             fields: adminPageFields
         });
     });
 
-    Meteor.publish('reports.adminPageListWithCategory', function reportsPublication(category, validated, fields, limit) {
+    Meteor.publish('reports.adminPageListWithCategory', function reportsPublication(category, validated, fields, limit, sort, page) {
         limit = limit < 0 || !limit ? 10 : limit;
+        page = page < 0 || !page ? 0 : page * limit;
+        console.log('reports.adminPageListWithCategory');
+        console.log(page);
         return Reports.find({isValidated: validated, category: category}, {
-            limit: limit, sort: {taken: -1},
+            skip: page, limit: limit,
             fields: adminPageFields
         });
     });
@@ -201,6 +258,8 @@ Meteor.methods({
         console.log(typeof mail + " email");
         check(mail, String);
 
+        titelText = titelText.charAt(0).toUpperCase() + titelText.slice(1).toLowerCase();
+
         if (lengdeNr) {
             check(lengdeNr, Number);
         }
@@ -222,15 +281,7 @@ Meteor.methods({
         if (!brukerId) {
             throw new Meteor.Error('not-authorized');
         }
-        /*
-        if(useCurrPos) {
-            Markers.insert({lat: posLong, lng: posLat, markerCreated: false});
-            markerId = Markers.findOne({markerCreated: false})._id;
-            Markers.update(markerId, {
-                $set: {markerCreated: true}
-            });
-        }
-        */
+
         Reports.insert({
             text: titelText,
             length: lengdeNr,
@@ -318,7 +369,7 @@ Meteor.methods({
     },
 
     'checkSendEmail'() {
-        if(Meteor.userId()) {
+        if (Meteor.userId()) {
             try {
                 console.log("in try");
                 let user = Meteor.users.findOne(Meteor.userId());

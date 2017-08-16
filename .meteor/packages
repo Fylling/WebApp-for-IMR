@@ -30,4 +30,5 @@ ryanwu:please-wait
 universe:i18n
 mdg:validated-method
 sach:flow-db-admin
-aldeed:collection2-core@2.0.0
+aldeed:collection2-core
+aldeed:schema-index

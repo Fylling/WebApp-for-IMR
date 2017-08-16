@@ -12,23 +12,39 @@ const style = {
 };
 
 export default class ShowMoreBtn extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            show: true
+        }
+    }
 
     setShowMoreBtn(e) {
         e.preventDefault();
         Session.set('limit', Session.get('limit') + 10);
+        if (Session.get('limit') === 50) {
+            this.setState({
+                show: false
+            })
+        }
         console.log("showing more " + Session.get('limit'));
+
     }
 
     render() {
-        return (
-            <div>
-                <ButtonGroup vertical block>
-                    <Button style={style} onClick={this.setShowMoreBtn.bind(this)}>
-                        <T>common.showMoreBtnDrpDwn.showMore</T>
-                    </Button>
-                </ButtonGroup>
-                <br/><br/>
-            </div>
-        )
+        if(this.state.show) {
+            return (
+                <div>
+                    <ButtonGroup vertical block>
+                        <Button style={style} onClick={this.setShowMoreBtn.bind(this)}>
+                            <T>common.showMoreBtnDrpDwn.showMore</T>
+                        </Button>
+                    </ButtonGroup>
+                    <br/><br/>
+                </div>
+            )
+        } else {
+            return null;
+        }
     }
 }

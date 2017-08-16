@@ -73,13 +73,15 @@ Schemas.Reports = new SimpleSchema({
     taken: {
         type: Date,
         label: 'taken',
-        optional: false
+        optional: false,
+        index: -1
     },
 
     text: {
         type: String,
         label: "title",
-        max: 30
+        max: 30,
+        index: 1
     },
 
     user: {

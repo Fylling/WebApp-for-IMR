@@ -116,10 +116,6 @@ if (Meteor.isServer) {
         });
     });
 
-    Meteor.publish('reports.test', function reportsPublication() {
-        return Reports.find({owner: this.userId}, {sort: {createdAt: -1}});
-    });
-
     Meteor.publish('reports.reportingToolList', function reportsPublication(userId, limit) {
         limit = limit < 0 || !limit ? 10 : limit;
         return Reports.find({owner: userId}, {sort: {createdAt: -1}, limit: limit, fields: reportingToolListFields});

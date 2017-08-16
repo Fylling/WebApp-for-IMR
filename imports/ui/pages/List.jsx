@@ -22,7 +22,8 @@ class List extends Component {
         reportAmount = 0;
         this.state = {
             page: true,
-            reportAmount: 0
+            reportAmount: 0,
+            showNextPageBtn : true
         }
     }
 
@@ -30,13 +31,8 @@ class List extends Component {
         let reportlistings = this.props.reports.map((report) => (
             <ReportListing key={report._id} report={report} remote={remote}/>
         ));
-
-        reportAmount = reportlistings.length + reportAmount;
-
-        console.log("reportAmount");
-        console.log(reportAmount);
-
         if (typeof reportlistings !== 'undefined' && reportlistings.length > 0) {
+            reportlistings.push(<ShowMoreBtn/>);
             return reportlistings;
         } else {
             return <p>Fant ingen rapporter</p>;
@@ -69,20 +65,20 @@ class List extends Component {
 
     setPage(e) {
         e.preventDefault();
-        //setPageHelper(this.props.amountOfReports[0].total, )
-        if (this.props.amountOfReports[0].total) {
+        console.log(setPageHelper(this.props.amountOfReports[0].total));
+        if (setPageHelper(this.props.amountOfReports[0].total)) {
             localStorage.setItem('page', parseInt(localStorage.getItem('page')) + 1);
             console.log(localStorage.getItem('page'));
+            location.reload();
         }
-    }
-
-    tmp(e){
-        e.preventDefault();
-        this.forceUpdate();
+        console.log(this.state.showNextPageBtn);
     }
 
     render() {
-        if (this.props.reports) {
+        if(this.props.amountOfReports){
+            console.log(this.props.amountOfReports[0]);
+        }
+
             return (
                 <Grid className="pageContainer">
                     <Row>
@@ -97,22 +93,19 @@ class List extends Component {
                                 </ButtonToolbar>
 
                                 <Button onClick={this.setPage.bind(this)}>
-                                    Neste side
-                                </Button>
-                                <Button onClick={this.tmp.bind(this)}>
-                                    update
+                                    Next page
                                 </Button>
                             </div>
                         </PageHeader>
-
-                        {this.renderReports()}
-                        <ShowMoreBtn/>
                     </Row>
+                    <Row>
+                        {this.props.reports ? this.renderReports():
+                            <Loading_feedback/>}
+                    </Row>
+
                 </Grid>
             );
-        } else {
-            return <Loading_feedback/>
-        }
+
     }
 }
 
@@ -131,7 +124,7 @@ export default ListContainer = createContainer(() => {
     let sessionLimit = Session.get('limit');
     let limit = sessionLimit < localLimit ? localLimit : sessionLimit;
     let page = parseInt(localStorage.getItem('page'));
-    let options = {limit: limit, sort: sort, fields: fields};
+    let options = {sort: sort, limit: limit, fields: fields};
     console.log(page);
     let reportSub;
     if (category === "Alle") {
@@ -141,14 +134,10 @@ export default ListContainer = createContainer(() => {
         selector = {isValidated: validated, category: category};
         reportSub = remote.subscribe('reports.adminPageListWithCategory', category, validated, fields, limit, sort, page);
     }
-    remote.subscribe('reports.amount', validated);
-    let reports;
-    if (reportSub.ready()) {
-        reports = Reports.find(selector, options);
-    }
-    return {
-        reports: reports,
-        amountOfReports: AmountOfReports.find({valid: validated}, {
+    let reportAmountSub = remote.subscribe('reports.amount', validated);
+    let reportsAmount;
+    if (reportAmountSub.ready()) {
+        reportsAmount = AmountOfReports.find({valid: validated}, {
             fields: {
                 valid: 1,
                 total: 1,
@@ -157,5 +146,13 @@ export default ListContainer = createContainer(() => {
                 unknown: 1
             }
         }).fetch()
+    }
+    let reports;
+    if (reportSub.ready()) {
+        reports = Reports.find(selector, options);
+    }
+    return {
+        reports: reports,
+        amountOfReports: reportsAmount
     }
 }, List);

@@ -11,7 +11,16 @@ const style = {
     backgroundImage: 'linear-gradient(to bottom,#337ab7 0,#2e6da4 100%)'
 };
 
+let _isMounted = false;
+
+
 export default class ShowMoreDropDown extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            showingNrOfAmount: i18n.__('common.showMoreBtnDrpDwn.showMoreBtn')
+        }
+    }
 
     setShowLimit(limit) {
         localStorage.setItem('limit', limit);
@@ -19,10 +28,30 @@ export default class ShowMoreDropDown extends Component {
         console.log("showing more " + limit);
     }
 
+    updateText(){
+        this.forceUpdate();
+    }
+
+    componentDidMount(){
+        _isMounted = true;
+    }
+
+    componentWillUnmount(){
+        _isMounted = false
+    }
+
     render() {
+        if (_isMounted) {
+            i18n.onChangeLocale ((newLocale) => {
+                this.forceUpdate();
+            });
+        }
+
         return (
             <div>
-                <DropdownButton id="Viss flere rapporter" title={<T>common.showMoreBtnDrpDwn.showMore</T>}>
+                <DropdownButton id="Viss flere rapporter" title={
+                    i18n.__('common.showMoreBtnDrpDwn.showMoreBtn') + Session.get('limit')
+                }>
                     <MenuItem id="Show 20 report" eventKey="1" onClick={this.setShowLimit.bind(this, 10)}>
                         <T>common.showMoreBtnDrpDwn.showTen</T>
                     </MenuItem>

@@ -90,7 +90,7 @@ class List extends Component {
 
         console.log('componentWillReceiveProps');
 
-        if(props.reports){
+        if (props.reports) {
             let amountsOfReports;
 
             let category = FlowRouter.getParam('category');
@@ -107,9 +107,6 @@ class List extends Component {
             let limit = Session.get('limit') < parseInt(localStorage.getItem('limit')) ?
                 parseInt(localStorage.getItem('limit')) : Session.get('limit');
 
-            console.log(amountsOfReports);
-            console.log(amountsOfReports < limit);
-            console.log(limit);
             let updateState = limit === props.reports.length && amountsOfReports > limit;
             if (updateState) {
                 console.log("Set to block");

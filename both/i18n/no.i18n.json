@@ -39,14 +39,15 @@
   },
 
   "showMoreBtnDrpDwn": {
-    "showMore": "Vis flere",
+    "showMoreBtn": "Vis flere: ",
     "showTen": "Vis 10",
     "showFifty": "Vis 50",
     "showHundred": "Vis 100"
   },
 
   "sortDropDown": {
-    "filter": "Filtrer",
+    "filterDate": "Filtrer: Dato",
+    "filterAlphabetic": "Filtrer: Alfabetisk",
     "date": "Dato",
     "alphabetic": "Alfabetisk"
   },

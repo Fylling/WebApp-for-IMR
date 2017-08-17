@@ -39,14 +39,15 @@
   },
 
   "showMoreBtnDrpDwn": {
-    "showMore": "Show more",
+    "showMoreBtn": "Show more: ",
     "showTen": "Show 10",
     "showFifty": "Show 50",
     "showHundred": "Show 100"
   },
 
   "sortDropDown": {
-    "filter": "Filter",
+    "filterDate": "Filtrer: Date",
+    "filterAlphabetic": "Filtrer: Alphabetic",
     "date": "Date",
     "alphabetic": "Alphabetic"
   },

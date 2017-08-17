@@ -1,19 +1,23 @@
 import React, {Component} from 'react';
-import {Meteor} from 'meteor/meteor';
-import {PageHeader, Grid, Row, ButtonToolbar, Button} from 'react-bootstrap';
+import {PageHeader, Grid, Row, ButtonToolbar, Button, ButtonGroup} from 'react-bootstrap';
 import {createContainer} from 'meteor/react-meteor-data';
 import i18n from 'meteor/universe:i18n';
-import {setPageHelper} from "../../../lib/helpers"
 
 import ReportListing from '../components/ReportList/ReportListing.jsx';
 import {Reports, remote, AmountOfReports} from '../../api/reports.js';
 import {Loading_feedback} from '../components/Loading_feedback.jsx';
-import ShowMoreBtn from '../components/ReportList/ShowMoreBtn.jsx';
 import ShowMoreDropDown from '../components/ReportList/ShowMoreDropDown.jsx';
 import SortDropDown from '../components/ReportList/SortDropDown.jsx';
 
 const T = i18n.createComponent();
+
 let reportAmount = 0;
+
+const style = {
+    color: '#ffffff',
+    textAlign: "center",
+    backgroundImage: 'linear-gradient(to bottom,#337ab7 0,#2e6da4 100%)'
+};
 
 //Controller klassen som henter info fra databasen
 class List extends Component {
@@ -23,7 +27,8 @@ class List extends Component {
         this.state = {
             page: true,
             reportAmount: 0,
-            showNextPageBtn : true
+            showNextPageBtn: true,
+            showMoreBtnStyle: {display: 'block'}
         }
     }
 
@@ -32,7 +37,6 @@ class List extends Component {
             <ReportListing key={report._id} report={report} remote={remote}/>
         ));
         if (typeof reportlistings !== 'undefined' && reportlistings.length > 0) {
-            reportlistings.push(<ShowMoreBtn/>);
             return reportlistings;
         } else {
             return <p>Fant ingen rapporter</p>;
@@ -56,55 +60,104 @@ class List extends Component {
 
     componentWillMount() {
         Session.set('limit', 10);
-        console.log(Session.get('limit'));
         if (localStorage.getItem('page') === null) {
             localStorage.setItem('page', 0);
             Session.set('page', 0);
         }
     }
 
-    setPage(e) {
+    setShowMoreBtn(e) {
         e.preventDefault();
-        console.log(setPageHelper(this.props.amountOfReports[0].total));
-        if (setPageHelper(this.props.amountOfReports[0].total)) {
-            localStorage.setItem('page', parseInt(localStorage.getItem('page')) + 1);
-            console.log(localStorage.getItem('page'));
-            location.reload();
+        let sessionLimit = Session.get('limit');
+        let prevLimit = sessionLimit;
+        let currLimit = sessionLimit + 10;
+        Session.set('limit', sessionLimit + 10);
+
+        console.log(prevLimit);
+        console.log(currLimit);
+        console.log(this.props.amountOfReports[0].total);
+        console.log(prevLimit < this.props.amountOfReports[0].total && this.props.amountOfReports[0].total < currLimit);
+
+        if (prevLimit < this.props.amountOfReports[0].total && this.props.amountOfReports[0].total < currLimit) {
+            console.log("Hallo");
+            this.setState({
+                showMoreBtnStyle: {display: 'none'}
+            })
         }
-        console.log(this.state.showNextPageBtn);
+    }
+
+    componentWillReceiveProps(props) {
+
+        console.log('componentWillReceiveProps');
+
+        if(props.reports){
+            let amountsOfReports;
+
+            let category = FlowRouter.getParam('category');
+            if (category === 'Alle') {
+                amountsOfReports = props.amountOfReports[0].total;
+            } else if (category === 'Fiske art') {
+                amountsOfReports = props.amountOfReports[0].fish;
+            } else if (category === 'Koral') {
+                amountsOfReports = props.amountOfReports[0].coral;
+            } else {
+                amountsOfReports = props.amountOfReports[0].unknown;
+            }
+
+            let limit = Session.get('limit') < parseInt(localStorage.getItem('limit')) ?
+                parseInt(localStorage.getItem('limit')) : Session.get('limit');
+
+            console.log(amountsOfReports);
+            console.log(amountsOfReports < limit);
+            console.log(limit);
+            let updateState = limit === props.reports.length && amountsOfReports > limit;
+            if (updateState) {
+                console.log("Set to block");
+                this.setState({
+                    showMoreBtnStyle: {display: 'block'}
+                })
+            } else if (amountsOfReports < limit) {
+                console.log("Set to none");
+                this.setState({
+                    showMoreBtnStyle: {display: 'none'}
+                })
+            }
+        }
+
     }
 
     render() {
-        if(this.props.amountOfReports){
-            console.log(this.props.amountOfReports[0]);
-        }
-
-            return (
-                <Grid className="pageContainer">
-                    <Row>
-                        <PageHeader>
-                            <div>
-                                <p>
-                                    <T>common.list.list</T> {this.headerText()} <T>common.list.reports</T>
-                                </p>
-                                <ButtonToolbar>
-                                    <ShowMoreDropDown/>
-                                    <SortDropDown/>
-                                </ButtonToolbar>
-
-                                <Button onClick={this.setPage.bind(this)}>
-                                    Next page
+        return (
+            <Grid className="pageContainer">
+                <Row>
+                    <PageHeader>
+                        <div>
+                            <p>
+                                <T>common.list.list</T> {this.headerText()} <T>common.list.reports</T>
+                            </p>
+                            <ButtonToolbar>
+                                <ShowMoreDropDown/>
+                                <SortDropDown/>
+                            </ButtonToolbar>
+                        </div>
+                    </PageHeader>
+                </Row>
+                <Row>
+                    {this.props.reports ? this.renderReports() : <Loading_feedback/>}
+                    {this.props.reports ?
+                        <div style={this.state.showMoreBtnStyle}>
+                            <ButtonGroup vertical block>
+                                <Button style={style} onClick={this.setShowMoreBtn.bind(this)}>
+                                    <T>common.showMoreBtnDrpDwn.showMore</T>
                                 </Button>
-                            </div>
-                        </PageHeader>
-                    </Row>
-                    <Row>
-                        {this.props.reports ? this.renderReports():
-                            <Loading_feedback/>}
-                    </Row>
+                            </ButtonGroup>
+                            <br/><br/>
+                        </div>
+                        : null}
+                </Row>
 
-                </Grid>
-            );
+            </Grid>
+        );
 
     }
 }
@@ -125,7 +178,6 @@ export default ListContainer = createContainer(() => {
     let limit = sessionLimit < localLimit ? localLimit : sessionLimit;
     let page = parseInt(localStorage.getItem('page'));
     let options = {sort: sort, limit: limit, fields: fields};
-    console.log(page);
     let reportSub;
     if (category === "Alle") {
         selector = {isValidated: validated};
@@ -149,7 +201,7 @@ export default ListContainer = createContainer(() => {
     }
     let reports;
     if (reportSub.ready()) {
-        reports = Reports.find(selector, options);
+        reports = Reports.find(selector, options).fetch();
     }
     return {
         reports: reports,
